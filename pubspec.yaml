@@ -1,0 +1,64 @@
+name: kodjaz
+description: A new Flutter project.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.18.4 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  flutter_svg: ^1.1.6
+
+  #localization
+  easy_localization: ^3.0.1
+
+  #navigation
+  auto_route: ^5.0.4
+
+  # State mamagement.
+  flutter_bloc: ^8.1.1
+  bloc_concurrency: ^0.2.0
+
+  get_it: ^7.2.0
+  injectable: ^2.1.0
+
+  # Code generation for immutable classes that has a simple syntax/API without compromising on the features.
+  freezed_annotation: ^2.0.3
+
+  # Automatically generate code for converting to and from JSON by annotating Dart classes.
+  json_annotation: ^4.6.0
+
+  #responsibility
+  flutter_screenutil: ^5.6.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+  injectable_generator: ^2.1.2
+  build_runner: ^2.3.2
+  auto_route_generator: ^5.0.3
+  freezed: ^2.1.0+1
+  json_serializable: ^6.2.0
+
+# The following section is specific to Flutter packages.
+flutter:
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/translations/
+    - assets/images/svg/
