@@ -1,5 +1,7 @@
+/* External dependencies */
 import 'package:flutter/material.dart';
 
+/* Local dependencies */
 import '../../../core/helpers/screen_util.dart';
 
 class HomePage extends StatelessWidget {

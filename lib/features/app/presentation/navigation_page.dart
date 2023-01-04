@@ -1,6 +1,8 @@
+/* External dependencies */
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/* Local dependencies */
 import '../../../core/injection/injection.dart';
 import '../../home/presentation/home_page.dart';
 import 'bloc/app_bloc.dart';
