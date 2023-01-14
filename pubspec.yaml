@@ -42,12 +42,9 @@ dependencies:
   # Step Progress Indicator
   step_progress_indicator: ^1.0.2
 
-<<<<<<< HEAD
   # For Accordion widgets
   expandable: ^5.0.1
 
-=======
->>>>>>> fb3606eb739354100fc0e316e3fda33e43aa70ea
 dev_dependencies:
   flutter_test:
     sdk: flutter

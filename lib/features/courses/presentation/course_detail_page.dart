@@ -1,7 +1,10 @@
+/* External dependencies */
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+/* Local dependencies */
 import 'package:kodjaz/core/common/common_widgets.dart';
 import 'package:kodjaz/core/helpers/colors.dart';
 import 'package:kodjaz/core/helpers/screen_util.dart';
