@@ -14,69 +14,33 @@ class CodegenLoader extends AssetLoader{
     return Future.value(mapLocales[locale.toString()]);
   }
 
-  static const Map<String,dynamic> ky = {
-  "login_as": "Катары кирүү",
-  "owner": "Ээси",
-  "cashier": "Кассир",
-  "registration": "Катталуу",
-  "enter_phone_number": "Телефон номерин кириңиз",
-  "phone_number": "Телефон номериңиз",
-  "login": "Кирүү",
-  "please_enter_phone_number": "Сураныч, телефон номеринизди кириниз",
-  "signUp": "Катталуу",
-  "signUp_subtitle": "Дүкөндү башкаруу, сатуунун эсебин жүргүзүп, текчелерде товарлардын болушун текшерүү үчүн",
-  "name": "Аты",
-  "surname": "Фамилиясы",
-  "continue_button": "Улантуу",
-  "enter_confirmation_code": "Тастыктоо үчүн келген кодду териңиз",
-  "confirm": "Тастыктоо",
-  "code": "Код",
-  "SMS_not_received": "смс келген жокпу?",
-  "send_code_again": "Кодду кайра жиберүү",
-  "organization_data": "Организациянын маалыматтары",
-  "company_name_or": "Компаниянын аталышы",
-  "complete": "Аяктоо",
-  "signIn": "Кирүү",
-  "your_id": "Сиздин ID",
-  "password": "Пароль",
-  "wait_text": "Подождите некоторое время пока администратор не предоставит вам доступ к аккаунту",
-  "start_shift": "Нөөбөттү баштоо",
-  "name_2280037": "2280037",
-  "name_template": "Назира",
-  "surname_template": "Калбаева",
-  "name_adress": "Асаналиева, 68"
-};
-static const Map<String,dynamic> ru = {
-  "login_as": "Войти как",
-  "owner": "Владелец",
-  "cashier": "Кассир",
+  static const Map<String,dynamic> ru = {
   "registration": "Регистрация",
   "enter_phone_number": "Введите\nномер телефона",
   "phone_number": "Номер телефона",
   "login": "Войти",
-  "please_enter_phone_number": "пожалуйста, введите номер телефона",
-  "signUp": "Зарегистрироваться",
-  "signUp_subtitle": "Чтобы управлять магазином, следить за продажами и смотреть за наличием товаров на полках",
-  "name": "Имя",
-  "surname": "Фамилия",
-  "continue_button": "Продолжить",
-  "enter_confirmation_code": "Введите код подтверждения",
-  "confirm": "Подтвердить",
-  "code": "Код",
-  "SMS_not_received": "Не пришло смс?",
-  "send_code_again": "Отправить код еще раз",
-  "organization_data": "Данные\nорганизации",
-  "company_name_or": "Название компании или ИП",
-  "complete": "Завершить",
-  "signIn": "Вход",
-  "your_id": "Ваш ID",
-  "password": "Пароль",
-  "wait_text": "Подождите некоторое время пока администратор не предоставит вам доступ к аккаунту",
-  "start_shift": "Начать смену",
-  "name_2280037": "2280037",
-  "name_template": "Назира",
-  "surname_template": "Калбаева",
-  "name_adress": "Асаналиева, 68"
+  "youHaveNotChosenACourseYet": "Вы еще не выбрали курс",
+  "viewOurCatalog": "Просмотрите наш каталог",
+  "chooseACourse": "Выбрать курс",
+  "recommendationsForYou": "Рекомендации для вас",
+  "hardLevel": "Сложный",
+  "mediumLevel": "Средний",
+  "easyLevel": "Легкий",
+  "myCourses": "Мои курсы"
 };
-static const Map<String, Map<String,dynamic>> mapLocales = {"ky": ky, "ru": ru};
+static const Map<String,dynamic> ky = {
+  "registration": "Катталуу",
+  "enter_phone_number": "Телефон номериңизди киргизиңиз",
+  "phone_number": "Телефон номериңиз",
+  "login": "Кирүү",
+  "youHaveNotChosenACourseYet": "Сиз курс тандай элексиз",
+  "viewOurCatalog": "Биздин каталогду карап чыгыңыз",
+  "chooseACourse": "Курс тандоо",
+  "recommendationsForYou": "Сизге сунуш",
+  "hardLevel": "Кыйын",
+  "mediumLevel": "Орто",
+  "easyLevel": "Оңой",
+  "myCourses": "Менин курстарым"
+};
+static const Map<String, Map<String,dynamic>> mapLocales = {"ru": ru, "ky": ky};
 }

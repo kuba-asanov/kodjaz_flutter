@@ -1,12 +1,18 @@
 /* External dependencies */
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kodjaz/core/common/colors.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 /* Local dependencies */
 import '../helpers/screen_util.dart';
 import '../helpers/text_styles.dart';
+import 'package:kodjaz/core/common/colors.dart';
+import 'package:kodjaz/core/helpers/colors.dart';
+import 'package:kodjaz/features/models/cours.dart';
 
 class PrimaryButton extends StatelessWidget {
   final bool loading;
@@ -193,5 +199,139 @@ class Spinner extends StatelessWidget {
     }
 
     throw Exception('Unsupported platform.');
+  }
+}
+
+class CoursWidget extends StatelessWidget {
+  final Cours cours;
+
+  const CoursWidget({
+    required this.cours,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final String icon;
+    final String level;
+    switch (cours.level) {
+      case 1:
+        icon = "assets/images/svg/easy_level.svg";
+        break;
+      case 2:
+        icon = "assets/images/svg/medium_level.svg";
+        break;
+      case 3:
+        icon = "assets/images/svg/hard_level.svg";
+        break;
+      default:
+        icon = "assets/images/svg/easy_level.svg";
+    }
+    switch (cours.level) {
+      case 1:
+        level = LocaleKeys.easyLevel.tr();
+        break;
+      case 2:
+        level = LocaleKeys.mediumLevel.tr();
+        break;
+      case 3:
+        level = LocaleKeys.hardLevel.tr();
+        break;
+      default:
+        level = LocaleKeys.easyLevel.tr();
+    }
+    return Container(
+      height: 101.h,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8.r),
+        color: KodJazColors.white,
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(
+              0,
+              8.h,
+            ),
+            color: KodJazColors.shadowColor,
+            blurRadius: 30,
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
+            child: Row(
+              children: [
+                Image.network(
+                  cours.iconUrl,
+                  width: 40.w,
+                  height: 40.h,
+                ),
+                SizedBox(width: 12.w),
+                Text(
+                  cours.name,
+                  style: SanackTextStyle.fS16FW500,
+                ),
+                const Spacer(),
+                cours.progress != 0
+                    ? CircularStepProgressIndicator(
+                        totalSteps: 100,
+                        currentStep: cours.progress,
+                        stepSize: 7.r,
+                        selectedColor: KodJazColors.blue,
+                        unselectedColor: KodJazColors.grey1,
+                        padding: 0.r,
+                        width: 50.w,
+                        height: 50.h,
+                        selectedStepSize: 7.r,
+                        roundedCap: (_, __) => true,
+                        child: Center(
+                            child: Text(
+                          '${cours.progress}%',
+                          style: SanackTextStyle.fS12FW600,
+                        )),
+                      )
+                    : Icon(
+                        Icons.chevron_right,
+                        color: KodJazColors.grey3,
+                      ),
+              ],
+            ),
+          ),
+          if (cours.progress == 0)
+            Divider(
+              height: 0.5.h,
+              color: KodJazColors.grey2,
+              thickness: 0.5.h,
+            ),
+          if (cours.progress == 0)
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SvgPicture.asset('assets/images/svg/play_icon.svg'),
+                  SizedBox(width: 14.w),
+                  Text(
+                    '${cours.lessonsCount} Сабак',
+                    style: SanackTextStyle.fS14FW400
+                        .copyWith(color: KodJazColors.grey5),
+                  ),
+                  SizedBox(width: 70.w),
+                  SvgPicture.asset(icon),
+                  SizedBox(width: 10.w),
+                  Text(
+                    level,
+                    style: SanackTextStyle.fS14FW400
+                        .copyWith(color: KodJazColors.grey5),
+                  ),
+                ],
+              ),
+            )
+        ],
+      ),
+    );
   }
 }
