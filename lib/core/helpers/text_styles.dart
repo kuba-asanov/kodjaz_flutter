@@ -17,6 +17,11 @@ class SanackTextStyle {
     fontWeight: FontWeight.w600,
   );
 
+  static TextStyle fS20FW600 = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w600,
+  );
+
   static TextStyle fS20FW500 = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeight.w500,

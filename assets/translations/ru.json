@@ -2,5 +2,13 @@
     "registration":"Регистрация",
     "enter_phone_number":"Введите\nномер телефона",
     "phone_number":"Номер телефона",
-    "login":"Войти"
+    "login":"Войти",
+    "youHaveNotChosenACourseYet":"Вы еще не выбрали курс",
+    "viewOurCatalog":"Просмотрите наш каталог",
+    "chooseACourse":"Выбрать курс",
+    "recommendationsForYou":"Рекомендации для вас",
+    "hardLevel":"Сложный",
+    "mediumLevel":"Средний",
+    "easyLevel":"Легкий",
+    "myCourses":"Мои курсы"
 }

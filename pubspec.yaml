@@ -39,6 +39,9 @@ dependencies:
   #responsibility
   flutter_screenutil: ^5.6.0
 
+  # Step Progress Indicator
+  step_progress_indicator: ^1.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

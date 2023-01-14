@@ -2,5 +2,13 @@
     "registration":"Катталуу",
     "enter_phone_number":"Телефон номериңизди киргизиңиз",
     "phone_number":"Телефон номериңиз",
-    "login":"Кирүү"
+    "login":"Кирүү",
+    "youHaveNotChosenACourseYet":"Сиз курс тандай элексиз",
+    "viewOurCatalog":"Биздин каталогду карап чыгыңыз",
+    "chooseACourse":"Курс тандоо",
+    "recommendationsForYou":"Сизге сунуш",
+    "hardLevel":"Кыйын",
+    "mediumLevel":"Орто",
+    "easyLevel":"Оңой",
+    "myCourses":"Менин курстарым"
 }
