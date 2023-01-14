@@ -10,5 +10,9 @@
     "hardLevel":"Кыйын",
     "mediumLevel":"Орто",
     "easyLevel":"Оңой",
-    "myCourses":"Менин курстарым"
+    "myCourses":"Менин курстарым",
+    "lesson":"Сабак",
+    "continueTheCourse":"Курсту улантуу",
+    "modules":"Модулдар",
+    "aboutTheCourse":"Курс жөнүндө маалымат"
 }

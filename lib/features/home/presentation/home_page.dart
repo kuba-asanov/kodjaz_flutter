@@ -66,8 +66,8 @@ class _HomePageState extends State<HomePage> {
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemCount: state.listOfCourse.length,
-                      itemBuilder: (context, index) => CoursWidget(
-                        cours: state.listOfCourse[index],
+                      itemBuilder: (context, index) => CourseWidget(
+                        course: state.listOfCourse[index],
                       ),
                     );
                   },
