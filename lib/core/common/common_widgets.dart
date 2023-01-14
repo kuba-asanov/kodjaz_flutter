@@ -5,17 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
-import 'package:kodjaz/core/injection/injection.dart';
-import 'package:kodjaz/core/navigation/auto_route.gr.dart';
-import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 /* Local dependencies */
 import '../helpers/screen_util.dart';
 import '../helpers/text_styles.dart';
 import 'package:kodjaz/core/common/colors.dart';
+import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
+import 'package:kodjaz/core/injection/injection.dart';
+import 'package:kodjaz/core/navigation/auto_route.gr.dart';
 import 'package:kodjaz/core/helpers/colors.dart';
 import 'package:kodjaz/features/models/cours.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 class PrimaryButton extends StatelessWidget {
   final bool loading;

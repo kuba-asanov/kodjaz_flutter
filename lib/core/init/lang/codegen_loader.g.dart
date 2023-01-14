@@ -44,11 +44,7 @@ static const Map<String,dynamic> ky = {
   "hardLevel": "Кыйын",
   "mediumLevel": "Орто",
   "easyLevel": "Оңой",
-  "myCourses": "Менин курстарым",
-  "lesson": "Сабак",
-  "continueTheCourse": "Курсту улантуу",
-  "modules": "Модулдар",
-  "aboutTheCourse": "Курс жөнүндө маалымат"
+  "myCourses": "Менин курстарым"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": ru, "ky": ky};
 }
