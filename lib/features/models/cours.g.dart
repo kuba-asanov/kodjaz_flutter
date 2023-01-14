@@ -6,7 +6,7 @@ part of 'cours.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Cours _$$_CoursFromJson(Map<String, dynamic> json) => _$_Cours(
+_$_Course _$$_CourseFromJson(Map<String, dynamic> json) => _$_Course(
       id: json['id'] as String? ?? '',
       name: json['name'] as String? ?? '',
       iconUrl: json['iconUrl'] as String? ?? '',
@@ -15,7 +15,7 @@ _$_Cours _$$_CoursFromJson(Map<String, dynamic> json) => _$_Cours(
       progress: json['progress'] as int? ?? 0,
     );
 
-Map<String, dynamic> _$$_CoursToJson(_$_Cours instance) => <String, dynamic>{
+Map<String, dynamic> _$$_CourseToJson(_$_Course instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'iconUrl': instance.iconUrl,

@@ -1,10 +1,13 @@
 /* External dependencies */
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
+import 'package:kodjaz/core/injection/injection.dart';
+import 'package:kodjaz/core/navigation/auto_route.gr.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 /* Local dependencies */
@@ -202,11 +205,11 @@ class Spinner extends StatelessWidget {
   }
 }
 
-class CoursWidget extends StatelessWidget {
-  final Cours cours;
+class CourseWidget extends StatelessWidget {
+  final Course course;
 
-  const CoursWidget({
-    required this.cours,
+  const CourseWidget({
+    required this.course,
     Key? key,
   }) : super(key: key);
 
@@ -214,7 +217,7 @@ class CoursWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final String icon;
     final String level;
-    switch (cours.level) {
+    switch (course.level) {
       case 1:
         icon = "assets/images/svg/easy_level.svg";
         break;
@@ -227,7 +230,7 @@ class CoursWidget extends StatelessWidget {
       default:
         icon = "assets/images/svg/easy_level.svg";
     }
-    switch (cours.level) {
+    switch (course.level) {
       case 1:
         level = LocaleKeys.easyLevel.tr();
         break;
@@ -240,97 +243,166 @@ class CoursWidget extends StatelessWidget {
       default:
         level = LocaleKeys.easyLevel.tr();
     }
-    return Container(
-      height: 101.h,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8.r),
-        color: KodJazColors.white,
-        boxShadow: [
-          BoxShadow(
-            offset: Offset(
-              0,
-              8.h,
+    return InkWell(
+      borderRadius: BorderRadius.circular(8.r),
+      onTap: () {
+        getIt<AppRouter>().push(CourseDetailRoute(course: course));
+      },
+      child: Container(
+        height: 101.h,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8.r),
+          color: KodJazColors.white,
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(
+                0,
+                8.h,
+              ),
+              color: KodJazColors.shadowColor,
+              blurRadius: 30,
             ),
-            color: KodJazColors.shadowColor,
-            blurRadius: 30,
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
-            child: Row(
-              children: [
-                Image.network(
-                  cours.iconUrl,
-                  width: 40.w,
-                  height: 40.h,
-                ),
-                SizedBox(width: 12.w),
-                Text(
-                  cours.name,
-                  style: SanackTextStyle.fS16FW500,
-                ),
-                const Spacer(),
-                cours.progress != 0
-                    ? CircularStepProgressIndicator(
-                        totalSteps: 100,
-                        currentStep: cours.progress,
-                        stepSize: 7.r,
-                        selectedColor: KodJazColors.blue,
-                        unselectedColor: KodJazColors.grey1,
-                        padding: 0.r,
-                        width: 50.w,
-                        height: 50.h,
-                        selectedStepSize: 7.r,
-                        roundedCap: (_, __) => true,
-                        child: Center(
-                            child: Text(
-                          '${cours.progress}%',
-                          style: SanackTextStyle.fS12FW600,
-                        )),
-                      )
-                    : Icon(
-                        Icons.chevron_right,
-                        color: KodJazColors.grey3,
-                      ),
-              ],
-            ),
-          ),
-          if (cours.progress == 0)
-            Divider(
-              height: 0.5.h,
-              color: KodJazColors.grey2,
-              thickness: 0.5.h,
-            ),
-          if (cours.progress == 0)
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SvgPicture.asset('assets/images/svg/play_icon.svg'),
-                  SizedBox(width: 14.w),
-                  Text(
-                    '${cours.lessonsCount} Сабак',
-                    style: SanackTextStyle.fS14FW400
-                        .copyWith(color: KodJazColors.grey5),
+                  Image.network(
+                    course.iconUrl,
+                    width: 40.w,
+                    height: 40.h,
                   ),
-                  SizedBox(width: 70.w),
-                  SvgPicture.asset(icon),
-                  SizedBox(width: 10.w),
+                  SizedBox(width: 12.w),
                   Text(
-                    level,
-                    style: SanackTextStyle.fS14FW400
-                        .copyWith(color: KodJazColors.grey5),
+                    course.name,
+                    style: SanackTextStyle.fS16FW500,
                   ),
+                  const Spacer(),
+                  course.progress != 0
+                      ? CircularStepProgressIndicator(
+                          totalSteps: 100,
+                          currentStep: course.progress,
+                          stepSize: 7.r,
+                          selectedColor: KodJazColors.blue,
+                          unselectedColor: KodJazColors.grey1,
+                          padding: 0.r,
+                          width: 50.w,
+                          height: 50.h,
+                          selectedStepSize: 7.r,
+                          roundedCap: (_, __) => true,
+                          child: Center(
+                              child: Text(
+                            '${course.progress}%',
+                            style: SanackTextStyle.fS12FW600,
+                          )),
+                        )
+                      : Icon(
+                          Icons.chevron_right,
+                          color: KodJazColors.grey3,
+                        ),
                 ],
               ),
-            )
-        ],
+            ),
+            if (course.progress == 0)
+              Divider(
+                height: 0.5.h,
+                color: KodJazColors.grey2,
+                thickness: 0.5.h,
+              ),
+            if (course.progress == 0)
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset('assets/images/svg/play_icon.svg'),
+                    SizedBox(width: 14.w),
+                    Text(
+                      '${course.lessonsCount} ${LocaleKeys.lesson.tr()}',
+                      style: SanackTextStyle.fS14FW400
+                          .copyWith(color: KodJazColors.grey5),
+                    ),
+                    SizedBox(width: 70.w),
+                    SvgPicture.asset(icon),
+                    SizedBox(width: 10.w),
+                    Text(
+                      level,
+                      style: SanackTextStyle.fS14FW400
+                          .copyWith(color: KodJazColors.grey5),
+                    ),
+                  ],
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Accordion extends StatefulWidget {
+  final String? title;
+  final String? content;
+
+  const Accordion({
+    this.title,
+    this.content,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  _AccordionState createState() => _AccordionState();
+}
+
+class _AccordionState extends State<Accordion> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(top: 17.0, left: 20.0, right: 20.0),
+      color: Colors.white,
+      child: ExpandableNotifier(
+        child: ScrollOnExpand(
+          scrollOnExpand: true,
+          scrollOnCollapse: false,
+          child: ExpandablePanel(
+            theme: const ExpandableThemeData(
+              headerAlignment: ExpandablePanelHeaderAlignment.center,
+            ),
+            header: Row(
+              children: [
+                Column(
+                  children: [
+                    Text(
+                      widget.title ?? '',
+                    ),
+                    Text('40 Lessons'),
+                  ],
+                ),
+                Spacer(),
+                Icon(Icons.abc)
+              ],
+            ),
+            expanded: SelectableText(
+              widget.content ?? '',
+            ),
+            builder: (_, collapsed, expanded) {
+              return Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10, bottom: 20),
+                child: Expandable(
+                  collapsed: collapsed,
+                  expanded: expanded,
+                  theme: const ExpandableThemeData(crossFadePoint: 0),
+                ),
+              );
+            },
+            collapsed: Container(),
+          ),
+        ),
       ),
     );
   }

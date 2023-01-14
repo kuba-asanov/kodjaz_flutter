@@ -8,7 +8,7 @@ class MyScreenUtil {
     ScreenUtil.init(
       context,
       minTextAdapt: true,
-      designSize: const Size(375, 812),
+      designSize: const Size(360, 640),
     );
   }
 }

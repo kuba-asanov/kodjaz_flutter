@@ -13,5 +13,9 @@ abstract class  LocaleKeys {
   static const mediumLevel = 'mediumLevel';
   static const easyLevel = 'easyLevel';
   static const myCourses = 'myCourses';
+  static const lesson = 'lesson';
+  static const continueTheCourse = 'continueTheCourse';
+  static const modules = 'modules';
+  static const aboutTheCourse = 'aboutTheCourse';
 
 }

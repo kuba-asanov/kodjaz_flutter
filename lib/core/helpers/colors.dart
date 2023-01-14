@@ -8,5 +8,7 @@ class KodJazColors {
   static Color grey3 = const Color(0xffC3C3C3);
   static Color grey2 = const Color(0xffDBDBDB);
   static Color grey5 = const Color(0xff757575);
+  static Color grey6 = const Color(0xff3A3B42);
   static Color blue = const Color(0xff0366D6);
+  static Color black = const Color(0xff05060E);
 }

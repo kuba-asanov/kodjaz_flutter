@@ -10,5 +10,9 @@
     "hardLevel":"Сложный",
     "mediumLevel":"Средний",
     "easyLevel":"Легкий",
-    "myCourses":"Мои курсы"
+    "myCourses":"Мои курсы",
+    "lesson":"Урок",
+    "continueTheCourse":"Продолжить курс",
+    "modules":"Модули",
+    "aboutTheCourse":"О курсе"
 }

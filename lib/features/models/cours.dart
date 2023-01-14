@@ -5,15 +5,15 @@ part 'cours.freezed.dart';
 part 'cours.g.dart';
 
 @freezed
-class Cours with _$Cours {
-  const factory Cours({
+class Course with _$Course {
+  const factory Course({
     @Default('') String id,
     @Default('') String name,
     @Default('') String iconUrl,
     @Default(0) int lessonsCount,
     @Default(0) int level,
     @Default(0) int progress,
-  }) = _Cours;
+  }) = _Course;
 
-  factory Cours.fromJson(Map<String, Object?> json) => _$CoursFromJson(json);
+  factory Course.fromJson(Map<String, Object?> json) => _$CourseFromJson(json);
 }

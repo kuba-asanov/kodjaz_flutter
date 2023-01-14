@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kodjaz/core/common/common_widgets.dart';
 import 'package:kodjaz/core/helpers/colors.dart';
+import 'package:kodjaz/core/helpers/screen_util.dart';
 import 'package:kodjaz/core/helpers/text_styles.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
 import 'package:kodjaz/core/injection/injection.dart';
@@ -14,6 +15,8 @@ class CoursesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+    
     final HomeBloc homeBloc = getIt<HomeBloc>();
 
     return Scaffold(
@@ -46,8 +49,8 @@ class CoursesPage extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: state.myListOfCourse.length,
-                        itemBuilder: (context, index) => CoursWidget(
-                          cours: state.myListOfCourse[index],
+                        itemBuilder: (context, index) => CourseWidget(
+                          course: state.myListOfCourse[index],
                         ),
                       );
                     },
@@ -74,8 +77,8 @@ class CoursesPage extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: state.listOfCourse.length,
-                        itemBuilder: (context, index) => CoursWidget(
-                          cours: state.listOfCourse[index],
+                        itemBuilder: (context, index) => CourseWidget(
+                          course: state.listOfCourse[index],
                         ),
                       );
                     },

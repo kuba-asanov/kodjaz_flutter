@@ -18,15 +18,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         emit(state.copyWith(loading: true));
 
         await Future.delayed(const Duration(seconds: 1));
-        const List<Cours> myListOfCourse = [
-          Cours(
+        const List<Course> myListOfCourse = [
+          Course(
               name: 'JavaScript',
               iconUrl:
                   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
               level: 1,
               lessonsCount: 12,
               progress: 24),
-          Cours(
+          Course(
               name: 'JavaScript',
               iconUrl:
                   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
@@ -35,36 +35,36 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
               progress: 56),
         ];
 
-        const List<Cours> listOfCourse = [
-          Cours(
+        const List<Course> listOfCourse = [
+          Course(
             name: 'Typescript',
             iconUrl:
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
             level: 3,
             lessonsCount: 40,
           ),
-          Cours(
+          Course(
             name: 'Java',
             iconUrl:
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
             level: 1,
             lessonsCount: 34,
           ),
-          Cours(
+          Course(
             name: 'JavaScript',
             iconUrl:
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
             level: 2,
             lessonsCount: 12,
           ),
-          Cours(
+          Course(
             name: 'JavaScript',
             iconUrl:
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
             level: 1,
             lessonsCount: 12,
           ),
-          Cours(
+          Course(
             name: 'JavaScript',
             iconUrl:
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',

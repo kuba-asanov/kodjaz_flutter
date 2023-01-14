@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Cours _$CoursFromJson(Map<String, dynamic> json) {
-  return _Cours.fromJson(json);
+Course _$CourseFromJson(Map<String, dynamic> json) {
+  return _Course.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Cours {
+mixin _$Course {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get iconUrl => throw _privateConstructorUsedError;
@@ -29,13 +29,13 @@ mixin _$Cours {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CoursCopyWith<Cours> get copyWith => throw _privateConstructorUsedError;
+  $CourseCopyWith<Course> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CoursCopyWith<$Res> {
-  factory $CoursCopyWith(Cours value, $Res Function(Cours) then) =
-      _$CoursCopyWithImpl<$Res, Cours>;
+abstract class $CourseCopyWith<$Res> {
+  factory $CourseCopyWith(Course value, $Res Function(Course) then) =
+      _$CourseCopyWithImpl<$Res, Course>;
   @useResult
   $Res call(
       {String id,
@@ -47,9 +47,9 @@ abstract class $CoursCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CoursCopyWithImpl<$Res, $Val extends Cours>
-    implements $CoursCopyWith<$Res> {
-  _$CoursCopyWithImpl(this._value, this._then);
+class _$CourseCopyWithImpl<$Res, $Val extends Course>
+    implements $CourseCopyWith<$Res> {
+  _$CourseCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -96,9 +96,9 @@ class _$CoursCopyWithImpl<$Res, $Val extends Cours>
 }
 
 /// @nodoc
-abstract class _$$_CoursCopyWith<$Res> implements $CoursCopyWith<$Res> {
-  factory _$$_CoursCopyWith(_$_Cours value, $Res Function(_$_Cours) then) =
-      __$$_CoursCopyWithImpl<$Res>;
+abstract class _$$_CourseCopyWith<$Res> implements $CourseCopyWith<$Res> {
+  factory _$$_CourseCopyWith(_$_Course value, $Res Function(_$_Course) then) =
+      __$$_CourseCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -111,9 +111,10 @@ abstract class _$$_CoursCopyWith<$Res> implements $CoursCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_CoursCopyWithImpl<$Res> extends _$CoursCopyWithImpl<$Res, _$_Cours>
-    implements _$$_CoursCopyWith<$Res> {
-  __$$_CoursCopyWithImpl(_$_Cours _value, $Res Function(_$_Cours) _then)
+class __$$_CourseCopyWithImpl<$Res>
+    extends _$CourseCopyWithImpl<$Res, _$_Course>
+    implements _$$_CourseCopyWith<$Res> {
+  __$$_CourseCopyWithImpl(_$_Course _value, $Res Function(_$_Course) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -126,7 +127,7 @@ class __$$_CoursCopyWithImpl<$Res> extends _$CoursCopyWithImpl<$Res, _$_Cours>
     Object? level = null,
     Object? progress = null,
   }) {
-    return _then(_$_Cours(
+    return _then(_$_Course(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -157,8 +158,8 @@ class __$$_CoursCopyWithImpl<$Res> extends _$CoursCopyWithImpl<$Res, _$_Cours>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Cours implements _Cours {
-  const _$_Cours(
+class _$_Course implements _Course {
+  const _$_Course(
       {this.id = '',
       this.name = '',
       this.iconUrl = '',
@@ -166,8 +167,8 @@ class _$_Cours implements _Cours {
       this.level = 0,
       this.progress = 0});
 
-  factory _$_Cours.fromJson(Map<String, dynamic> json) =>
-      _$$_CoursFromJson(json);
+  factory _$_Course.fromJson(Map<String, dynamic> json) =>
+      _$$_CourseFromJson(json);
 
   @override
   @JsonKey()
@@ -190,14 +191,14 @@ class _$_Cours implements _Cours {
 
   @override
   String toString() {
-    return 'Cours(id: $id, name: $name, iconUrl: $iconUrl, lessonsCount: $lessonsCount, level: $level, progress: $progress)';
+    return 'Course(id: $id, name: $name, iconUrl: $iconUrl, lessonsCount: $lessonsCount, level: $level, progress: $progress)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Cours &&
+            other is _$_Course &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.iconUrl, iconUrl) || other.iconUrl == iconUrl) &&
@@ -216,27 +217,27 @@ class _$_Cours implements _Cours {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CoursCopyWith<_$_Cours> get copyWith =>
-      __$$_CoursCopyWithImpl<_$_Cours>(this, _$identity);
+  _$$_CourseCopyWith<_$_Course> get copyWith =>
+      __$$_CourseCopyWithImpl<_$_Course>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CoursToJson(
+    return _$$_CourseToJson(
       this,
     );
   }
 }
 
-abstract class _Cours implements Cours {
-  const factory _Cours(
+abstract class _Course implements Course {
+  const factory _Course(
       {final String id,
       final String name,
       final String iconUrl,
       final int lessonsCount,
       final int level,
-      final int progress}) = _$_Cours;
+      final int progress}) = _$_Course;
 
-  factory _Cours.fromJson(Map<String, dynamic> json) = _$_Cours.fromJson;
+  factory _Course.fromJson(Map<String, dynamic> json) = _$_Course.fromJson;
 
   @override
   String get id;
@@ -252,6 +253,6 @@ abstract class _Cours implements Cours {
   int get progress;
   @override
   @JsonKey(ignore: true)
-  _$$_CoursCopyWith<_$_Cours> get copyWith =>
+  _$$_CourseCopyWith<_$_Course> get copyWith =>
       throw _privateConstructorUsedError;
 }
