@@ -10,10 +10,26 @@ class Course with _$Course {
     @Default('') String id,
     @Default('') String name,
     @Default('') String iconUrl,
-    @Default(0) int lessonsCount,
+    @Default('') String aboutCourse,
+    @Default([]) List<Lessons> lessons,
+    @Default(LessonsStatus.didntStart) LessonsStatus status,
     @Default(0) int level,
     @Default(0) int progress,
   }) = _Course;
 
   factory Course.fromJson(Map<String, Object?> json) => _$CourseFromJson(json);
 }
+
+@freezed
+class Lessons with _$Lessons {
+  const factory Lessons({
+    @Default('') String id,
+    @Default('') String name,
+    @Default(LessonsStatus.didntStart) LessonsStatus status,
+  }) = _Lessons;
+
+  factory Lessons.fromJson(Map<String, Object?> json) =>
+      _$LessonsFromJson(json);
+}
+
+enum LessonsStatus { done, inProgres, didntStart }

@@ -21,17 +21,45 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         const List<Course> myListOfCourse = [
           Course(
               name: 'JavaScript',
+              aboutCourse:
+                  'Инженерлер-программисттер, аналитиктер, маалымат таануучулар жана машина үйрөнүү инженерлери колдонгон дүйнөдөгү эң тез өнүгүп жаткан жана эң популярдуу программалоо тилинин негиздерин үйрөнүңүз.Бул курс программалоонун фундаменталдык негиздерин жана Python программалоо тилин үйрөнүү үчүн эң жакшы. Курсту аяктаган соң, Python тилинде программалоону өздөштүрүп, өз долбоорлоруңузду курганга даяр болуп калсыз.Инженерлер-программисттер, аналитиктер, маалымат таануучулар жана машина үйрөнүү инженерлери колдонгон дүйнөдөгү эң тез өнүгүп жаткан жана эң популярдуу программалоо тилинин негиздерин үйрөнүңүз.Бул курс программалоонун фундаменталдык негиздерин жана Python программалоо тилин үйрөнүү үчүн эң жакшы. Курсту аяктаган соң, Python тилинде программалоону өздөштүрүп, өз долбоорлоруңузду курганга даяр болуп калсыз.',
               iconUrl:
                   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
               level: 1,
-              lessonsCount: 12,
+              lessons: [
+                Lessons(
+                  name: 'Lessons 1',
+                  status: LessonsStatus.done,
+                ),
+                Lessons(
+                  name: 'Lessons 2',
+                  status: LessonsStatus.inProgres,
+                ),
+                Lessons(
+                  name: 'Lessons 3',
+                  status: LessonsStatus.didntStart,
+                ),
+              ],
               progress: 24),
           Course(
               name: 'JavaScript',
               iconUrl:
                   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
               level: 2,
-              lessonsCount: 12,
+              lessons: [
+                Lessons(
+                  name: 'Lessons 1',
+                  status: LessonsStatus.done,
+                ),
+                Lessons(
+                  name: 'Lessons 2',
+                  status: LessonsStatus.inProgres,
+                ),
+                Lessons(
+                  name: 'Lessons 3',
+                  status: LessonsStatus.didntStart,
+                ),
+              ],
               progress: 56),
         ];
 
@@ -41,35 +69,83 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             iconUrl:
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
             level: 3,
-            lessonsCount: 40,
+            lessons: [
+              Lessons(
+                name: 'Lessons 1',
+                status: LessonsStatus.done,
+              ),
+              Lessons(
+                name: 'Lessons 2',
+                status: LessonsStatus.inProgres,
+              ),
+              Lessons(
+                name: 'Lessons 3',
+                status: LessonsStatus.didntStart,
+              ),
+            ],
           ),
           Course(
             name: 'Java',
             iconUrl:
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
             level: 1,
-            lessonsCount: 34,
+            lessons: [
+              Lessons(
+                name: 'Lessons 1',
+                status: LessonsStatus.done,
+              ),
+              Lessons(
+                name: 'Lessons 2',
+                status: LessonsStatus.inProgres,
+              ),
+              Lessons(
+                name: 'Lessons 3',
+                status: LessonsStatus.didntStart,
+              ),
+            ],
           ),
           Course(
             name: 'JavaScript',
             iconUrl:
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
             level: 2,
-            lessonsCount: 12,
+            lessons: [
+              Lessons(
+                name: 'Lessons 1',
+                status: LessonsStatus.done,
+              ),
+              Lessons(
+                name: 'Lessons 2',
+                status: LessonsStatus.inProgres,
+              ),
+            ],
           ),
           Course(
             name: 'JavaScript',
             iconUrl:
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
             level: 1,
-            lessonsCount: 12,
+            lessons: [
+              Lessons(
+                name: 'Lessons 1',
+                status: LessonsStatus.done,
+              ),
+              Lessons(
+                name: 'Lessons 2',
+                status: LessonsStatus.inProgres,
+              ),
+              Lessons(
+                name: 'Lessons 3',
+                status: LessonsStatus.didntStart,
+              ),
+            ],
           ),
           Course(
             name: 'JavaScript',
             iconUrl:
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
             level: 2,
-            lessonsCount: 12,
+            lessons: [],
           ),
         ];
 
