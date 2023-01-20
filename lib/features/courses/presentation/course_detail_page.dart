@@ -10,6 +10,7 @@ import 'package:kodjaz/core/helpers/colors.dart';
 import 'package:kodjaz/core/helpers/screen_util.dart';
 import 'package:kodjaz/core/helpers/text_styles.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
+import 'package:kodjaz/features/courses/presentation/widgets/modul_widget.dart';
 import 'package:kodjaz/features/models/cours.dart';
 
 class CourseDetailPage extends StatefulWidget {
@@ -96,11 +97,14 @@ class _CourseDetailPageState extends State<CourseDetailPage>
                 physics: const NeverScrollableScrollPhysics(),
                 controller: _tabController,
                 children: [
-                  Accordion(
-                    title: 'dfasfs',
-                    content: 'fdsafds',
+                  ModulWidget(course: widget.course),
+                  Padding(
+                    padding: EdgeInsets.all(12.r),
+                    child: Text(
+                      widget.course.aboutCourse,
+                      style: SanackTextStyle.fS16FW400,
+                    ),
                   ),
-                  Text('data2'),
                 ],
               ),
             ),
@@ -173,7 +177,7 @@ class _AppBar extends StatelessWidget {
               ),
               SizedBox(width: 14.w),
               Text(
-                '${course.lessonsCount} ${LocaleKeys.lesson.tr()}',
+                '${course.lessons.length} ${LocaleKeys.lesson.tr()}',
                 style: SanackTextStyle.fS14FW400
                     .copyWith(color: KodJazColors.white),
               ),

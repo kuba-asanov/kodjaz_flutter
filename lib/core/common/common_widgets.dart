@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 /* Local dependencies */
 import '../helpers/screen_util.dart';
@@ -15,7 +16,6 @@ import 'package:kodjaz/core/injection/injection.dart';
 import 'package:kodjaz/core/navigation/auto_route.gr.dart';
 import 'package:kodjaz/core/helpers/colors.dart';
 import 'package:kodjaz/features/models/cours.dart';
-import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 class PrimaryButton extends StatelessWidget {
   final bool loading;
@@ -323,7 +323,7 @@ class CourseWidget extends StatelessWidget {
                     SvgPicture.asset('assets/images/svg/play_icon.svg'),
                     SizedBox(width: 14.w),
                     Text(
-                      '${course.lessonsCount} ${LocaleKeys.lesson.tr()}',
+                      '${course.lessons.length} ${LocaleKeys.lesson.tr()}',
                       style: SanackTextStyle.fS14FW400
                           .copyWith(color: KodJazColors.grey5),
                     ),
@@ -339,69 +339,6 @@ class CourseWidget extends StatelessWidget {
                 ),
               ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class Accordion extends StatefulWidget {
-  final String? title;
-  final String? content;
-
-  const Accordion({
-    this.title,
-    this.content,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  _AccordionState createState() => _AccordionState();
-}
-
-class _AccordionState extends State<Accordion> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(top: 17.0, left: 20.0, right: 20.0),
-      color: Colors.white,
-      child: ExpandableNotifier(
-        child: ScrollOnExpand(
-          scrollOnExpand: true,
-          scrollOnCollapse: false,
-          child: ExpandablePanel(
-            theme: const ExpandableThemeData(
-              headerAlignment: ExpandablePanelHeaderAlignment.center,
-            ),
-            header: Row(
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      widget.title ?? '',
-                    ),
-                    Text('40 Lessons'),
-                  ],
-                ),
-                Spacer(),
-                Icon(Icons.abc)
-              ],
-            ),
-            expanded: SelectableText(
-              widget.content ?? '',
-            ),
-            builder: (_, collapsed, expanded) {
-              return Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10, bottom: 20),
-                child: Expandable(
-                  collapsed: collapsed,
-                  expanded: expanded,
-                  theme: const ExpandableThemeData(crossFadePoint: 0),
-                ),
-              );
-            },
-            collapsed: Container(),
-          ),
         ),
       ),
     );

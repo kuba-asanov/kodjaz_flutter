@@ -23,7 +23,9 @@ mixin _$Course {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get iconUrl => throw _privateConstructorUsedError;
-  int get lessonsCount => throw _privateConstructorUsedError;
+  String get aboutCourse => throw _privateConstructorUsedError;
+  List<Lessons> get lessons => throw _privateConstructorUsedError;
+  LessonsStatus get status => throw _privateConstructorUsedError;
   int get level => throw _privateConstructorUsedError;
   int get progress => throw _privateConstructorUsedError;
 
@@ -41,7 +43,9 @@ abstract class $CourseCopyWith<$Res> {
       {String id,
       String name,
       String iconUrl,
-      int lessonsCount,
+      String aboutCourse,
+      List<Lessons> lessons,
+      LessonsStatus status,
       int level,
       int progress});
 }
@@ -62,7 +66,9 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
     Object? id = null,
     Object? name = null,
     Object? iconUrl = null,
-    Object? lessonsCount = null,
+    Object? aboutCourse = null,
+    Object? lessons = null,
+    Object? status = null,
     Object? level = null,
     Object? progress = null,
   }) {
@@ -79,10 +85,18 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
           ? _value.iconUrl
           : iconUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      lessonsCount: null == lessonsCount
-          ? _value.lessonsCount
-          : lessonsCount // ignore: cast_nullable_to_non_nullable
-              as int,
+      aboutCourse: null == aboutCourse
+          ? _value.aboutCourse
+          : aboutCourse // ignore: cast_nullable_to_non_nullable
+              as String,
+      lessons: null == lessons
+          ? _value.lessons
+          : lessons // ignore: cast_nullable_to_non_nullable
+              as List<Lessons>,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as LessonsStatus,
       level: null == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
@@ -105,7 +119,9 @@ abstract class _$$_CourseCopyWith<$Res> implements $CourseCopyWith<$Res> {
       {String id,
       String name,
       String iconUrl,
-      int lessonsCount,
+      String aboutCourse,
+      List<Lessons> lessons,
+      LessonsStatus status,
       int level,
       int progress});
 }
@@ -123,7 +139,9 @@ class __$$_CourseCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? iconUrl = null,
-    Object? lessonsCount = null,
+    Object? aboutCourse = null,
+    Object? lessons = null,
+    Object? status = null,
     Object? level = null,
     Object? progress = null,
   }) {
@@ -140,10 +158,18 @@ class __$$_CourseCopyWithImpl<$Res>
           ? _value.iconUrl
           : iconUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      lessonsCount: null == lessonsCount
-          ? _value.lessonsCount
-          : lessonsCount // ignore: cast_nullable_to_non_nullable
-              as int,
+      aboutCourse: null == aboutCourse
+          ? _value.aboutCourse
+          : aboutCourse // ignore: cast_nullable_to_non_nullable
+              as String,
+      lessons: null == lessons
+          ? _value._lessons
+          : lessons // ignore: cast_nullable_to_non_nullable
+              as List<Lessons>,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as LessonsStatus,
       level: null == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
@@ -163,9 +189,12 @@ class _$_Course implements _Course {
       {this.id = '',
       this.name = '',
       this.iconUrl = '',
-      this.lessonsCount = 0,
+      this.aboutCourse = '',
+      final List<Lessons> lessons = const [],
+      this.status = LessonsStatus.didntStart,
       this.level = 0,
-      this.progress = 0});
+      this.progress = 0})
+      : _lessons = lessons;
 
   factory _$_Course.fromJson(Map<String, dynamic> json) =>
       _$$_CourseFromJson(json);
@@ -181,7 +210,19 @@ class _$_Course implements _Course {
   final String iconUrl;
   @override
   @JsonKey()
-  final int lessonsCount;
+  final String aboutCourse;
+  final List<Lessons> _lessons;
+  @override
+  @JsonKey()
+  List<Lessons> get lessons {
+    if (_lessons is EqualUnmodifiableListView) return _lessons;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_lessons);
+  }
+
+  @override
+  @JsonKey()
+  final LessonsStatus status;
   @override
   @JsonKey()
   final int level;
@@ -191,7 +232,7 @@ class _$_Course implements _Course {
 
   @override
   String toString() {
-    return 'Course(id: $id, name: $name, iconUrl: $iconUrl, lessonsCount: $lessonsCount, level: $level, progress: $progress)';
+    return 'Course(id: $id, name: $name, iconUrl: $iconUrl, aboutCourse: $aboutCourse, lessons: $lessons, status: $status, level: $level, progress: $progress)';
   }
 
   @override
@@ -202,8 +243,10 @@ class _$_Course implements _Course {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.iconUrl, iconUrl) || other.iconUrl == iconUrl) &&
-            (identical(other.lessonsCount, lessonsCount) ||
-                other.lessonsCount == lessonsCount) &&
+            (identical(other.aboutCourse, aboutCourse) ||
+                other.aboutCourse == aboutCourse) &&
+            const DeepCollectionEquality().equals(other._lessons, _lessons) &&
+            (identical(other.status, status) || other.status == status) &&
             (identical(other.level, level) || other.level == level) &&
             (identical(other.progress, progress) ||
                 other.progress == progress));
@@ -211,8 +254,8 @@ class _$_Course implements _Course {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, name, iconUrl, lessonsCount, level, progress);
+  int get hashCode => Object.hash(runtimeType, id, name, iconUrl, aboutCourse,
+      const DeepCollectionEquality().hash(_lessons), status, level, progress);
 
   @JsonKey(ignore: true)
   @override
@@ -233,7 +276,9 @@ abstract class _Course implements Course {
       {final String id,
       final String name,
       final String iconUrl,
-      final int lessonsCount,
+      final String aboutCourse,
+      final List<Lessons> lessons,
+      final LessonsStatus status,
       final int level,
       final int progress}) = _$_Course;
 
@@ -246,7 +291,11 @@ abstract class _Course implements Course {
   @override
   String get iconUrl;
   @override
-  int get lessonsCount;
+  String get aboutCourse;
+  @override
+  List<Lessons> get lessons;
+  @override
+  LessonsStatus get status;
   @override
   int get level;
   @override
@@ -254,5 +303,175 @@ abstract class _Course implements Course {
   @override
   @JsonKey(ignore: true)
   _$$_CourseCopyWith<_$_Course> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Lessons _$LessonsFromJson(Map<String, dynamic> json) {
+  return _Lessons.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Lessons {
+  String get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  LessonsStatus get status => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $LessonsCopyWith<Lessons> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $LessonsCopyWith<$Res> {
+  factory $LessonsCopyWith(Lessons value, $Res Function(Lessons) then) =
+      _$LessonsCopyWithImpl<$Res, Lessons>;
+  @useResult
+  $Res call({String id, String name, LessonsStatus status});
+}
+
+/// @nodoc
+class _$LessonsCopyWithImpl<$Res, $Val extends Lessons>
+    implements $LessonsCopyWith<$Res> {
+  _$LessonsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? status = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as LessonsStatus,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_LessonsCopyWith<$Res> implements $LessonsCopyWith<$Res> {
+  factory _$$_LessonsCopyWith(
+          _$_Lessons value, $Res Function(_$_Lessons) then) =
+      __$$_LessonsCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String id, String name, LessonsStatus status});
+}
+
+/// @nodoc
+class __$$_LessonsCopyWithImpl<$Res>
+    extends _$LessonsCopyWithImpl<$Res, _$_Lessons>
+    implements _$$_LessonsCopyWith<$Res> {
+  __$$_LessonsCopyWithImpl(_$_Lessons _value, $Res Function(_$_Lessons) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? status = null,
+  }) {
+    return _then(_$_Lessons(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as LessonsStatus,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Lessons implements _Lessons {
+  const _$_Lessons(
+      {this.id = '', this.name = '', this.status = LessonsStatus.didntStart});
+
+  factory _$_Lessons.fromJson(Map<String, dynamic> json) =>
+      _$$_LessonsFromJson(json);
+
+  @override
+  @JsonKey()
+  final String id;
+  @override
+  @JsonKey()
+  final String name;
+  @override
+  @JsonKey()
+  final LessonsStatus status;
+
+  @override
+  String toString() {
+    return 'Lessons(id: $id, name: $name, status: $status)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Lessons &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.status, status) || other.status == status));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, name, status);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LessonsCopyWith<_$_Lessons> get copyWith =>
+      __$$_LessonsCopyWithImpl<_$_Lessons>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_LessonsToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Lessons implements Lessons {
+  const factory _Lessons(
+      {final String id,
+      final String name,
+      final LessonsStatus status}) = _$_Lessons;
+
+  factory _Lessons.fromJson(Map<String, dynamic> json) = _$_Lessons.fromJson;
+
+  @override
+  String get id;
+  @override
+  String get name;
+  @override
+  LessonsStatus get status;
+  @override
+  @JsonKey(ignore: true)
+  _$$_LessonsCopyWith<_$_Lessons> get copyWith =>
       throw _privateConstructorUsedError;
 }
