@@ -177,14 +177,7 @@ class _AppBar extends StatelessWidget {
             width: 64.w,
             height: 64.h,
           ),
-          SizedBox(height: 48.h),
-          // Text(
-          //   course.name,
-          //   style: SanackTextStyle.fS16FW600.copyWith(
-          //     color: KodJazColors.white,
-          //   ),
-          // ),
-          SizedBox(height: 8.h),
+          SizedBox(height: 56.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
