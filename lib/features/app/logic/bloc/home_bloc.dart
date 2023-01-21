@@ -39,6 +39,42 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
                   name: 'Lessons 3',
                   status: LessonsStatus.didntStart,
                 ),
+                Lessons(
+                  name: 'Lessons 1',
+                  status: LessonsStatus.done,
+                ),
+                Lessons(
+                  name: 'Lessons 2',
+                  status: LessonsStatus.inProgres,
+                ),
+                Lessons(
+                  name: 'Lessons 3',
+                  status: LessonsStatus.didntStart,
+                ),
+                Lessons(
+                  name: 'Lessons 1',
+                  status: LessonsStatus.done,
+                ),
+                Lessons(
+                  name: 'Lessons 2',
+                  status: LessonsStatus.inProgres,
+                ),
+                Lessons(
+                  name: 'Lessons 3',
+                  status: LessonsStatus.didntStart,
+                ),
+                Lessons(
+                  name: 'Lessons 1',
+                  status: LessonsStatus.done,
+                ),
+                Lessons(
+                  name: 'Lessons 2',
+                  status: LessonsStatus.inProgres,
+                ),
+                Lessons(
+                  name: 'Lessons 3',
+                  status: LessonsStatus.didntStart,
+                ),
               ],
               progress: 24),
           Course(
