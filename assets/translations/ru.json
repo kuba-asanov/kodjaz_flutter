@@ -14,5 +14,8 @@
     "lesson":"Урок",
     "continueTheCourse":"Продолжить курс",
     "modules":"Модули",
-    "aboutTheCourse":"О курсе"
+    "aboutTheCourse":"О курсе",
+    "createAnAccount":"Создать аккаунт",
+    "password":"Пароль",
+    "forgotYourPassword":"Забыли свой пароль?"
 }
