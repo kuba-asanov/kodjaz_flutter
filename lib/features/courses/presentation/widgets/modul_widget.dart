@@ -8,7 +8,7 @@ import 'package:kodjaz/features/models/cours.dart';
 
 class ModulWidget extends StatelessWidget {
   final Course course;
-  
+
   const ModulWidget({
     required this.course,
     Key? key,
@@ -17,12 +17,13 @@ class ModulWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
+      physics: const NeverScrollableScrollPhysics(),
       separatorBuilder: (context, index) => Divider(
         thickness: 1,
         height: 1.h,
       ),
-      shrinkWrap: true,
-      itemCount: 3,
+      shrinkWrap: false,
+      itemCount: course.lessons.length,
       itemBuilder: (context, index) {
         return ModuleAccordionWidget(
           title: course.name,

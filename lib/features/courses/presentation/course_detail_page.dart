@@ -27,9 +27,24 @@ class CourseDetailPage extends StatefulWidget {
 class _CourseDetailPageState extends State<CourseDetailPage>
     with TickerProviderStateMixin {
   late final TabController _tabController;
+  final ScrollController _scrollController = ScrollController();
+
+  bool isAppBarhide = false;
+
   @override
   void initState() {
     _tabController = TabController(length: 2, vsync: this);
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels > 160) {
+        setState(() {
+          isAppBarhide = true;
+        });
+      } else {
+        setState(() {
+          isAppBarhide = false;
+        });
+      }
+    });
     super.initState();
   }
 
@@ -68,47 +83,66 @@ class _CourseDetailPageState extends State<CourseDetailPage>
 
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            _AppBar(
-              course: widget.course,
-              icon: icon,
-              level: level,
-            ),
-            TabBar(
-              indicatorColor: KodJazColors.blue,
-              labelColor: KodJazColors.black,
-              labelStyle: SanackTextStyle.fS14FW500,
-              unselectedLabelStyle: SanackTextStyle.fS14FW400,
-              controller: _tabController,
-              tabs: [
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10.h),
-                  child: Text(LocaleKeys.modules.tr()),
+        child: NestedScrollView(
+          controller: _scrollController,
+          headerSliverBuilder:
+              (BuildContext context, bool innerBoxIsScrolled) => [
+            SliverAppBar(
+              flexibleSpace: FlexibleSpaceBar(
+                collapseMode: CollapseMode.pin,
+                expandedTitleScale: 1,
+                title: Text(widget.course.name),
+                background: _AppBar(
+                  course: widget.course,
+                  icon: icon,
+                  level: level,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10.h),
-                  child: Text(LocaleKeys.aboutTheCourse.tr()),
+                titlePadding: EdgeInsetsDirectional.only(
+                  bottom: isAppBarhide ? 16 : 112.h,
                 ),
-              ],
+                centerTitle: true,
+              ),
+              pinned: true,
+              expandedHeight: 224.h,
+              backgroundColor: KodJazColors.blue2,
             ),
-            Expanded(
-              child: TabBarView(
-                physics: const NeverScrollableScrollPhysics(),
+          ],
+          body: Column(
+            children: [
+              TabBar(
+                indicatorColor: KodJazColors.blue,
+                labelColor: KodJazColors.black,
+                labelStyle: SanackTextStyle.fS14FW500,
+                unselectedLabelStyle: SanackTextStyle.fS14FW400,
                 controller: _tabController,
-                children: [
-                  ModulWidget(course: widget.course),
+                tabs: [
                   Padding(
-                    padding: EdgeInsets.all(12.r),
-                    child: Text(
-                      widget.course.aboutCourse,
-                      style: SanackTextStyle.fS16FW400,
-                    ),
+                    padding: EdgeInsets.symmetric(vertical: 10.h),
+                    child: Text(LocaleKeys.modules.tr()),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10.h),
+                    child: Text(LocaleKeys.aboutTheCourse.tr()),
                   ),
                 ],
               ),
-            ),
-          ],
+              Expanded(
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    ModulWidget(course: widget.course),
+                    Padding(
+                      padding: EdgeInsets.all(12.r),
+                      child: Text(
+                        widget.course.aboutCourse,
+                        style: SanackTextStyle.fS16FW400,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -132,41 +166,18 @@ class _AppBar extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       width: 360.w,
-      height: 280.h,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Color(0xFF1D3BA8),
-            Color(0xFF3050C1),
-          ],
-        ),
+      height: 224.h,
+      decoration: BoxDecoration(
+        color: KodJazColors.blue2,
       ),
       child: Column(
         children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: SizedBox(
-              height: kToolbarHeight.h,
-              child: Icon(
-                Icons.chevron_left,
-                size: 27.h,
-                color: KodJazColors.white,
-              ),
-            ),
-          ),
           Image.network(
             course.iconUrl,
             width: 64.w,
             height: 64.h,
           ),
-          SizedBox(height: 24.h),
-          Text(
-            course.name,
-            style: SanackTextStyle.fS16FW600.copyWith(
-              color: KodJazColors.white,
-            ),
-          ),
-          SizedBox(height: 8.h),
+          SizedBox(height: 56.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
