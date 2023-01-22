@@ -30,7 +30,10 @@ class CodegenLoader extends AssetLoader{
   "lesson": "Урок",
   "continueTheCourse": "Продолжить курс",
   "modules": "Модули",
-  "aboutTheCourse": "О курсе"
+  "aboutTheCourse": "О курсе",
+  "createAnAccount": "Создать аккаунт",
+  "password": "Пароль",
+  "forgotYourPassword": "Забыли свой пароль?"
 };
 static const Map<String,dynamic> ky = {
   "registration": "Катталуу",
@@ -44,7 +47,14 @@ static const Map<String,dynamic> ky = {
   "hardLevel": "Кыйын",
   "mediumLevel": "Орто",
   "easyLevel": "Оңой",
-  "myCourses": "Менин курстарым"
+  "myCourses": "Менин курстарым",
+  "lesson": "Сабак",
+  "continueTheCourse": "Курсту улантуу",
+  "modules": "Модулдар",
+  "aboutTheCourse": "Курс жөнүндө маалымат",
+  "createAnAccount": "Аккаунт түзүү",
+  "password": "Сырсөз",
+  "forgotYourPassword": "Сырсөзүңүздү унуттуңузбу?"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": ru, "ky": ky};
 }

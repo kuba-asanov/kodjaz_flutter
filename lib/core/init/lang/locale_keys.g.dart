@@ -17,5 +17,8 @@ abstract class  LocaleKeys {
   static const continueTheCourse = 'continueTheCourse';
   static const modules = 'modules';
   static const aboutTheCourse = 'aboutTheCourse';
+  static const createAnAccount = 'createAnAccount';
+  static const password = 'password';
+  static const forgotYourPassword = 'forgotYourPassword';
 
 }

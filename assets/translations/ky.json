@@ -14,5 +14,9 @@
     "lesson":"Сабак",
     "continueTheCourse":"Курсту улантуу",
     "modules":"Модулдар",
-    "aboutTheCourse":"Курс жөнүндө маалымат"
+    "aboutTheCourse":"Курс жөнүндө маалымат",
+    "createAnAccount":"Аккаунт түзүү",
+    "password":"Сырсөз",
+    "forgotYourPassword":"Сырсөзүңүздү унуттуңузбу?",
+    "confirmPassword":"Сырсөз кайталоо"
 }

@@ -1,14 +1,17 @@
+/* External dependencies */
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/* Local dependencies */
 import 'core/constants/app/app_constants.dart';
 import 'core/init/lang/codegen_loader.g.dart';
 import 'core/init/lang/language_manager.dart';
 import 'core/injection/injection.dart';
 import 'core/navigation/auto_route.gr.dart';
 import 'core/navigation/navigation.dart';
+import 'package:kodjaz/core/helpers/colors.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,6 +51,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
           elevation: 0,
+          foregroundColor: KodJazColors.black,
           backgroundColor: Colors.transparent,
           systemOverlayStyle: SystemUiOverlayStyle.dark,
         ),
