@@ -4,8 +4,8 @@ part of 'home_bloc.dart';
 class HomeState with _$HomeState {
   factory HomeState({
     @Default(false) bool loading,
-    @Default([]) List<Course> listOfCourse,
-    @Default([]) List<Course> myListOfCourse,
+    @Default([]) List<Track> listOfCourse,
+    @Default([]) List<Track> myListOfCourse,
 
     // CustomError? error,
   }) = _HomeState;

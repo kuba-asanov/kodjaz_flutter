@@ -19,7 +19,7 @@ import 'package:kodjaz/features/auth/presentation/signup/sign_up_page.dart'
     as _i5;
 import 'package:kodjaz/features/courses/presentation/course_detail_page.dart'
     as _i3;
-import 'package:kodjaz/features/models/cours.dart' as _i8;
+import 'package:kodjaz/features/models/track.dart' as _i8;
 import 'package:kodjaz/features/splash_screen/splash_screen_page.dart' as _i1;
 
 class AppRouter extends _i6.RootStackRouter {
@@ -131,7 +131,7 @@ class NavigationRouteArgs {
 /// [_i3.CourseDetailPage]
 class CourseDetailRoute extends _i6.PageRouteInfo<CourseDetailRouteArgs> {
   CourseDetailRoute({
-    required _i8.Course course,
+    required _i8.Track course,
     _i7.Key? key,
   }) : super(
           CourseDetailRoute.name,
@@ -151,7 +151,7 @@ class CourseDetailRouteArgs {
     this.key,
   });
 
-  final _i8.Course course;
+  final _i8.Track course;
 
   final _i7.Key? key;
 

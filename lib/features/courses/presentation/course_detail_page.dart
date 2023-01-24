@@ -11,10 +11,10 @@ import 'package:kodjaz/core/helpers/screen_util.dart';
 import 'package:kodjaz/core/helpers/text_styles.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
 import 'package:kodjaz/features/courses/presentation/widgets/modul_widget.dart';
-import 'package:kodjaz/features/models/cours.dart';
+import 'package:kodjaz/features/models/track.dart';
 
 class CourseDetailPage extends StatefulWidget {
-  final Course course;
+  final Track course;
   const CourseDetailPage({
     required this.course,
     super.key,
@@ -130,11 +130,11 @@ class _CourseDetailPageState extends State<CourseDetailPage>
                 child: TabBarView(
                   controller: _tabController,
                   children: [
-                    ModulWidget(course: widget.course),
+                    UnitWidget(units: widget.course.track_units),
                     Padding(
                       padding: EdgeInsets.all(12.r),
                       child: Text(
-                        widget.course.aboutCourse,
+                        widget.course.description,
                         style: SanackTextStyle.fS16FW400,
                       ),
                     ),
@@ -157,7 +157,7 @@ class _AppBar extends StatelessWidget {
     required this.level,
   }) : super(key: key);
 
-  final Course course;
+  final Track course;
   final String icon;
   final String level;
 
@@ -173,7 +173,8 @@ class _AppBar extends StatelessWidget {
       child: Column(
         children: [
           Image.network(
-            course.iconUrl,
+            course.iconUrl ??
+                "https://i.pinimg.com/originals/95/91/ed/9591ed82caa8d20c30db96cb7298d3a9.png",
             width: 64.w,
             height: 64.h,
           ),
@@ -188,7 +189,7 @@ class _AppBar extends StatelessWidget {
               ),
               SizedBox(width: 14.w),
               Text(
-                '${course.lessons.length} ${LocaleKeys.lesson.tr()}',
+                '${course.track_units.length} ${LocaleKeys.lesson.tr()}',
                 style: SanackTextStyle.fS14FW400
                     .copyWith(color: KodJazColors.white),
               ),

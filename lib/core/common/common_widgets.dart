@@ -15,7 +15,7 @@ import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
 import 'package:kodjaz/core/injection/injection.dart';
 import 'package:kodjaz/core/navigation/auto_route.gr.dart';
 import 'package:kodjaz/core/helpers/colors.dart';
-import 'package:kodjaz/features/models/cours.dart';
+import 'package:kodjaz/features/models/track.dart';
 
 class PrimaryButton extends StatelessWidget {
   final bool loading;
@@ -206,7 +206,7 @@ class Spinner extends StatelessWidget {
 }
 
 class CourseWidget extends StatelessWidget {
-  final Course course;
+  final Track course;
 
   const CourseWidget({
     required this.course,
@@ -243,6 +243,7 @@ class CourseWidget extends StatelessWidget {
       default:
         level = LocaleKeys.easyLevel.tr();
     }
+
     return InkWell(
       borderRadius: BorderRadius.circular(8.r),
       onTap: () {
@@ -273,7 +274,8 @@ class CourseWidget extends StatelessWidget {
               child: Row(
                 children: [
                   Image.network(
-                    course.iconUrl,
+                    course.iconUrl ??
+                        "https://i.pinimg.com/originals/95/91/ed/9591ed82caa8d20c30db96cb7298d3a9.png",
                     width: 40.w,
                     height: 40.h,
                   ),
@@ -323,7 +325,7 @@ class CourseWidget extends StatelessWidget {
                     SvgPicture.asset('assets/images/svg/play_icon.svg'),
                     SizedBox(width: 14.w),
                     Text(
-                      '${course.lessons.length} ${LocaleKeys.lesson.tr()}',
+                      '${course.track_units.length} ${LocaleKeys.lesson.tr()}',
                       style: SanackTextStyle.fS14FW400
                           .copyWith(color: KodJazColors.grey5),
                     ),

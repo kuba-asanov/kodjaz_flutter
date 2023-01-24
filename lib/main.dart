@@ -24,6 +24,7 @@ Future<void> main() async {
       supportedLocales: LanguageManager.instance.supportedLocales,
       path: ApplicationConstants.languageAssetPath,
       saveLocale: true,
+      startLocale: LanguageManager.instance.kyLocale,
       assetLoader: const CodegenLoader(),
       fallbackLocale: LanguageManager.instance.supportedLocales.first,
       child: MyApp(),

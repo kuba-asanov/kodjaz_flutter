@@ -17,8 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$HomeState {
   bool get loading => throw _privateConstructorUsedError;
-  List<Course> get listOfCourse => throw _privateConstructorUsedError;
-  List<Course> get myListOfCourse => throw _privateConstructorUsedError;
+  List<Track> get listOfCourse => throw _privateConstructorUsedError;
+  List<Track> get myListOfCourse => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -31,7 +31,7 @@ abstract class $HomeStateCopyWith<$Res> {
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
   $Res call(
-      {bool loading, List<Course> listOfCourse, List<Course> myListOfCourse});
+      {bool loading, List<Track> listOfCourse, List<Track> myListOfCourse});
 }
 
 /// @nodoc
@@ -59,11 +59,11 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
       listOfCourse: null == listOfCourse
           ? _value.listOfCourse
           : listOfCourse // ignore: cast_nullable_to_non_nullable
-              as List<Course>,
+              as List<Track>,
       myListOfCourse: null == myListOfCourse
           ? _value.myListOfCourse
           : myListOfCourse // ignore: cast_nullable_to_non_nullable
-              as List<Course>,
+              as List<Track>,
     ) as $Val);
   }
 }
@@ -76,7 +76,7 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {bool loading, List<Course> listOfCourse, List<Course> myListOfCourse});
+      {bool loading, List<Track> listOfCourse, List<Track> myListOfCourse});
 }
 
 /// @nodoc
@@ -102,11 +102,11 @@ class __$$_HomeStateCopyWithImpl<$Res>
       listOfCourse: null == listOfCourse
           ? _value._listOfCourse
           : listOfCourse // ignore: cast_nullable_to_non_nullable
-              as List<Course>,
+              as List<Track>,
       myListOfCourse: null == myListOfCourse
           ? _value._myListOfCourse
           : myListOfCourse // ignore: cast_nullable_to_non_nullable
-              as List<Course>,
+              as List<Track>,
     ));
   }
 }
@@ -116,27 +116,27 @@ class __$$_HomeStateCopyWithImpl<$Res>
 class _$_HomeState implements _HomeState {
   _$_HomeState(
       {this.loading = false,
-      final List<Course> listOfCourse = const [],
-      final List<Course> myListOfCourse = const []})
+      final List<Track> listOfCourse = const [],
+      final List<Track> myListOfCourse = const []})
       : _listOfCourse = listOfCourse,
         _myListOfCourse = myListOfCourse;
 
   @override
   @JsonKey()
   final bool loading;
-  final List<Course> _listOfCourse;
+  final List<Track> _listOfCourse;
   @override
   @JsonKey()
-  List<Course> get listOfCourse {
+  List<Track> get listOfCourse {
     if (_listOfCourse is EqualUnmodifiableListView) return _listOfCourse;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_listOfCourse);
   }
 
-  final List<Course> _myListOfCourse;
+  final List<Track> _myListOfCourse;
   @override
   @JsonKey()
-  List<Course> get myListOfCourse {
+  List<Track> get myListOfCourse {
     if (_myListOfCourse is EqualUnmodifiableListView) return _myListOfCourse;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_myListOfCourse);
@@ -176,15 +176,15 @@ class _$_HomeState implements _HomeState {
 abstract class _HomeState implements HomeState {
   factory _HomeState(
       {final bool loading,
-      final List<Course> listOfCourse,
-      final List<Course> myListOfCourse}) = _$_HomeState;
+      final List<Track> listOfCourse,
+      final List<Track> myListOfCourse}) = _$_HomeState;
 
   @override
   bool get loading;
   @override
-  List<Course> get listOfCourse;
+  List<Track> get listOfCourse;
   @override
-  List<Course> get myListOfCourse;
+  List<Track> get myListOfCourse;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

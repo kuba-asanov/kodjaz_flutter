@@ -9,12 +9,12 @@ import 'package:flutter_svg/svg.dart';
 import 'package:kodjaz/core/helpers/colors.dart';
 import 'package:kodjaz/core/helpers/text_styles.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
-import 'package:kodjaz/features/models/cours.dart';
+import 'package:kodjaz/features/models/track.dart';
 
 class ModuleAccordionWidget extends StatefulWidget {
   final String title;
   final LessonsStatus status;
-  final List<Lessons> lessons;
+  final List<Lesson> lessons;
 
   const ModuleAccordionWidget({
     required this.title,
@@ -49,39 +49,38 @@ class _ModuleAccordionStateWidget extends State<ModuleAccordionWidget> {
           headerAlignment: ExpandablePanelHeaderAlignment.center,
           iconSize: 30,
         ),
-        header: Column(
-          children: [
-            Padding(
-              padding:
-                  const EdgeInsets.only(top: 17.0, left: 20.0, right: 20.0),
-              child: Row(
-                children: [
-                  Column(
-                    children: [
-                      Text(
-                        widget.title,
-                        style: SanackTextStyle.fS16FW500
-                            .copyWith(color: KodJazColors.black),
-                      ),
-                      Row(
-                        children: [
-                          SvgPicture.asset('assets/images/svg/play_icon.svg'),
-                          SizedBox(width: 14.w),
-                          Text(
-                            '${widget.lessons.length} ${LocaleKeys.lesson.tr()}',
-                            style: SanackTextStyle.fS12FW400
-                                .copyWith(color: KodJazColors.grey5),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                  const Spacer(),
-                  SvgPicture.asset('assets/images/svg/$statusImagePath'),
-                ],
+        header: Padding(
+          padding: const EdgeInsets.only(top: 17.0, left: 20.0, right: 20.0),
+          child: Row(
+            children: [
+              Flexible(
+                flex: 3,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      widget.title,
+                      style: SanackTextStyle.fS16FW500
+                          .copyWith(color: KodJazColors.black),
+                    ),
+                    Row(
+                      children: [
+                        SvgPicture.asset('assets/images/svg/play_icon.svg'),
+                        SizedBox(width: 14.w),
+                        Text(
+                          '${widget.lessons.length} ${LocaleKeys.lesson.tr()}',
+                          style: SanackTextStyle.fS12FW400
+                              .copyWith(color: KodJazColors.grey5),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
+              const Spacer(),
+              SvgPicture.asset('assets/images/svg/$statusImagePath'),
+            ],
+          ),
         ),
         expanded: Column(
           children: [
@@ -109,6 +108,7 @@ class _ModuleAccordionStateWidget extends State<ModuleAccordionWidget> {
                       statusImagePath = 'didnt_start.svg';
                       break;
                   }
+
                   return InkWell(
                     onTap: () {},
                     child: Container(
@@ -121,11 +121,14 @@ class _ModuleAccordionStateWidget extends State<ModuleAccordionWidget> {
                         padding: EdgeInsets.symmetric(horizontal: 12.w),
                         child: Row(
                           children: [
-                            Text(
-                              widget.lessons[index].name,
-                              style: SanackTextStyle.fS16FW400,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 1,
+                            Expanded(
+                              flex: 5,
+                              child: Text(
+                                widget.lessons[index].name,
+                                style: SanackTextStyle.fS16FW400,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
+                              ),
                             ),
                             Spacer(),
                             SvgPicture.asset(

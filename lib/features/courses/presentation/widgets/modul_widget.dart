@@ -4,13 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /* Local dependencies */
 import 'package:kodjaz/features/courses/presentation/widgets/modul_item_widget.dart';
-import 'package:kodjaz/features/models/cours.dart';
+import 'package:kodjaz/features/models/track.dart';
 
-class ModulWidget extends StatelessWidget {
-  final Course course;
+class UnitWidget extends StatelessWidget {
+  final List<Unit> units;
 
-  const ModulWidget({
-    required this.course,
+  const UnitWidget({
+    required this.units,
     Key? key,
   }) : super(key: key);
 
@@ -23,12 +23,14 @@ class ModulWidget extends StatelessWidget {
         height: 1.h,
       ),
       shrinkWrap: false,
-      itemCount: course.lessons.length,
+      itemCount: units.length,
       itemBuilder: (context, index) {
+        Unit unit = units[index];
+
         return ModuleAccordionWidget(
-          title: course.name,
-          status: course.status,
-          lessons: course.lessons,
+          title: unit.name,
+          status: unit.status,
+          lessons: unit.unit_lessons,
         );
       },
     );

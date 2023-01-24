@@ -11,7 +11,7 @@ import 'package:kodjaz/core/helpers/screen_util.dart';
 import 'package:kodjaz/core/helpers/text_styles.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
 import 'package:kodjaz/core/injection/injection.dart';
-import 'package:kodjaz/features/app/logic/bloc/home_bloc.dart';
+import 'package:kodjaz/features/home/presentation/bloc/home_bloc.dart';
 
 class CoursesPage extends StatelessWidget {
   const CoursesPage({super.key});
@@ -43,7 +43,7 @@ class CoursesPage extends StatelessWidget {
                         previous.loading != current.loading,
                     builder: (context, state) {
                       if (state.loading) {
-                        return Spinner(color: KodJazColors.grey2);
+                        return const Spinner(color: KodJazColors.grey2);
                       }
 
                       return ListView.separated(
@@ -71,7 +71,7 @@ class CoursesPage extends StatelessWidget {
                         previous.loading != current.loading,
                     builder: (context, state) {
                       if (state.loading) {
-                        return Spinner(color: KodJazColors.grey2);
+                        return const Spinner(color: KodJazColors.grey2);
                       }
 
                       return ListView.separated(
