@@ -1,8 +1,12 @@
+/* External dependencies */
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+
+/* Local dependencies */
 import 'package:kodjaz/core/constants/app/app_constants.dart';
+import 'package:kodjaz/features/auth/models/token.dart';
 import 'package:kodjaz/features/models/track.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:dio/dio.dart';
 
 part 'client.g.dart';
 
@@ -17,8 +21,10 @@ class Api {
       sendTimeout: 15000,
     ));
 
+    // dio.options.headers["X-CSRFToken"] =
+    //     "rq7kQoqTtTNFYsvWd8qbYYNQgWlSkPjWh0YzQEa7hivt94AAfbHbtDp6LnLeDhNk";
     dio.options.headers["X-CSRFToken"] =
-        "rq7kQoqTtTNFYsvWd8qbYYNQgWlSkPjWh0YzQEa7hivt94AAfbHbtDp6LnLeDhNk";
+        "hjUSFfQCAvSuHxhoD4xY4DfRNcRt81NgFvnIJ0CljaBCgQQUbuyQAxgTGFTFMjtU";
 
     // dio.interceptors.addAll({
     //   AppInterceptors(dio),
@@ -32,9 +38,12 @@ class Api {
 abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
-  @GET("/tracks")
-  Future<List<Track>> getTracks();
+  @POST("/token/obtain/")
+  Future<Token> checkUserToken(@Body() SignInInfo signInInfo);
 
-  @GET("/track/{id}")
+  @GET("/v1/track/{id}")
   Future<Track> getTrack(@Path("id") String id);
+
+  @GET("/v1/tracks")
+  Future<List<Track>> getTracks();
 }

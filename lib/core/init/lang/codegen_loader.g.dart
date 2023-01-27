@@ -54,7 +54,8 @@ static const Map<String,dynamic> ky = {
   "aboutTheCourse": "Курс жөнүндө маалымат",
   "createAnAccount": "Аккаунт түзүү",
   "password": "Сырсөз",
-  "forgotYourPassword": "Сырсөзүңүздү унуттуңузбу?"
+  "forgotYourPassword": "Сырсөзүңүздү унуттуңузбу?",
+  "confirmPassword": "Сырсөз кайталоо"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": ru, "ky": ky};
 }
