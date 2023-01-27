@@ -12,12 +12,14 @@ import 'core/injection/injection.dart';
 import 'core/navigation/auto_route.gr.dart';
 import 'core/navigation/navigation.dart';
 import 'package:kodjaz/core/helpers/colors.dart';
+import 'package:kodjaz/core/utils/hive_init.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await configureInjection();
   await ScreenUtil.ensureScreenSize();
+  await initHive();
 
   runApp(
     EasyLocalization(
@@ -33,9 +35,11 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-
   final AppRouter _appRouter = Navigation.router;
+
+  MyApp({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
