@@ -22,7 +22,7 @@ class CustomNavigationBar extends StatelessWidget {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       backgroundColor: Colors.white,
-      selectedLabelStyle: SanackTextStyle.fS12FW400,
+      selectedLabelStyle: KodjazTextStyle.fS12FW400,
       selectedItemColor: PrimaryColor,
       enableFeedback: false,
       currentIndex: currentIndex,

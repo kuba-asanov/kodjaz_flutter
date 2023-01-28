@@ -15,7 +15,16 @@ class HomeRepositoryImpl implements HomeRepository {
   @override
   Future<List<Track>> listTracks() {
     try {
-      return _api.client.getTracks();
+      return _api.client.listTracks();
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<List<Track>> myListTracks() {
+    try {
+      return _api.client.myListTracks();
     } catch (e) {
       rethrow;
     }

@@ -9,6 +9,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:kodjaz/core/helpers/colors.dart';
 import 'package:kodjaz/core/helpers/text_styles.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
+import 'package:kodjaz/core/navigation/auto_route.gr.dart';
+import 'package:kodjaz/core/navigation/navigation.dart';
 import 'package:kodjaz/features/models/track.dart';
 
 class ModuleAccordionWidget extends StatefulWidget {
@@ -60,7 +62,7 @@ class _ModuleAccordionStateWidget extends State<ModuleAccordionWidget> {
                   children: [
                     Text(
                       widget.title,
-                      style: SanackTextStyle.fS16FW500
+                      style: KodjazTextStyle.fS16FW500
                           .copyWith(color: KodJazColors.black),
                     ),
                     Row(
@@ -69,7 +71,7 @@ class _ModuleAccordionStateWidget extends State<ModuleAccordionWidget> {
                         SizedBox(width: 14.w),
                         Text(
                           '${widget.lessons.length} ${LocaleKeys.lesson.tr()}',
-                          style: SanackTextStyle.fS12FW400
+                          style: KodjazTextStyle.fS12FW400
                               .copyWith(color: KodJazColors.grey5),
                         ),
                       ],
@@ -96,7 +98,9 @@ class _ModuleAccordionStateWidget extends State<ModuleAccordionWidget> {
                 shrinkWrap: true,
                 itemCount: widget.lessons.length,
                 itemBuilder: (context, index) {
+                  final Lesson lesson = widget.lessons[index];
                   late final String statusImagePath;
+
                   switch (widget.lessons[index].status) {
                     case LessonsStatus.done:
                       statusImagePath = 'done.svg';
@@ -110,7 +114,9 @@ class _ModuleAccordionStateWidget extends State<ModuleAccordionWidget> {
                   }
 
                   return InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigation.router.push(LessonRoute(lesson: lesson));
+                    },
                     child: Container(
                       height: 40.h,
                       decoration: BoxDecoration(
@@ -124,13 +130,13 @@ class _ModuleAccordionStateWidget extends State<ModuleAccordionWidget> {
                             Expanded(
                               flex: 5,
                               child: Text(
-                                widget.lessons[index].name,
-                                style: SanackTextStyle.fS16FW400,
+                                lesson.name,
+                                style: KodjazTextStyle.fS16FW400,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 2,
                               ),
                             ),
-                            Spacer(),
+                            const Spacer(),
                             SvgPicture.asset(
                                 'assets/images/svg/$statusImagePath'),
                           ],

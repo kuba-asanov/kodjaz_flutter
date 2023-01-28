@@ -125,7 +125,19 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         await _repo.listTracks().then((tracks) {
           emit(
             state.copyWith(
-              listOfCourse: listOfCourse,
+              listOfCourse: tracks,
+              loading: false,
+            ),
+          );
+        }).onError((error, stackTrace) {
+          emit(state.copyWith(
+            loading: false,
+          ));
+        });
+
+        await _repo.myListTracks().then((tracks) {
+          emit(
+            state.copyWith(
               myListOfCourse: tracks,
               loading: false,
             ),

@@ -167,7 +167,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         onPressed: () {},
                         child: Text(
                           'Катталуу менен мен Kodjaz дын Кызмат көрсөтүү саясаты жана Купуялык саясаты менен макулмун деп белгилейм.',
-                          style: SanackTextStyle.fS14FW400.copyWith(
+                          style: KodjazTextStyle.fS14FW400.copyWith(
                             color: KodJazColors.blue3,
                           ),
                         ),

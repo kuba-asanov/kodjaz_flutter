@@ -775,6 +775,9 @@ mixin _$Exercise {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get lecture => throw _privateConstructorUsedError;
+  String get instruction => throw _privateConstructorUsedError;
+  String get hint => throw _privateConstructorUsedError;
+  String get default_code => throw _privateConstructorUsedError;
   LessonsStatus get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -788,7 +791,14 @@ abstract class $ExerciseCopyWith<$Res> {
   factory $ExerciseCopyWith(Exercise value, $Res Function(Exercise) then) =
       _$ExerciseCopyWithImpl<$Res, Exercise>;
   @useResult
-  $Res call({int id, String name, String lecture, LessonsStatus status});
+  $Res call(
+      {int id,
+      String name,
+      String lecture,
+      String instruction,
+      String hint,
+      String default_code,
+      LessonsStatus status});
 }
 
 /// @nodoc
@@ -807,6 +817,9 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
     Object? id = null,
     Object? name = null,
     Object? lecture = null,
+    Object? instruction = null,
+    Object? hint = null,
+    Object? default_code = null,
     Object? status = null,
   }) {
     return _then(_value.copyWith(
@@ -821,6 +834,18 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
       lecture: null == lecture
           ? _value.lecture
           : lecture // ignore: cast_nullable_to_non_nullable
+              as String,
+      instruction: null == instruction
+          ? _value.instruction
+          : instruction // ignore: cast_nullable_to_non_nullable
+              as String,
+      hint: null == hint
+          ? _value.hint
+          : hint // ignore: cast_nullable_to_non_nullable
+              as String,
+      default_code: null == default_code
+          ? _value.default_code
+          : default_code // ignore: cast_nullable_to_non_nullable
               as String,
       status: null == status
           ? _value.status
@@ -837,7 +862,14 @@ abstract class _$$_ExerciseCopyWith<$Res> implements $ExerciseCopyWith<$Res> {
       __$$_ExerciseCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name, String lecture, LessonsStatus status});
+  $Res call(
+      {int id,
+      String name,
+      String lecture,
+      String instruction,
+      String hint,
+      String default_code,
+      LessonsStatus status});
 }
 
 /// @nodoc
@@ -854,6 +886,9 @@ class __$$_ExerciseCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? lecture = null,
+    Object? instruction = null,
+    Object? hint = null,
+    Object? default_code = null,
     Object? status = null,
   }) {
     return _then(_$_Exercise(
@@ -868,6 +903,18 @@ class __$$_ExerciseCopyWithImpl<$Res>
       lecture: null == lecture
           ? _value.lecture
           : lecture // ignore: cast_nullable_to_non_nullable
+              as String,
+      instruction: null == instruction
+          ? _value.instruction
+          : instruction // ignore: cast_nullable_to_non_nullable
+              as String,
+      hint: null == hint
+          ? _value.hint
+          : hint // ignore: cast_nullable_to_non_nullable
+              as String,
+      default_code: null == default_code
+          ? _value.default_code
+          : default_code // ignore: cast_nullable_to_non_nullable
               as String,
       status: null == status
           ? _value.status
@@ -884,6 +931,9 @@ class _$_Exercise implements _Exercise {
       {required this.id,
       this.name = '',
       this.lecture = '',
+      this.instruction = '',
+      this.hint = '',
+      this.default_code = '',
       this.status = LessonsStatus.didntStart});
 
   factory _$_Exercise.fromJson(Map<String, dynamic> json) =>
@@ -899,11 +949,20 @@ class _$_Exercise implements _Exercise {
   final String lecture;
   @override
   @JsonKey()
+  final String instruction;
+  @override
+  @JsonKey()
+  final String hint;
+  @override
+  @JsonKey()
+  final String default_code;
+  @override
+  @JsonKey()
   final LessonsStatus status;
 
   @override
   String toString() {
-    return 'Exercise(id: $id, name: $name, lecture: $lecture, status: $status)';
+    return 'Exercise(id: $id, name: $name, lecture: $lecture, instruction: $instruction, hint: $hint, default_code: $default_code, status: $status)';
   }
 
   @override
@@ -914,12 +973,18 @@ class _$_Exercise implements _Exercise {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.lecture, lecture) || other.lecture == lecture) &&
+            (identical(other.instruction, instruction) ||
+                other.instruction == instruction) &&
+            (identical(other.hint, hint) || other.hint == hint) &&
+            (identical(other.default_code, default_code) ||
+                other.default_code == default_code) &&
             (identical(other.status, status) || other.status == status));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, lecture, status);
+  int get hashCode => Object.hash(
+      runtimeType, id, name, lecture, instruction, hint, default_code, status);
 
   @JsonKey(ignore: true)
   @override
@@ -940,6 +1005,9 @@ abstract class _Exercise implements Exercise {
       {required final int id,
       final String name,
       final String lecture,
+      final String instruction,
+      final String hint,
+      final String default_code,
       final LessonsStatus status}) = _$_Exercise;
 
   factory _Exercise.fromJson(Map<String, dynamic> json) = _$_Exercise.fromJson;
@@ -950,6 +1018,12 @@ abstract class _Exercise implements Exercise {
   String get name;
   @override
   String get lecture;
+  @override
+  String get instruction;
+  @override
+  String get hint;
+  @override
+  String get default_code;
   @override
   LessonsStatus get status;
   @override

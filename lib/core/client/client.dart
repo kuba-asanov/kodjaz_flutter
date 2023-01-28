@@ -44,9 +44,9 @@ abstract class RestClient {
   @POST("/registration/")
   Future<UserCreateResponse> createUser(@Body() User user);
 
-  @GET("/v1/track/{id}")
-  Future<Track> getTrack(@Path("id") String id);
+  @GET("/v1/tracks/")
+  Future<List<Track>> listTracks();
 
-  @GET("/v1/tracks")
-  Future<List<Track>> getTracks();
+  @GET("/v1/user/tracks/")
+  Future<List<Track>> myListTracks();
 }

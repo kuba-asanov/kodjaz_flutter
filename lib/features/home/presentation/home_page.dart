@@ -10,7 +10,7 @@ import 'package:kodjaz/core/helpers/colors.dart';
 import 'package:kodjaz/core/helpers/text_styles.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
 import 'package:kodjaz/core/injection/injection.dart';
-import 'package:kodjaz/features/home/presentation/bloc/home_bloc.dart';
+import 'bloc/home_bloc.dart';
 import 'package:kodjaz/features/home/presentation/widgets/banner_widget.dart';
 import '../../../core/helpers/screen_util.dart';
 
@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(height: 40.h),
                 Text(
                   LocaleKeys.recommendationsForYou.tr(),
-                  style: SanackTextStyle.fS20FW600,
+                  style: KodjazTextStyle.fS20FW600,
                 ),
                 SizedBox(height: 16.h),
                 BlocBuilder<HomeBloc, HomeState>(

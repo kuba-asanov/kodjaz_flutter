@@ -43,11 +43,11 @@ class HomeBannerWidget extends StatelessWidget {
           SizedBox(height: 26.h),
           Text(
             LocaleKeys.youHaveNotChosenACourseYet.tr(),
-            style: SanackTextStyle.fS16FW600,
+            style: KodjazTextStyle.fS16FW600,
           ),
           Text(
             LocaleKeys.viewOurCatalog.tr(),
-            style: SanackTextStyle.fS14FW400,
+            style: KodjazTextStyle.fS14FW400,
           ),
           SizedBox(height: 16.h),
           Padding(

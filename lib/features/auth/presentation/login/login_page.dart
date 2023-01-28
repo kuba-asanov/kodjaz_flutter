@@ -137,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                       onPressed: () {},
                       child: Text(
                         LocaleKeys.forgotYourPassword.tr(),
-                        style: SanackTextStyle.fS14FW400.copyWith(
+                        style: KodjazTextStyle.fS14FW400.copyWith(
                           color: KodJazColors.blue3,
                         ),
                       ),

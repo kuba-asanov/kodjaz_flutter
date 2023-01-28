@@ -112,8 +112,8 @@ class _CourseDetailPageState extends State<CourseDetailPage>
               TabBar(
                 indicatorColor: KodJazColors.blue,
                 labelColor: KodJazColors.black,
-                labelStyle: SanackTextStyle.fS14FW500,
-                unselectedLabelStyle: SanackTextStyle.fS14FW400,
+                labelStyle: KodjazTextStyle.fS14FW500,
+                unselectedLabelStyle: KodjazTextStyle.fS14FW400,
                 controller: _tabController,
                 tabs: [
                   Padding(
@@ -135,7 +135,7 @@ class _CourseDetailPageState extends State<CourseDetailPage>
                       padding: EdgeInsets.all(12.r),
                       child: Text(
                         widget.course.description,
-                        style: SanackTextStyle.fS16FW400,
+                        style: KodjazTextStyle.fS16FW400,
                       ),
                     ),
                   ],
@@ -190,7 +190,7 @@ class _AppBar extends StatelessWidget {
               SizedBox(width: 14.w),
               Text(
                 '${course.track_units.length} ${LocaleKeys.lesson.tr()}',
-                style: SanackTextStyle.fS14FW400
+                style: KodjazTextStyle.fS14FW400
                     .copyWith(color: KodJazColors.white),
               ),
               SizedBox(width: 26.w),
@@ -198,7 +198,7 @@ class _AppBar extends StatelessWidget {
               SizedBox(width: 10.w),
               Text(
                 level,
-                style: SanackTextStyle.fS14FW400
+                style: KodjazTextStyle.fS14FW400
                     .copyWith(color: KodJazColors.white),
               ),
             ],

@@ -11,7 +11,8 @@ import 'package:kodjaz/core/helpers/screen_util.dart';
 import 'package:kodjaz/core/helpers/text_styles.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
 import 'package:kodjaz/core/injection/injection.dart';
-import 'package:kodjaz/features/home/presentation/bloc/home_bloc.dart';
+
+import '../../home/presentation/bloc/home_bloc.dart';
 
 class CoursesPage extends StatelessWidget {
   const CoursesPage({super.key});
@@ -19,7 +20,7 @@ class CoursesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MyScreenUtil.init(context);
-    
+
     final HomeBloc homeBloc = getIt<HomeBloc>();
 
     return Scaffold(
@@ -33,7 +34,7 @@ class CoursesPage extends StatelessWidget {
                 children: [
                   Text(
                     LocaleKeys.myCourses.tr(),
-                    style: SanackTextStyle.fS20FW600,
+                    style: KodjazTextStyle.fS20FW600,
                   ),
                   SizedBox(height: 8.h),
                   BlocBuilder<HomeBloc, HomeState>(
@@ -61,7 +62,7 @@ class CoursesPage extends StatelessWidget {
                   SizedBox(height: 24.h),
                   Text(
                     LocaleKeys.recommendationsForYou.tr(),
-                    style: SanackTextStyle.fS20FW600,
+                    style: KodjazTextStyle.fS20FW600,
                   ),
                   SizedBox(height: 8.h),
                   BlocBuilder<HomeBloc, HomeState>(

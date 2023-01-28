@@ -82,6 +82,9 @@ _$_Exercise _$$_ExerciseFromJson(Map<String, dynamic> json) => _$_Exercise(
       id: json['id'] as int,
       name: json['name'] as String? ?? '',
       lecture: json['lecture'] as String? ?? '',
+      instruction: json['instruction'] as String? ?? '',
+      hint: json['hint'] as String? ?? '',
+      default_code: json['default_code'] as String? ?? '',
       status: $enumDecodeNullable(_$LessonsStatusEnumMap, json['status']) ??
           LessonsStatus.didntStart,
     );
@@ -91,5 +94,8 @@ Map<String, dynamic> _$$_ExerciseToJson(_$_Exercise instance) =>
       'id': instance.id,
       'name': instance.name,
       'lecture': instance.lecture,
+      'instruction': instance.instruction,
+      'hint': instance.hint,
+      'default_code': instance.default_code,
       'status': _$LessonsStatusEnumMap[instance.status]!,
     };

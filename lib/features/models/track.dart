@@ -52,6 +52,9 @@ class Exercise with _$Exercise {
     required int id,
     @Default('') String name,
     @Default('') String lecture,
+    @Default('') String instruction,
+    @Default('') String hint,
+    @Default('') String default_code,
     @Default(LessonsStatus.didntStart) LessonsStatus status,
   }) = _Exercise;
 

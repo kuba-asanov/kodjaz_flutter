@@ -72,7 +72,7 @@ class PrimaryButton extends StatelessWidget {
                         : Text(
                             title,
                             textAlign: TextAlign.center,
-                            style: SanackTextStyle.fS16FW500.copyWith(
+                            style: KodjazTextStyle.fS16FW500.copyWith(
                               color: White,
                             ),
                           ),
@@ -84,10 +84,10 @@ class PrimaryButton extends StatelessWidget {
                       title,
                       textAlign: TextAlign.center,
                       style: isDisabled
-                          ? SanackTextStyle.fS16FW500.copyWith(
+                          ? KodjazTextStyle.fS16FW500.copyWith(
                               color: DisabledTextColor,
                             )
-                          : SanackTextStyle.fS16FW500.copyWith(
+                          : KodjazTextStyle.fS16FW500.copyWith(
                               color: White,
                             ),
                     ),
@@ -143,14 +143,14 @@ class SecondaryButton extends StatelessWidget {
                     Text(
                       title,
                       textAlign: TextAlign.center,
-                      style: SanackTextStyle.fS16FW500,
+                      style: KodjazTextStyle.fS16FW500,
                     ),
                   ],
                 )
               : Text(
                   title,
                   textAlign: TextAlign.center,
-                  style: SanackTextStyle.fS16FW500.copyWith(
+                  style: KodjazTextStyle.fS16FW500.copyWith(
                     color: textColor,
                   ),
                 ),
@@ -281,7 +281,7 @@ class CourseWidget extends StatelessWidget {
                   SizedBox(width: 12.w),
                   Text(
                     course.name,
-                    style: SanackTextStyle.fS16FW500,
+                    style: KodjazTextStyle.fS16FW500,
                   ),
                   const Spacer(),
                   course.progress != 0
@@ -299,7 +299,7 @@ class CourseWidget extends StatelessWidget {
                           child: Center(
                               child: Text(
                             '${course.progress}%',
-                            style: SanackTextStyle.fS12FW600,
+                            style: KodjazTextStyle.fS12FW600,
                           )),
                         )
                       : Icon(
@@ -325,7 +325,7 @@ class CourseWidget extends StatelessWidget {
                     SizedBox(width: 14.w),
                     Text(
                       '${course.track_units.length} ${LocaleKeys.lesson.tr()}',
-                      style: SanackTextStyle.fS14FW400
+                      style: KodjazTextStyle.fS14FW400
                           .copyWith(color: KodJazColors.grey5),
                     ),
                     SizedBox(width: 70.w),
@@ -333,7 +333,7 @@ class CourseWidget extends StatelessWidget {
                     SizedBox(width: 10.w),
                     Text(
                       level,
-                      style: SanackTextStyle.fS14FW400
+                      style: KodjazTextStyle.fS14FW400
                           .copyWith(color: KodJazColors.grey5),
                     ),
                   ],
