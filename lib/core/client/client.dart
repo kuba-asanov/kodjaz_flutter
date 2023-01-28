@@ -23,6 +23,8 @@ class Api {
       sendTimeout: 15000,
     ));
 
+    // dio.options.headers["X-CSRFToken"] =
+    //     "rq7kQoqTtTNFYsvWd8qbYYNQgWlSkPjWh0YzQEa7hivt94AAfbHbtDp6LnLeDhNk";
     dio.options.headers["X-CSRFToken"] =
         "hjUSFfQCAvSuHxhoD4xY4DfRNcRt81NgFvnIJ0CljaBCgQQUbuyQAxgTGFTFMjtU";
 
