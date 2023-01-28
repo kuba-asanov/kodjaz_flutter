@@ -1,10 +1,11 @@
-/* External dependencies */
 import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-
-/* Local dependencies */
 import 'package:kodjaz/core/client/client.dart';
+import 'package:kodjaz/core/client/interceptor.dart';
+import 'package:kodjaz/core/helpers/exceptions.dart';
+import 'package:kodjaz/features/app/data/models/user.dart';
 import 'package:kodjaz/features/auth/models/token.dart';
 import 'package:kodjaz/features/auth/repository/auth_repository.dart';
 
@@ -13,6 +14,17 @@ class AuthRepositoryImpl implements AuthRepository {
   final Api _api;
 
   AuthRepositoryImpl(this._api);
+
+  @override
+  Future<UserCreateResponse> createUser(User user) async {
+    try {
+      final data = await _api.client.createUser(user);
+
+      return data;
+    } catch (e) {
+      rethrow;
+    }
+  }
 
   @override
   Future<Token> checkUserToken(
@@ -24,9 +36,11 @@ class AuthRepositoryImpl implements AuthRepository {
         // non-200 error goes here.
         switch (obj.runtimeType) {
           case DioError:
-            // Here's the sample to get the failed response error code and message
             final res = (obj as DioError).response;
             log("Got error : ${res?.statusCode} -> ${res?.statusMessage}");
+            if (res?.statusCode == 401) {
+              throw UnauthorizedException;
+            }
             break;
           default:
             break;
@@ -37,11 +51,5 @@ class AuthRepositoryImpl implements AuthRepository {
     } catch (e) {
       rethrow;
     }
-  }
-
-  @override
-  Future<void> createUser() {
-    // TODO: implement createUser
-    throw UnimplementedError();
   }
 }

@@ -17,5 +17,14 @@
     "aboutTheCourse":"О курсе",
     "createAnAccount":"Создать аккаунт",
     "password":"Пароль",
-    "forgotYourPassword":"Забыли свой пароль?"
+    "forgotYourPassword":"Забыли свой пароль?",
+    "confirmPassword":"Повторите пароль",
+    "invalidEmail":"Неверный адрес электронной почты",
+    "typeAtLeast8Characters":"Введите не менее 8 символов",
+    "userIsNotFound":"Пользователь не найден",
+    "passwordsDoNotMatch":"Пароли не совпадают",
+    "enterCorrectData":"Введите корректные данные",
+    "aUserWithThisEmailAddressIsAlreadyRegistered":"Пользователь с таким e-mail адресом уже зарегистрирован",
+    "thisPasswordIsEntirelyNumeric":"Этот пароль полностью цифровой"
+    
 }

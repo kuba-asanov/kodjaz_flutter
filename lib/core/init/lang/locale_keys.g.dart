@@ -20,5 +20,13 @@ abstract class  LocaleKeys {
   static const createAnAccount = 'createAnAccount';
   static const password = 'password';
   static const forgotYourPassword = 'forgotYourPassword';
+  static const confirmPassword = 'confirmPassword';
+  static const invalidEmail = 'invalidEmail';
+  static const typeAtLeast8Characters = 'typeAtLeast8Characters';
+  static const userIsNotFound = 'userIsNotFound';
+  static const passwordsDoNotMatch = 'passwordsDoNotMatch';
+  static const enterCorrectData = 'enterCorrectData';
+  static const aUserWithThisEmailAddressIsAlreadyRegistered = 'aUserWithThisEmailAddressIsAlreadyRegistered';
+  static const thisPasswordIsEntirelyNumeric = 'thisPasswordIsEntirelyNumeric';
 
 }

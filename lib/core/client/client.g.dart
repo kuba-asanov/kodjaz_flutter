@@ -45,27 +45,26 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<List<Track>> getTracks() async {
+  Future<UserCreateResponse> createUser(user) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result =
-        await _dio.fetch<List<dynamic>>(_setStreamType<List<Track>>(Options(
-      method: 'GET',
+    _data.addAll(user.toJson());
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<UserCreateResponse>(Options(
+      method: 'POST',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/v1/tracks',
+              '/registration/',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!
-        .map((dynamic i) => Track.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = UserCreateResponse.fromJson(_result.data!);
     return value;
   }
 
@@ -89,6 +88,31 @@ class _RestClient implements RestClient {
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = Track.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<List<Track>> getTracks() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result =
+        await _dio.fetch<List<dynamic>>(_setStreamType<List<Track>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/v1/tracks',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) => Track.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 
 import '../helpers/exceptions.dart';
@@ -37,6 +39,8 @@ class AppInterceptors extends Interceptor {
 
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
+    log('onError ==== ${err.error}   ||||  ${err.response?.data}');
+
     switch (err.type) {
       case DioErrorType.connectTimeout:
       case DioErrorType.sendTimeout:
@@ -45,6 +49,19 @@ class AppInterceptors extends Interceptor {
       case DioErrorType.response:
         switch (err.response?.statusCode) {
           case 400:
+            if (err.response?.data != null) {
+              if (err.response?.data["email"] != null &&
+                  err.response?.data["email"][0] ==
+                      'A user is already registered with this e-mail address.') {
+                throw UserAlerdySignUpException(err.requestOptions);
+              }
+              if (err.response?.data["password1"] != null &&
+                  err.response?.data["password1"][0] ==
+                      'This password is entirely numeric.') {
+                throw OnlyNumbersException(err.requestOptions);
+              }
+            }
+            {}
             throw BadRequestException(err.requestOptions);
           case 401:
             throw UnauthorizedException(err.requestOptions);

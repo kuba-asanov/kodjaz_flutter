@@ -21,7 +21,8 @@ AuthState _$AuthStateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AuthState {
   Token? get token => throw _privateConstructorUsedError;
-  bool get tokenChecked => throw _privateConstructorUsedError;
+  bool get loading => throw _privateConstructorUsedError;
+  bool? get successSignUp => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +36,7 @@ abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
   @useResult
-  $Res call({Token? token, bool tokenChecked, String? error});
+  $Res call({Token? token, bool loading, bool? successSignUp, String? error});
 
   $TokenCopyWith<$Res>? get token;
 }
@@ -54,7 +55,8 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   @override
   $Res call({
     Object? token = freezed,
-    Object? tokenChecked = null,
+    Object? loading = null,
+    Object? successSignUp = freezed,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
@@ -62,10 +64,14 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as Token?,
-      tokenChecked: null == tokenChecked
-          ? _value.tokenChecked
-          : tokenChecked // ignore: cast_nullable_to_non_nullable
+      loading: null == loading
+          ? _value.loading
+          : loading // ignore: cast_nullable_to_non_nullable
               as bool,
+      successSignUp: freezed == successSignUp
+          ? _value.successSignUp
+          : successSignUp // ignore: cast_nullable_to_non_nullable
+              as bool?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -93,7 +99,7 @@ abstract class _$$_InitialCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       __$$_InitialCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Token? token, bool tokenChecked, String? error});
+  $Res call({Token? token, bool loading, bool? successSignUp, String? error});
 
   @override
   $TokenCopyWith<$Res>? get token;
@@ -110,7 +116,8 @@ class __$$_InitialCopyWithImpl<$Res>
   @override
   $Res call({
     Object? token = freezed,
-    Object? tokenChecked = null,
+    Object? loading = null,
+    Object? successSignUp = freezed,
     Object? error = freezed,
   }) {
     return _then(_$_Initial(
@@ -118,10 +125,14 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as Token?,
-      tokenChecked: null == tokenChecked
-          ? _value.tokenChecked
-          : tokenChecked // ignore: cast_nullable_to_non_nullable
+      loading: null == loading
+          ? _value.loading
+          : loading // ignore: cast_nullable_to_non_nullable
               as bool,
+      successSignUp: freezed == successSignUp
+          ? _value.successSignUp
+          : successSignUp // ignore: cast_nullable_to_non_nullable
+              as bool?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -133,7 +144,8 @@ class __$$_InitialCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Initial implements _Initial {
-  const _$_Initial({this.token, this.tokenChecked = false, this.error});
+  const _$_Initial(
+      {this.token, this.loading = false, this.successSignUp, this.error});
 
   factory _$_Initial.fromJson(Map<String, dynamic> json) =>
       _$$_InitialFromJson(json);
@@ -142,13 +154,15 @@ class _$_Initial implements _Initial {
   final Token? token;
   @override
   @JsonKey()
-  final bool tokenChecked;
+  final bool loading;
+  @override
+  final bool? successSignUp;
   @override
   final String? error;
 
   @override
   String toString() {
-    return 'AuthState(token: $token, tokenChecked: $tokenChecked, error: $error)';
+    return 'AuthState(token: $token, loading: $loading, successSignUp: $successSignUp, error: $error)';
   }
 
   @override
@@ -157,14 +171,16 @@ class _$_Initial implements _Initial {
         (other.runtimeType == runtimeType &&
             other is _$_Initial &&
             (identical(other.token, token) || other.token == token) &&
-            (identical(other.tokenChecked, tokenChecked) ||
-                other.tokenChecked == tokenChecked) &&
+            (identical(other.loading, loading) || other.loading == loading) &&
+            (identical(other.successSignUp, successSignUp) ||
+                other.successSignUp == successSignUp) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, token, tokenChecked, error);
+  int get hashCode =>
+      Object.hash(runtimeType, token, loading, successSignUp, error);
 
   @JsonKey(ignore: true)
   @override
@@ -183,7 +199,8 @@ class _$_Initial implements _Initial {
 abstract class _Initial implements AuthState {
   const factory _Initial(
       {final Token? token,
-      final bool tokenChecked,
+      final bool loading,
+      final bool? successSignUp,
       final String? error}) = _$_Initial;
 
   factory _Initial.fromJson(Map<String, dynamic> json) = _$_Initial.fromJson;
@@ -191,7 +208,9 @@ abstract class _Initial implements AuthState {
   @override
   Token? get token;
   @override
-  bool get tokenChecked;
+  bool get loading;
+  @override
+  bool? get successSignUp;
   @override
   String? get error;
   @override
