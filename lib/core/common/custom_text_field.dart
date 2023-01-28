@@ -26,11 +26,21 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       scrollPadding: scrollPadding ?? const EdgeInsets.all(20.0),
       cursorColor: KodJazColors.black,
       obscureText: obscureText,
       decoration: InputDecoration(
-        suffixIcon: suffixIcon,
+        suffixIcon: suffixIcon ??
+            IconButton(
+              onPressed: () {
+                controller.clear();
+              },
+              icon: const Icon(
+                Icons.clear,
+                color: KodJazColors.blue3,
+              ),
+            ),
         errorText: errorText,
         hintText: hintText,
         focusedBorder: OutlineInputBorder(

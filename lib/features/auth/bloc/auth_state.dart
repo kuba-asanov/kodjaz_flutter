@@ -4,9 +4,11 @@ part of 'auth_bloc.dart';
 class AuthState with _$AuthState {
   const factory AuthState({
     Token? token,
-    @Default(false) bool tokenChecked,
+    @Default(false) bool loading,
+    bool? successSignUp,
     String? error,
   }) = _Initial;
 
-  factory AuthState.fromJson(Map<String, Object?> json) => _$AuthStateFromJson(json);
+  factory AuthState.fromJson(Map<String, Object?> json) =>
+      _$AuthStateFromJson(json);
 }

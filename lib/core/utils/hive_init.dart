@@ -10,7 +10,7 @@ import 'package:kodjaz/core/constants/app/app_constants.dart';
 Future<void> initHive({
   String? subDir,
   Iterable<String> boxes = const [
-    ApplicationConstants.userInfo,
+    ApplicationConstants.session,
   ],
 }) async {
   if (!kIsWeb) {

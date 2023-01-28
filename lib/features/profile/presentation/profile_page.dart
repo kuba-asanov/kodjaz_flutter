@@ -6,11 +6,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 /* Local dependencies */
 import 'package:kodjaz/core/common/common_widgets.dart';
+import 'package:kodjaz/core/helpers/cache/cache.dart';
 import 'package:kodjaz/core/helpers/colors.dart';
 import 'package:kodjaz/core/helpers/screen_util.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
+import 'package:kodjaz/core/injection/injection.dart';
 import 'package:kodjaz/core/navigation/auto_route.gr.dart';
 import 'package:kodjaz/core/navigation/navigation.dart';
+import 'package:kodjaz/features/auth/bloc/auth_bloc.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -34,22 +37,37 @@ class ProfilePage extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Column(
                     children: [
-                      PrimaryButton(
-                        title: LocaleKeys.login.tr(),
-                        onPressed: () {
-                          Navigation.router.push(const LoginRoute());
-                        },
-                      ),
-                      SizedBox(height: 16.h),
-                      SecondaryButton(
-                        title: LocaleKeys.createAnAccount.tr(),
-                        onPressed: () {
-                          Navigation.router.push(const SignUpRoute());
-                        },
-                      ),
+                      Card(
+                        shape: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.r),
+                          borderSide: const BorderSide(
+                            color: KodJazColors.white,
+                          ),
+                        ),
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(8.r),
+                          onTap: () {
+                            getIt<AuthBloc>().add(LogoutEvent());
+
+                            Navigation.router.replace(const LoginRoute());
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.all(12.r),
+                            child: Row(
+                              children: [
+                                Column(
+                                  children: [
+                                    Text('Выйти'),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
                     ],
                   ),
-                )
+                ),
               ],
             ),
             Positioned(

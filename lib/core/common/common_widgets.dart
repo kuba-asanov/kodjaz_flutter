@@ -39,13 +39,6 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     MyScreenUtil.init(context);
 
-    if (loading) {
-      return Container(
-        alignment: Alignment.center,
-        child: const Spinner(),
-      );
-    }
-
     return SizedBox(
       height: height ?? 48.h,
       child: ElevatedButton(
@@ -74,26 +67,30 @@ class PrimaryButton extends StatelessWidget {
                   children: [
                     icon!,
                     SizedBox(width: 10.w),
-                    Text(
-                      title,
-                      textAlign: TextAlign.center,
-                      style: SanackTextStyle.fS16FW500.copyWith(
-                        color: White,
-                      ),
-                    ),
+                    loading
+                        ? const Spinner(color: KodJazColors.white)
+                        : Text(
+                            title,
+                            textAlign: TextAlign.center,
+                            style: SanackTextStyle.fS16FW500.copyWith(
+                              color: White,
+                            ),
+                          ),
                   ],
                 )
-              : Text(
-                  title,
-                  textAlign: TextAlign.center,
-                  style: isDisabled
-                      ? SanackTextStyle.fS16FW500.copyWith(
-                          color: DisabledTextColor,
-                        )
-                      : SanackTextStyle.fS16FW500.copyWith(
-                          color: White,
-                        ),
-                ),
+              : loading
+                  ? const Spinner(color: KodJazColors.white)
+                  : Text(
+                      title,
+                      textAlign: TextAlign.center,
+                      style: isDisabled
+                          ? SanackTextStyle.fS16FW500.copyWith(
+                              color: DisabledTextColor,
+                            )
+                          : SanackTextStyle.fS16FW500.copyWith(
+                              color: White,
+                            ),
+                    ),
         ),
       ),
     );
@@ -196,8 +193,10 @@ class Spinner extends StatelessWidget {
 
     if (platform == TargetPlatform.iOS) {
       // iOS-specific code.
-      return const Center(
-        child: CupertinoActivityIndicator(),
+      return Center(
+        child: CupertinoActivityIndicator(
+          color: color,
+        ),
       );
     }
 

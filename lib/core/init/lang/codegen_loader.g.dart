@@ -33,7 +33,15 @@ class CodegenLoader extends AssetLoader{
   "aboutTheCourse": "О курсе",
   "createAnAccount": "Создать аккаунт",
   "password": "Пароль",
-  "forgotYourPassword": "Забыли свой пароль?"
+  "forgotYourPassword": "Забыли свой пароль?",
+  "confirmPassword": "Повторите пароль",
+  "invalidEmail": "Неверный адрес электронной почты",
+  "typeAtLeast8Characters": "Введите не менее 8 символов",
+  "userIsNotFound": "Пользователь не найден",
+  "passwordsDoNotMatch": "Пароли не совпадают",
+  "enterCorrectData": "Введите корректные данные",
+  "aUserWithThisEmailAddressIsAlreadyRegistered": "Пользователь с таким e-mail адресом уже зарегистрирован",
+  "thisPasswordIsEntirelyNumeric": "Этот пароль полностью цифровой"
 };
 static const Map<String,dynamic> ky = {
   "registration": "Катталуу",
@@ -55,7 +63,14 @@ static const Map<String,dynamic> ky = {
   "createAnAccount": "Аккаунт түзүү",
   "password": "Сырсөз",
   "forgotYourPassword": "Сырсөзүңүздү унуттуңузбу?",
-  "confirmPassword": "Сырсөз кайталоо"
+  "confirmPassword": "Сырсөз кайталоо",
+  "invalidEmail": "Жараксыз электрондук почта",
+  "typeAtLeast8Characters": "8 ден өйдө белгини териңиз",
+  "userIsNotFound": "Колдонуучу табылган жок",
+  "passwordsDoNotMatch": "Сырсөздөр дал келбейт",
+  "enterCorrectData": "Туура маалыматтарды киргизиңиз",
+  "aUserWithThisEmailAddressIsAlreadyRegistered": "Бул электрондук почта дареги бар, колдонуучу мурунтан эле катталган.",
+  "thisPasswordIsEntirelyNumeric": "Бул сырсөз толугу менен сандык"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": ru, "ky": ky};
 }

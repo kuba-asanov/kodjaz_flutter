@@ -9,6 +9,24 @@ class BadRequestException extends DioError {
   }
 }
 
+class UserAlerdySignUpException extends DioError {
+  UserAlerdySignUpException(RequestOptions r) : super(requestOptions: r);
+
+  @override
+  String toString() {
+    return 'User alerdy sign up exception';
+  }
+}
+
+class OnlyNumbersException extends DioError {
+  OnlyNumbersException(RequestOptions r) : super(requestOptions: r);
+
+  @override
+  String toString() {
+    return 'User alerdy sign up exception';
+  }
+}
+
 class InternalServerErrorException extends DioError {
   InternalServerErrorException(RequestOptions r) : super(requestOptions: r);
 

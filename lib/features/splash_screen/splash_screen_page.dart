@@ -1,4 +1,5 @@
 /* External dependencies */
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -6,8 +7,8 @@ import 'package:flutter_svg/svg.dart';
 /* Local dependencies */
 import 'package:kodjaz/core/helpers/cache/cache.dart';
 import 'package:kodjaz/core/injection/injection.dart';
-import 'package:kodjaz/features/app/data/models/user.dart';
 import 'package:kodjaz/features/auth/bloc/auth_bloc.dart';
+import 'package:kodjaz/features/auth/models/token.dart';
 
 import '../../core/constants/app/app_constants.dart';
 import '../../core/navigation/auto_route.gr.dart';
@@ -21,30 +22,29 @@ class SplashScreenPage extends StatefulWidget {
 }
 
 class _SplashScreenPageState extends State<SplashScreenPage> {
-  final AuthBloc _authBloc = getIt<AuthBloc>();
-  final User? user = Cache.getUser();
+  final Token? token = Cache.getSession();
 
   @override
   void initState() {
-    // if (user != null) {
-    _authBloc.add(
-      CheckTokenEvent(
-        user: const User(
-          email: 'kuba.assanov4@gmail.com',
-          password: 'k78964545',
-        ),
-      ),
-    );
-    // }
+    _navigation();
     super.initState();
+  }
+
+  void _navigation() {
+    Timer(const Duration(seconds: 3), () {
+      if (token != null) {
+        Navigation.router.replace(NavigationRoute());
+      } else {
+        Navigation.router.replace(const LoginRoute());
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<AuthBloc, AuthState>(
       bloc: getIt<AuthBloc>(),
-      listenWhen: (previous, current) =>
-          previous.tokenChecked != current.tokenChecked,
+      listenWhen: (previous, current) => previous.token != current.token,
       listener: (context, state) {
         if (state.token != null) {
           Navigation.router.replace(NavigationRoute());
