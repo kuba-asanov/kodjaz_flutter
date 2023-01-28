@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
           floatingActionButton: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
             child: PrimaryButton(
               loading: state.loading,
               title: LocaleKeys.login.tr(),

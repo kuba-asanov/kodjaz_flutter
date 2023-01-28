@@ -58,7 +58,7 @@ class _SignUpPageState extends State<SignUpPage> {
           floatingActionButtonLocation:
               FloatingActionButtonLocation.miniCenterDocked,
           floatingActionButton: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
             child: PrimaryButton(
               loading: state.loading,
               title: LocaleKeys.createAnAccount.tr(),
