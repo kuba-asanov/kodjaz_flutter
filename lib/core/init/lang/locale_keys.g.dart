@@ -28,5 +28,9 @@ abstract class  LocaleKeys {
   static const enterCorrectData = 'enterCorrectData';
   static const aUserWithThisEmailAddressIsAlreadyRegistered = 'aUserWithThisEmailAddressIsAlreadyRegistered';
   static const thisPasswordIsEntirelyNumeric = 'thisPasswordIsEntirelyNumeric';
+  static const thisPasswordIsTooCommon = 'thisPasswordIsTooCommon';
+  static const exit = 'exit';
+  static const changePassword = 'changePassword';
+  static const settings = 'settings';
 
 }

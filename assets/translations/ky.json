@@ -25,5 +25,9 @@
     "passwordsDoNotMatch":"Сырсөздөр дал келбейт",
     "enterCorrectData":"Туура маалыматтарды киргизиңиз",
     "aUserWithThisEmailAddressIsAlreadyRegistered":"Бул электрондук почта дареги бар, колдонуучу мурунтан эле катталган.",
-    "thisPasswordIsEntirelyNumeric":"Бул сырсөз толугу менен сандык"
+    "thisPasswordIsEntirelyNumeric":"Бул сырсөз толугу менен сандык",
+    "thisPasswordIsTooCommon":"Бул сырсөз өтө кеңири таралган",
+    "exit":"Чыгуу",
+    "changePassword":"Сырсөздү өзгөртүү",
+    "settings":"Орнотуулар"
 }

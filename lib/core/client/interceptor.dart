@@ -1,6 +1,12 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:kodjaz/core/client/client.dart';
+import 'package:kodjaz/core/constants/app/app_constants.dart';
+import 'package:kodjaz/core/helpers/cache/cache.dart';
+import 'package:kodjaz/core/injection/injection.dart';
+import 'package:kodjaz/features/auth/bloc/auth_bloc.dart';
+import 'package:kodjaz/features/auth/models/token.dart';
 
 import '../helpers/exceptions.dart';
 
@@ -8,6 +14,12 @@ class AppInterceptors extends Interceptor {
   final Dio dio;
 
   AppInterceptors(this.dio);
+
+  @override
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    // TODO: implement onRequest
+    super.onRequest(options, handler);
+  }
 
   // @override
   // void onRequest(
@@ -37,6 +49,34 @@ class AppInterceptors extends Interceptor {
   //   return handler.next(options);
   // }
 
+  Future<Token> refreshToken() async {
+    final token = Cache.getSession();
+    final client = Api().createClient();
+
+    try {
+      final data = await client.refreshToken({"refresh": token?.refresh ?? ''});
+
+      log('=====Token refreshed==== \n$data');
+
+      Cache.putSession(data);
+
+      return data;
+    } catch (e) {
+      rethrow;
+    }
+  }
+  // TODO make a beter resend request method
+  // Future<Response<dynamic>> _retry(RequestOptions requestOptions) async {
+  //   final Dio _dio = Dio();
+
+  //   return await _dio
+  //       .fetch<Map<String, dynamic>>(requestOptions)
+  //       .onError((error, stackTrace) {
+  //     log('on AppInterceptors _retry  ${error.toString()}');
+  //     throw Exception();
+  //   });
+  // }
+
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
     log('onError ==== ${err.error}   ||||  ${err.response?.data} |||| on Request: ${err.requestOptions.path}, request headers: ${err.requestOptions.headers}');
@@ -55,15 +95,26 @@ class AppInterceptors extends Interceptor {
                       'A user is already registered with this e-mail address.') {
                 throw UserAlerdySignUpException(err.requestOptions);
               }
+
               if (err.response?.data["password1"] != null &&
                   err.response?.data["password1"][0] ==
                       'This password is entirely numeric.') {
                 throw OnlyNumbersException(err.requestOptions);
               }
+              if (err.response?.data["password1"] != null &&
+                  err.response?.data["password1"][0] ==
+                      'This password is too common.') {
+                throw PasswordIsTooCommonException(err.requestOptions);
+              }
             }
             {}
             throw BadRequestException(err.requestOptions);
           case 401:
+            if (err.response?.data['detail'] ==
+                'Authentication credentials were not provided.') {
+              // await refreshToken().then((value) => _retry);
+              // _retry(err.requestOptions);
+            }
             throw UnauthorizedException(err.requestOptions);
           case 404:
             throw NotFoundException(err.requestOptions);

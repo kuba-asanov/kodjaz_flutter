@@ -9,14 +9,11 @@ import 'lesson_repository.dart';
 
 @Injectable(as: LessonRepository)
 class LessonRepositoryImpl implements LessonRepository {
-  final Api _api;
-
-  LessonRepositoryImpl(this._api);
-
   @override
   Future runCode(RunCode code) {
+    final client = Api().createClient();
     try {
-      return _api.client.runCode(code);
+      return client.runCode(code);
     } catch (e) {
       rethrow;
     }

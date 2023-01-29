@@ -8,14 +8,13 @@ import 'home_repository.dart';
 
 @Injectable(as: HomeRepository)
 class HomeRepositoryImpl implements HomeRepository {
-  final Api _api;
-
-  HomeRepositoryImpl(this._api);
+  HomeRepositoryImpl();
 
   @override
   Future<List<Track>> listTracks() {
+    final client = Api().createClient();
     try {
-      return _api.client.listTracks();
+      return client.listTracks();
     } catch (e) {
       rethrow;
     }
@@ -23,8 +22,9 @@ class HomeRepositoryImpl implements HomeRepository {
 
   @override
   Future<List<Track>> myListTracks() {
+    final client = Api().createClient();
     try {
-      return _api.client.myListTracks();
+      return client.myListTracks();
     } catch (e) {
       rethrow;
     }

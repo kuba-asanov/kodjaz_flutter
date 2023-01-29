@@ -25,6 +25,9 @@
     "passwordsDoNotMatch":"Пароли не совпадают",
     "enterCorrectData":"Введите корректные данные",
     "aUserWithThisEmailAddressIsAlreadyRegistered":"Пользователь с таким e-mail адресом уже зарегистрирован",
-    "thisPasswordIsEntirelyNumeric":"Этот пароль полностью цифровой"
-    
+    "thisPasswordIsEntirelyNumeric":"Этот пароль полностью цифровой",
+    "thisPasswordIsTooCommon":"Бул сырсөз өтө кеңири таралган",
+    "exit":"Выход",
+    "changePassword":"Сменить пароль",
+    "settings":"Настройки"
 }
