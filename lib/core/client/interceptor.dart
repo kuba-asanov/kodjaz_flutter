@@ -39,7 +39,7 @@ class AppInterceptors extends Interceptor {
 
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
-    log('onError ==== ${err.error}   ||||  ${err.response?.data}');
+    log('onError ==== ${err.error}   ||||  ${err.response?.data} |||| on Request: ${err.requestOptions.path}, request headers: ${err.requestOptions.headers}');
 
     switch (err.type) {
       case DioErrorType.connectTimeout:
