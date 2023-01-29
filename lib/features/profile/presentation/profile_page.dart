@@ -121,7 +121,7 @@ class _ProfileFillCard extends StatelessWidget {
       ),
       child: InkWell(
         borderRadius: BorderRadius.circular(8.r),
-        onTap: onPressed == null ? null : () => onPressed!,
+        onTap: onPressed == null ? null : () => onPressed!(),
         child: Padding(
           padding: EdgeInsets.all(12.r),
           child: Row(
