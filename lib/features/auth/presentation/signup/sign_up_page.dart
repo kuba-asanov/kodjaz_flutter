@@ -33,6 +33,8 @@ class _SignUpPageState extends State<SignUpPage> {
   String? emailErrorText;
   String? passwordErrorText;
   String? confirmErrorText;
+  bool password1obscureText = true;
+  bool password2obscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +67,13 @@ class _SignUpPageState extends State<SignUpPage> {
               onPressed: state.loading
                   ? null
                   : () {
-                      if (emailController.text.isNotEmpty &&
+                      if (!RegExp(
+                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                          .hasMatch(emailController.text)) {
+                        setState(() {
+                          emailErrorText = LocaleKeys.invalidEmail.tr();
+                        });
+                      } else if (emailController.text.isNotEmpty &&
                           (passwordController.text.isNotEmpty &&
                               passwordController.text.length >= 8) &&
                           confirmPasswordController.text ==
@@ -73,6 +81,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         setState(() {
                           emailErrorText = null;
                           passwordErrorText = null;
+                          confirmErrorText = null;
                         });
                         _authBloc.add(SignUpEvent(
                             user: User(
@@ -138,12 +147,17 @@ class _SignUpPageState extends State<SignUpPage> {
                       errorText: passwordErrorText,
                       scrollPadding: EdgeInsets.only(bottom: 200.h),
                       hintText: LocaleKeys.password.tr(),
+                      obscureText: password1obscureText,
                       suffixIcon: IconButton(
                         icon: const Icon(
                           Icons.visibility_off,
                           color: KodJazColors.blue3,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            password1obscureText = !password1obscureText;
+                          });
+                        },
                       ),
                       controller: passwordController,
                     ),
@@ -151,13 +165,18 @@ class _SignUpPageState extends State<SignUpPage> {
                     CustomTextField(
                       errorText: confirmErrorText,
                       scrollPadding: EdgeInsets.only(bottom: 100.h),
+                      obscureText: password2obscureText,
                       hintText: LocaleKeys.confirmPassword.tr(),
                       suffixIcon: IconButton(
                         icon: const Icon(
                           Icons.visibility_off,
                           color: KodJazColors.blue3,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            password2obscureText = !password2obscureText;
+                          });
+                        },
                       ),
                       controller: confirmPasswordController,
                     ),

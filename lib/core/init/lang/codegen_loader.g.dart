@@ -41,7 +41,8 @@ class CodegenLoader extends AssetLoader{
   "passwordsDoNotMatch": "Пароли не совпадают",
   "enterCorrectData": "Введите корректные данные",
   "aUserWithThisEmailAddressIsAlreadyRegistered": "Пользователь с таким e-mail адресом уже зарегистрирован",
-  "thisPasswordIsEntirelyNumeric": "Этот пароль полностью цифровой"
+  "thisPasswordIsEntirelyNumeric": "Этот пароль полностью цифровой",
+  "thisPasswordIsTooCommon": "Бул сырсөз өтө кеңири таралган"
 };
 static const Map<String,dynamic> ky = {
   "registration": "Катталуу",
@@ -70,7 +71,8 @@ static const Map<String,dynamic> ky = {
   "passwordsDoNotMatch": "Сырсөздөр дал келбейт",
   "enterCorrectData": "Туура маалыматтарды киргизиңиз",
   "aUserWithThisEmailAddressIsAlreadyRegistered": "Бул электрондук почта дареги бар, колдонуучу мурунтан эле катталган.",
-  "thisPasswordIsEntirelyNumeric": "Бул сырсөз толугу менен сандык"
+  "thisPasswordIsEntirelyNumeric": "Бул сырсөз толугу менен сандык",
+  "thisPasswordIsTooCommon": "Бул сырсөз өтө кеңири таралган"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": ru, "ky": ky};
 }

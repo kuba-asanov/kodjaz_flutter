@@ -31,21 +31,7 @@ class AuthRepositoryImpl implements AuthRepository {
       {required String email, required String password}) async {
     try {
       final data = await _api.client
-          .checkUserToken(SignInInfo(email: email, password: password))
-          .catchError((Object obj) {
-        // non-200 error goes here.
-        switch (obj.runtimeType) {
-          case DioError:
-            final res = (obj as DioError).response;
-            log("Got error : ${res?.statusCode} -> ${res?.statusMessage}");
-            if (res?.statusCode == 401) {
-              throw UnauthorizedException;
-            }
-            break;
-          default:
-            break;
-        }
-      });
+          .checkUserToken(SignInInfo(email: email, password: password));
 
       return data;
     } catch (e) {

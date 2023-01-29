@@ -30,6 +30,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
   String? emailerrorText;
   String? passworderrorText;
+  bool passwordObscureText = true;
   final AuthBloc _authBloc = getIt<AuthBloc>();
 
   @override
@@ -62,7 +63,13 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: state.loading
                   ? null
                   : () {
-                      if (emailController.text.isNotEmpty &&
+                      if (!RegExp(
+                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                          .hasMatch(emailController.text)) {
+                        setState(() {
+                          emailerrorText = LocaleKeys.invalidEmail.tr();
+                        });
+                      } else if (emailController.text.isNotEmpty &&
                           (passwordController.text.isNotEmpty &&
                               passwordController.text.length >= 8)) {
                         setState(() {
@@ -119,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   SizedBox(height: 24.h),
                   CustomTextField(
-                    obscureText: true,
+                    obscureText: passwordObscureText,
                     errorText: passworderrorText,
                     hintText: LocaleKeys.password.tr(),
                     suffixIcon: IconButton(
@@ -127,7 +134,11 @@ class _LoginPageState extends State<LoginPage> {
                         Icons.visibility_off,
                         color: KodJazColors.blue3,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          passwordObscureText = !passwordObscureText;
+                        });
+                      },
                     ),
                     controller: passwordController,
                   ),

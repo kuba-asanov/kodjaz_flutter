@@ -55,10 +55,16 @@ class AppInterceptors extends Interceptor {
                       'A user is already registered with this e-mail address.') {
                 throw UserAlerdySignUpException(err.requestOptions);
               }
+              print((err.response?.data["password1"][0]));
               if (err.response?.data["password1"] != null &&
                   err.response?.data["password1"][0] ==
                       'This password is entirely numeric.') {
                 throw OnlyNumbersException(err.requestOptions);
+              }
+              if (err.response?.data["password1"] != null &&
+                  err.response?.data["password1"][0] ==
+                      'This password is too common.') {
+                throw PasswordIsTooCommonException(err.requestOptions);
               }
             }
             {}

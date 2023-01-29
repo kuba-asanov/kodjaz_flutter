@@ -27,6 +27,15 @@ class OnlyNumbersException extends DioError {
   }
 }
 
+class PasswordIsTooCommonException extends DioError {
+  PasswordIsTooCommonException(RequestOptions r) : super(requestOptions: r);
+
+  @override
+  String toString() {
+    return 'User alerdy sign up exception';
+  }
+}
+
 class InternalServerErrorException extends DioError {
   InternalServerErrorException(RequestOptions r) : super(requestOptions: r);
 

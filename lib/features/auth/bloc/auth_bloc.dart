@@ -8,9 +8,11 @@ import 'package:injectable/injectable.dart';
 import 'package:kodjaz/core/helpers/cache/cache.dart';
 import 'package:kodjaz/core/helpers/exceptions.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
+import 'package:kodjaz/core/injection/injection.dart';
 
 /* Local dependencies */
 import 'package:kodjaz/features/app/data/models/user.dart';
+import 'package:kodjaz/features/app/presentation/bloc/app_bloc.dart';
 import 'package:kodjaz/features/auth/models/token.dart';
 import 'package:kodjaz/features/auth/repository/auth_repository.dart';
 
@@ -27,6 +29,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<LogoutEvent>((event, emit) {
       Cache.clearSession();
       emit(const AuthState());
+      getIt<AppBloc>().add(CurrentPageIndexChanged(index: 0));
     });
 
     on<SignUpEvent>((event, emit) async {
@@ -56,13 +59,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               error: LocaleKeys.thisPasswordIsEntirelyNumeric.tr(),
               loading: false,
             ));
+          } else if (error is PasswordIsTooCommonException) {
+            emit(state.copyWith(
+              error: LocaleKeys.thisPasswordIsTooCommon.tr(),
+              loading: false,
+            ));
           } else {
             emit(state.copyWith(
               error: error.toString(),
               loading: false,
             ));
           }
-          log(error.toString());
         },
       );
     });
@@ -90,7 +97,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           }).onError((error, stackTrace) {
             log(error.toString());
 
-            if (error == UnauthorizedException) {
+            if (error is UnauthorizedException) {
               emit(state.copyWith(
                 error: LocaleKeys.userIsNotFound.tr(),
                 loading: false,
