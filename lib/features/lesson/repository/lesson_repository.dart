@@ -1,6 +1,6 @@
 /* Local dependencies */
-
+import '../model/run_code.dart';
 
 abstract class LessonRepository {
-  // Future<List<Track>> listTracks();
+  Future runCode(RunCode code);
 }

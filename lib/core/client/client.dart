@@ -13,6 +13,8 @@ import 'package:kodjaz/features/auth/models/token.dart';
 import 'package:kodjaz/features/models/track.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../../features/lesson/model/run_code.dart';
+
 part 'client.g.dart';
 
 class Api {
@@ -49,6 +51,9 @@ abstract class RestClient {
 
   @GET("/v1/tracks/")
   Future<List<Track>> listTracks();
+
+  @POST("/v1/user/submissions/")
+  Future runCode(@Body() RunCode code);
 
   @GET("/v1/user/tracks/")
   Future<List<Track>> myListTracks();

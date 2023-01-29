@@ -7,7 +7,7 @@ import 'package:kodjaz/features/auth/presentation/signup/sign_up_page.dart';
 import 'package:kodjaz/features/courses/presentation/course_detail_page.dart';
 
 import '../../features/app/presentation/navigation_page.dart';
-import '../../features/lesson/presentation/lesson_page.dart';
+import '../../features/lesson/presentation/exercise_page.dart';
 import '../../features/splash_screen/splash_screen_page.dart';
 
 @AdaptiveAutoRouter(
@@ -19,7 +19,7 @@ import '../../features/splash_screen/splash_screen_page.dart';
     ),
     AutoRoute(page: NavigationPage),
     AutoRoute(page: CourseDetailPage),
-    AutoRoute(page: LessonPage),
+    AutoRoute(page: ExercisePage),
     AutoRoute(page: LoginPage),
     AutoRoute(page: SignUpPage),
     // RedirectRoute(path: '*', redirectTo: '/'),

@@ -12,8 +12,6 @@ import 'package:kodjaz/core/helpers/colors.dart';
 import 'package:kodjaz/core/helpers/text_styles.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
 import 'package:kodjaz/core/injection/injection.dart';
-import 'package:kodjaz/core/navigation/auto_route.gr.dart';
-import 'package:kodjaz/core/navigation/navigation.dart';
 import 'package:kodjaz/features/app/data/models/user.dart';
 import 'package:kodjaz/features/auth/bloc/auth_bloc.dart';
 
@@ -183,6 +181,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: TextButton(
+                        // TODO: add link 
                         onPressed: () {},
                         child: Text(
                           'Катталуу менен мен Kodjaz дын Кызмат көрсөтүү саясаты жана Купуялык саясаты менен макулмун деп белгилейм.',

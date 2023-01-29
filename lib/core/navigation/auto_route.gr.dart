@@ -19,7 +19,7 @@ import 'package:kodjaz/features/auth/presentation/signup/sign_up_page.dart'
     as _i6;
 import 'package:kodjaz/features/courses/presentation/course_detail_page.dart'
     as _i3;
-import 'package:kodjaz/features/lesson/presentation/lesson_page.dart' as _i4;
+import 'package:kodjaz/features/lesson/presentation/exercise_page.dart' as _i4;
 import 'package:kodjaz/features/models/track.dart' as _i9;
 import 'package:kodjaz/features/splash_screen/splash_screen_page.dart' as _i1;
 
@@ -53,13 +53,13 @@ class AppRouter extends _i7.RootStackRouter {
         ),
       );
     },
-    LessonRoute.name: (routeData) {
-      final args = routeData.argsAs<LessonRouteArgs>();
+    ExerciseRoute.name: (routeData) {
+      final args = routeData.argsAs<ExerciseRouteArgs>();
       return _i7.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i4.LessonPage(
+        child: _i4.ExercisePage(
           key: args.key,
-          lesson: args.lesson,
+          exercise: args.exercise,
         ),
       );
     },
@@ -92,8 +92,8 @@ class AppRouter extends _i7.RootStackRouter {
           path: '/course-detail-page',
         ),
         _i7.RouteConfig(
-          LessonRoute.name,
-          path: '/lesson-page',
+          ExerciseRoute.name,
+          path: '/exercise-page',
         ),
         _i7.RouteConfig(
           LoginRoute.name,
@@ -177,36 +177,36 @@ class CourseDetailRouteArgs {
 }
 
 /// generated route for
-/// [_i4.LessonPage]
-class LessonRoute extends _i7.PageRouteInfo<LessonRouteArgs> {
-  LessonRoute({
+/// [_i4.ExercisePage]
+class ExerciseRoute extends _i7.PageRouteInfo<ExerciseRouteArgs> {
+  ExerciseRoute({
     _i8.Key? key,
-    required _i9.Lesson lesson,
+    required _i9.Exercise exercise,
   }) : super(
-          LessonRoute.name,
-          path: '/lesson-page',
-          args: LessonRouteArgs(
+          ExerciseRoute.name,
+          path: '/exercise-page',
+          args: ExerciseRouteArgs(
             key: key,
-            lesson: lesson,
+            exercise: exercise,
           ),
         );
 
-  static const String name = 'LessonRoute';
+  static const String name = 'ExerciseRoute';
 }
 
-class LessonRouteArgs {
-  const LessonRouteArgs({
+class ExerciseRouteArgs {
+  const ExerciseRouteArgs({
     this.key,
-    required this.lesson,
+    required this.exercise,
   });
 
   final _i8.Key? key;
 
-  final _i9.Lesson lesson;
+  final _i9.Exercise exercise;
 
   @override
   String toString() {
-    return 'LessonRouteArgs{key: $key, lesson: $lesson}';
+    return 'ExerciseRouteArgs{key: $key, exercise: $exercise}';
   }
 }
 

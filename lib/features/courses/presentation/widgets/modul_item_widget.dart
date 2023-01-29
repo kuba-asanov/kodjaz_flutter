@@ -70,7 +70,7 @@ class _ModuleAccordionStateWidget extends State<ModuleAccordionWidget> {
                         SvgPicture.asset('assets/images/svg/play_icon.svg'),
                         SizedBox(width: 14.w),
                         Text(
-                          '${widget.lessons.length} ${LocaleKeys.lesson.tr()}',
+                          '${widget.lessons.first.lesson_exercises.length} ${LocaleKeys.lesson.tr()}',
                           style: KodjazTextStyle.fS12FW400
                               .copyWith(color: KodJazColors.grey5),
                         ),
@@ -96,12 +96,13 @@ class _ModuleAccordionStateWidget extends State<ModuleAccordionWidget> {
                 physics: const NeverScrollableScrollPhysics(),
                 separatorBuilder: (context, index) => SizedBox(height: 16.h),
                 shrinkWrap: true,
-                itemCount: widget.lessons.length,
+                itemCount: widget.lessons.first.lesson_exercises.length,
                 itemBuilder: (context, index) {
-                  final Lesson lesson = widget.lessons[index];
+                  final Exercise exercise =
+                      widget.lessons.first.lesson_exercises[index];
                   late final String statusImagePath;
 
-                  switch (widget.lessons[index].status) {
+                  switch (exercise.status) {
                     case LessonsStatus.done:
                       statusImagePath = 'done.svg';
                       break;
@@ -115,7 +116,7 @@ class _ModuleAccordionStateWidget extends State<ModuleAccordionWidget> {
 
                   return InkWell(
                     onTap: () {
-                      Navigation.router.push(LessonRoute(lesson: lesson));
+                      Navigation.router.push(ExerciseRoute(exercise: exercise));
                     },
                     child: Container(
                       height: 40.h,
@@ -130,7 +131,7 @@ class _ModuleAccordionStateWidget extends State<ModuleAccordionWidget> {
                             Expanded(
                               flex: 5,
                               child: Text(
-                                lesson.name,
+                                exercise.name,
                                 style: KodjazTextStyle.fS16FW400,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 2,
