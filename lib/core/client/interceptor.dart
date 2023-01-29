@@ -53,8 +53,6 @@ class AppInterceptors extends Interceptor {
     final token = Cache.getSession();
     final client = Api().createClient();
 
-    print(token?.refresh);
-
     try {
       final data = await client.refreshToken({"refresh": token?.refresh ?? ''});
 
@@ -67,20 +65,20 @@ class AppInterceptors extends Interceptor {
       rethrow;
     }
   }
+  // TODO make a beter resend request method
+  // Future<Response<dynamic>> _retry(RequestOptions requestOptions) async {
+  //   final Dio _dio = Dio();
 
-  Future<Response<dynamic>> _retry(RequestOptions requestOptions) async {
-    final Dio _dio = Dio();
-
-    return await _dio
-        .fetch<Map<String, dynamic>>(requestOptions)
-        .onError((error, stackTrace) {
-      log('on AppInterceptors _retry  ${error.toString()}');
-      throw Exception();
-    });
-  }
+  //   return await _dio
+  //       .fetch<Map<String, dynamic>>(requestOptions)
+  //       .onError((error, stackTrace) {
+  //     log('on AppInterceptors _retry  ${error.toString()}');
+  //     throw Exception();
+  //   });
+  // }
 
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) async {
+  void onError(DioError err, ErrorInterceptorHandler handler) {
     log('onError ==== ${err.error}   ||||  ${err.response?.data} |||| on Request: ${err.requestOptions.path}, request headers: ${err.requestOptions.headers}');
 
     switch (err.type) {
@@ -115,7 +113,7 @@ class AppInterceptors extends Interceptor {
             if (err.response?.data['detail'] ==
                 'Authentication credentials were not provided.') {
               // await refreshToken().then((value) => _retry);
-              await _retry(err.requestOptions);
+              // _retry(err.requestOptions);
             }
             throw UnauthorizedException(err.requestOptions);
           case 404:
