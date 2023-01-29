@@ -5,6 +5,7 @@ class AuthState with _$AuthState {
   const factory AuthState({
     Token? token,
     @Default(false) bool loading,
+    User? user,
     bool? successSignUp,
     String? error,
   }) = _Initial;

@@ -1,22 +1,33 @@
 /* External dependencies */
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/core/common/common_widgets.dart';
-import 'package:kodjaz/core/helpers/cache/cache.dart';
 import 'package:kodjaz/core/helpers/colors.dart';
 import 'package:kodjaz/core/helpers/screen_util.dart';
+import 'package:kodjaz/core/helpers/text_styles.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
 import 'package:kodjaz/core/injection/injection.dart';
 import 'package:kodjaz/core/navigation/auto_route.gr.dart';
 import 'package:kodjaz/core/navigation/navigation.dart';
 import 'package:kodjaz/features/auth/bloc/auth_bloc.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  final AuthBloc _authBloc = getIt<AuthBloc>();
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,34 +48,29 @@ class ProfilePage extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Column(
                     children: [
-                      Card(
-                        shape: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8.r),
-                          borderSide: const BorderSide(
-                            color: KodJazColors.white,
-                          ),
-                        ),
-                        child: InkWell(
-                          borderRadius: BorderRadius.circular(8.r),
-                          onTap: () {
-                            getIt<AuthBloc>().add(LogoutEvent());
+                      //TODO add user name when getUser Api will be ready
+                      // BlocBuilder<AuthBloc, AuthState>(
+                      //   bloc: _authBloc,
+                      //   builder: (context, state) {
+                      //     return _ProfileFillCard(
+                      //       title: state.user?.email ?? '',
+                      //     );
+                      //   },
+                      // ),
+                      _ProfileFillCard(
+                        title: LocaleKeys.changePassword.tr(),
+                      ),
+                      _ProfileFillCard(
+                        title: LocaleKeys.settings.tr(),
+                      ),
+                      _ProfileFillCard(
+                        onPressed: () {
+                          getIt<AuthBloc>().add(LogoutEvent());
 
-                            Navigation.router.replace(const LoginRoute());
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.all(12.r),
-                            child: Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    Text('Выйти'),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      )
+                          Navigation.router.replace(const LoginRoute());
+                        },
+                        title: LocaleKeys.exit.tr(),
+                      ),
                     ],
                   ),
                 ),
@@ -84,6 +90,63 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ProfileFillCard extends StatelessWidget {
+  final String title;
+  final String? subTitle;
+  final Icon? icon;
+  final Function? onPressed;
+
+  const _ProfileFillCard({
+    Key? key,
+    this.onPressed,
+    required this.title,
+    this.subTitle,
+    this.icon,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.r),
+        borderSide: const BorderSide(
+          color: KodJazColors.white,
+        ),
+      ),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(8.r),
+        onTap: onPressed == null ? null : () => onPressed!,
+        child: Padding(
+          padding: EdgeInsets.all(12.r),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: KodjazTextStyle.fS16FW500,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    if (subTitle != null)
+                      Text(
+                        subTitle!,
+                        style: KodjazTextStyle.fS16FW500,
+                      ),
+                  ],
+                ),
+              ),
+              icon ?? const Icon(Icons.chevron_right),
+            ],
+          ),
         ),
       ),
     );

@@ -5,28 +5,28 @@ import 'package:kodjaz/core/client/interceptor.dart';
 
 /* Local dependencies */
 import 'package:kodjaz/core/constants/app/app_constants.dart';
+import 'package:kodjaz/core/helpers/cache/cache.dart';
+import 'package:kodjaz/core/injection/injection.dart';
 import 'package:kodjaz/features/app/data/models/user.dart';
+import 'package:kodjaz/features/auth/bloc/auth_bloc.dart';
 import 'package:kodjaz/features/auth/models/token.dart';
 import 'package:kodjaz/features/models/track.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'client.g.dart';
 
-@singleton
 class Api {
-  final client = createClient();
-
-  static RestClient createClient() {
+  RestClient createClient() {
+    final Token? token = getIt<AuthBloc>().state.token;
     var dio = Dio(BaseOptions(
       receiveTimeout: 15000, // 15 seconds
       connectTimeout: 15000,
       sendTimeout: 15000,
     ));
 
-    // dio.options.headers["X-CSRFToken"] =
-    //     "rq7kQoqTtTNFYsvWd8qbYYNQgWlSkPjWh0YzQEa7hivt94AAfbHbtDp6LnLeDhNk";
-    dio.options.headers["X-CSRFToken"] =
-        "hjUSFfQCAvSuHxhoD4xY4DfRNcRt81NgFvnIJ0CljaBCgQQUbuyQAxgTGFTFMjtU";
+    if (token != null) {
+      dio.options.headers["X-CSRFToken"] = Cache.getSession()?.access;
+    }
 
     dio.interceptors.addAll({AppInterceptors(dio)});
 
@@ -40,6 +40,9 @@ abstract class RestClient {
 
   @POST("/token/obtain/")
   Future<Token> checkUserToken(@Body() SignInInfo signInInfo);
+
+  @POST("/token/refresh/")
+  Future<Token> refreshToken(@Body() Map<String, dynamic> refreshToken);
 
   @POST("/registration/")
   Future<UserCreateResponse> createUser(@Body() User user);

@@ -33,7 +33,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     });
 
     on<SignUpEvent>((event, emit) async {
-      print('SignUpEvent');
       emit(state.copyWith(
         loading: true,
         error: null,
@@ -90,6 +89,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(
               state.copyWith(
                 loading: false,
+                user: event.user,
                 token: token,
                 error: null,
               ),

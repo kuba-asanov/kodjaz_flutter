@@ -2,7 +2,6 @@
 import 'package:hive/hive.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/features/app/data/models/user.dart';
 import 'package:kodjaz/features/auth/models/token.dart';
 
 class Cache {
