@@ -5,12 +5,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+
+/* Local dependencies */
 import 'package:kodjaz/core/helpers/cache/cache.dart';
 import 'package:kodjaz/core/helpers/exceptions.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
 import 'package:kodjaz/core/injection/injection.dart';
-
-/* Local dependencies */
 import 'package:kodjaz/features/app/data/models/user.dart';
 import 'package:kodjaz/features/app/presentation/bloc/app_bloc.dart';
 import 'package:kodjaz/features/auth/models/token.dart';
