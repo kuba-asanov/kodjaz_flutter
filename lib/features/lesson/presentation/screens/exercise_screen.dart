@@ -1,5 +1,6 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kodjaz/features/models/track.dart';
 
@@ -26,18 +27,24 @@ class ExerciseScreen extends StatelessWidget {
               style: KodjazTextStyle.fS16FW600,
             ),
             SizedBox(height: 10.h),
-            Text(
-              exercise.lecture,
-              style: KodjazTextStyle.fS15FW400,
+            MarkdownBody(
+              data: exercise.lecture,
+              styleSheet: MarkdownStyleSheet(
+                p: KodjazTextStyle.fS15FW400,
+                code: KodjazTextStyle.fS14FW600,
+              ),
             ),
             SizedBox(height: 10.h),
             Text(
               "Тапшырма",
               style: KodjazTextStyle.fS15FW600,
             ),
-            Text(
-              exercise.instruction,
-              style: KodjazTextStyle.fS15FW400,
+            MarkdownBody(
+              data: exercise.instruction,
+              styleSheet: MarkdownStyleSheet(
+                code: KodjazTextStyle.fS14FW600,
+                p: KodjazTextStyle.fS15FW400,
+              ),
             ),
             SizedBox(height: 10.h),
             ExpandablePanel(
@@ -49,9 +56,12 @@ class ExerciseScreen extends StatelessWidget {
                 "Кыйытма",
                 style: KodjazTextStyle.fS15FW600,
               ),
-              expanded: Text(
-                exercise.hint,
-                style: KodjazTextStyle.fS15FW400,
+              expanded: MarkdownBody(
+                data: exercise.hint,
+                styleSheet: MarkdownStyleSheet(
+                  code: KodjazTextStyle.fS14FW600,
+                  p: KodjazTextStyle.fS15FW400,
+                ),
               ),
               builder: (_, collapsed, expanded) {
                 return Padding(
