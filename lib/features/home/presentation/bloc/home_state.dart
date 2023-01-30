@@ -6,7 +6,6 @@ class HomeState with _$HomeState {
     @Default(false) bool loading,
     @Default([]) List<Track> listOfCourse,
     @Default([]) List<Track> myListOfCourse,
-
-    // CustomError? error,
+    DioError? error,
   }) = _HomeState;
 }

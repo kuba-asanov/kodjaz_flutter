@@ -1,85 +1,62 @@
 import 'dart:developer';
+import 'dart:io';
 
+import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:kodjaz/core/client/client.dart';
 import 'package:kodjaz/core/constants/app/app_constants.dart';
-import 'package:kodjaz/core/helpers/cache/cache.dart';
 import 'package:kodjaz/core/injection/injection.dart';
-import 'package:kodjaz/features/auth/bloc/auth_bloc.dart';
-import 'package:kodjaz/features/auth/models/token.dart';
 
 import '../helpers/exceptions.dart';
+import '../helpers/heplers.dart';
 
 class AppInterceptors extends Interceptor {
   final Dio dio;
+  final String? accessToken;
+  final PersistCookieJar? persistentCookies;
 
-  AppInterceptors(this.dio);
+  AppInterceptors(
+    this.dio, {
+    this.accessToken,
+    this.persistentCookies,
+  });
+
+  Future<Response<dynamic>> _retry(
+      RequestOptions requestOptions, Dio dio) async {
+    return await dio
+        .fetch<Map<String, dynamic>>(requestOptions)
+        .onError((error, stackTrace) {
+      log('on AppInterceptors _retry  ${error.toString()}');
+      throw Exception();
+    });
+  }
 
   @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    // TODO: implement onRequest
-    super.onRequest(options, handler);
-  }
+  void onResponse(Response response, ResponseInterceptorHandler handler) async {
+    if (persistentCookies != null) {
+      List<Cookie?> cookies = await persistentCookies!
+          .loadForRequest(Uri.parse(ApplicationConstants.endpoint));
 
-  // @override
-  // void onRequest(
-  //     RequestOptions options, RequestInterceptorHandler handler) async {
-  //   var accessToken = await TokenRepository().getAccessToken();
+      if (cookies.isNotEmpty) {
+        final String? csrfTokenValue =
+            cookies.firstWhere((c) => c?.name == 'csrftoken')?.value;
 
-  //   if (accessToken != null) {
-  //     var expiration = await TokenRepository().getAccessTokenRemainingTime();
+        if (csrfTokenValue != null) {
+          dio.options.headers['Authorization'] = "Bearer $accessToken";
+          dio.options.headers['X-CSRFToken'] =
+              csrfTokenValue; //setting the csrftoken from the response in the headers
+        }
 
-  //     if (expiration.inSeconds < 60) {
-  //       dio.interceptors.requestLock.lock();
-
-  //       // Call the refresh endpoint to get a new token
-  //       await UserService()
-  //           .refresh()
-  //           .then((response) async {
-  //         await TokenRepository().persistAccessToken(response.accessToken);
-  //         accessToken = response.accessToken;
-  //       }).catchError((error, stackTrace) {
-  //         handler.reject(error, true);
-  //       }).whenComplete(() => dio.interceptors.requestLock.unlock());
-  //     }
-
-  //     options.headers['Authorization'] = 'Bearer $accessToken';
-  //   }
-
-  //   return handler.next(options);
-  // }
-
-  Future<Token> refreshToken() async {
-    final token = Cache.getSession();
-    final client = Api().createClient();
-
-    try {
-      final data = await client.refreshToken({"refresh": token?.refresh ?? ''});
-
-      log('=====Token refreshed==== \n$data');
-
-      Cache.putSession(data);
-
-      return data;
-    } catch (e) {
-      rethrow;
+        log("csrfTokenValue: $csrfTokenValue");
+      }
     }
-  }
-  // TODO make a beter resend request method
-  // Future<Response<dynamic>> _retry(RequestOptions requestOptions) async {
-  //   final Dio _dio = Dio();
 
-  //   return await _dio
-  //       .fetch<Map<String, dynamic>>(requestOptions)
-  //       .onError((error, stackTrace) {
-  //     log('on AppInterceptors _retry  ${error.toString()}');
-  //     throw Exception();
-  //   });
-  // }
+    return handler.next(response);
+  }
 
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
-    log('onError ==== ${err.error}   ||||  ${err.response?.data} |||| on Request: ${err.requestOptions.path}, request headers: ${err.requestOptions.headers}');
+    log('onError ==== ${err.error}   ||||  ${err.response?.data} |||| on Request: ${err.requestOptions.path}, request headers: ${err.requestOptions.headers}, body:${err.requestOptions.data}');
 
     switch (err.type) {
       case DioErrorType.connectTimeout:
@@ -106,15 +83,37 @@ class AppInterceptors extends Interceptor {
                       'This password is too common.') {
                 throw PasswordIsTooCommonException(err.requestOptions);
               }
+
+              if (err.response?.data["detail"] != null &&
+                  err.response?.data["detail"] ==
+                      'User is not subscribed to any tracks') {
+                throw NotFoundException(err.requestOptions);
+              }
             }
             {}
             throw BadRequestException(err.requestOptions);
           case 401:
             if (err.response?.data['detail'] ==
                 'Authentication credentials were not provided.') {
-              // await refreshToken().then((value) => _retry);
-              // _retry(err.requestOptions);
+              if (accessToken != null) {
+                getIt<Api>()
+                    .getCsrftoken(accessToken!, dio)
+                    .then((_) => _retry(err.requestOptions, dio));
+
+                return;
+              }
             }
+
+            if (err.response?.data['code'] == 'token_not_valid') {
+              refreshToken().then((token) {
+                getIt<Api>()
+                    .getCsrftoken(token.access!, dio)
+                    .then((_) => _retry(err.requestOptions, dio));
+              });
+              
+              return;
+            }
+
             throw UnauthorizedException(err.requestOptions);
           case 404:
             throw NotFoundException(err.requestOptions);

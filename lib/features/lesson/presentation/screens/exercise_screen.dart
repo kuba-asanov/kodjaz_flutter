@@ -15,20 +15,40 @@ class ExerciseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 10.h),
-            child: Text(
+      child: Padding(
+        padding: const EdgeInsets.all(15.0).r,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
               exercise.name,
-              style: KodjazTextStyle.fS14FW600,
+              style: KodjazTextStyle.fS16FW600,
             ),
-          ),
-          Text(
-            exercise.lecture,
-            style: KodjazTextStyle.fS14FW400,
-          ),
-        ],
+            SizedBox(height: 10.h),
+            Text(
+              exercise.lecture,
+              style: KodjazTextStyle.fS15FW400,
+            ),
+            SizedBox(height: 10.h),
+            Text(
+              "Тапшырма",
+              style: KodjazTextStyle.fS15FW600,
+            ),
+            Text(
+              exercise.instruction,
+              style: KodjazTextStyle.fS15FW400,
+            ),
+            SizedBox(height: 10.h),
+            Text(
+              "Кыйытма",
+              style: KodjazTextStyle.fS15FW600,
+            ),
+            Text(
+              exercise.hint,
+              style: KodjazTextStyle.fS15FW400,
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,5 +1,6 @@
 /* External dependencies */
-import 'dart:math';
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -14,41 +15,38 @@ part 'lesson_state.dart';
 part 'lesson_bloc.freezed.dart';
 
 @lazySingleton
-class LessonBloc extends Bloc<LessonEvent, LessonState> {
+class LessonBloc extends Cubit<LessonState> {
   final LessonRepository _repo;
 
-  LessonBloc(this._repo) : super(LessonState()) {
-    on<SetExerciseEvent>(
-      (event, emit) async {
-        emit(state.copyWith(exercise: event.exercise));
-      },
-    );
+  LessonBloc(this._repo) : super(LessonState());
 
-    on<RunExerciseEvent>(
-      (event, emit) async {
-        emit(state.copyWith());
+  void setExerciseEvent(Exercise exercise) {
+    emit(LessonState(exercise: exercise));
+  }
 
-        await _repo
-            .runCode(
-          RunCode(
-            submitted_code: event.submitted_code,
-            id: event.id,
-          ),
-        )
-            .then((r) {
-          log(r);
+  Future<void> runExerciseEvent(String submitted_code, int id) async {
+    emit(state.copyWith(running: true));
 
-          emit(
-            state.copyWith(
-              loading: false,
-            ),
-          );
-        }).onError((error, stackTrace) {
-          emit(state.copyWith(
-            loading: false,
-          ));
-        });
-      },
-    );
+    try {
+      final CodeAnswer result = await _repo.runCode(
+        RunCode(
+          submitted_code: submitted_code,
+          exercise: id,
+        ),
+      );
+
+      log("result: $result");
+
+      emit(state.copyWith(
+        running: false,
+        codeAnswer: result,
+      ));
+    } catch (e) {
+      log("error: $e");
+
+      emit(state.copyWith(
+        running: false,
+      ));
+    }
   }
 }

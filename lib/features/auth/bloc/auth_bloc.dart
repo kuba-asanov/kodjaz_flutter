@@ -1,6 +1,7 @@
 /* External dependencies */
 import 'dart:developer';
 
+import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -16,6 +17,8 @@ import 'package:kodjaz/features/app/presentation/bloc/app_bloc.dart';
 import 'package:kodjaz/features/auth/models/token.dart';
 import 'package:kodjaz/features/auth/repository/auth_repository.dart';
 
+import '../../../core/client/client.dart';
+
 part 'auth_bloc.freezed.dart';
 part 'auth_bloc.g.dart';
 part 'auth_event.dart';
@@ -26,10 +29,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository _authRepository;
 
   AuthBloc(this._authRepository) : super(const AuthState()) {
-    on<LogoutEvent>((event, emit) {
+    on<LogoutEvent>((event, emit) async {
       Cache.clearSession();
       emit(const AuthState());
       getIt<AppBloc>().add(CurrentPageIndexChanged(index: 0));
+      await getIt<Api>().initClient();
     });
 
     on<SignUpEvent>((event, emit) async {
@@ -84,8 +88,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           await _authRepository
               .checkUserToken(
                   email: event.user.email!, password: event.user.password1!)
-              .then((token) {
+              .then((token) async {
             Cache.putSession(token);
+
+            if (token.access == null) {
+              throw UnauthorizedException(
+                  RequestOptions(path: 'Token is null'));
+            }
+
+            await getIt<Api>().initClient(accessToken: token.access!);
+
             emit(
               state.copyWith(
                 loading: false,

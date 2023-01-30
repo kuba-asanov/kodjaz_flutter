@@ -5,32 +5,19 @@ import 'package:highlight/languages/all.dart';
 import 'code_snippets.dart';
 import 'themes.dart';
 
-class CustomCodeBox extends StatefulWidget {
+class CustomCodeBox extends StatelessWidget {
   final String language;
   final String theme;
-  final String? source;
+  final bool readOnly;
+  final CodeController codeController;
 
   const CustomCodeBox({
     Key? key,
+    this.readOnly = false,
     required this.language,
     required this.theme,
-    this.source,
+    required this.codeController,
   }) : super(key: key);
-
-  @override
-  _CustomCodeBoxState createState() => _CustomCodeBoxState();
-}
-
-class _CustomCodeBoxState extends State<CustomCodeBox> {
-  String? language;
-  String? theme;
-
-  @override
-  void initState() {
-    super.initState();
-    language = widget.language;
-    theme = widget.theme;
-  }
 
   List<String?> get languageList {
     const TOP = <String>{
@@ -95,86 +82,55 @@ class _CustomCodeBoxState extends State<CustomCodeBox> {
 
   @override
   Widget build(BuildContext context) {
-    final codeDropdown =
-        buildDropdown(languageList, language!, Icons.code, (val) {
-      if (val == null) return;
-      setState(() => language = val);
-    });
-    final themeDropdown =
-        buildDropdown(themeList, theme!, Icons.color_lens, (val) {
-      if (val == null) return;
-      setState(() => theme = val);
-    });
-    final dropdowns = Row(children: [
-      // const SizedBox(width: 12.0),
-      // codeDropdown,
-      const SizedBox(width: 12.0),
-      themeDropdown,
-    ]);
+    // final codeDropdown =
+    //     buildDropdown(languageList, language!, Icons.code, (val) {
+    //   if (val == null) return;
+    //   setState(() => language = val);
+    // });
+    // final themeDropdown =
+    //     buildDropdown(themeList, theme!, Icons.color_lens, (val) {
+    //   if (val == null) return;
+    //   setState(() => theme = val);
+    // });
+    // final dropdowns = Row(children: [
+    //   // const SizedBox(width: 12.0),
+    //   // codeDropdown,
+    //   const SizedBox(width: 12.0),
+    //   themeDropdown,
+    // ]);
 
     final codeField = InnerField(
       key: ValueKey("$language - $theme"),
-      language: language!,
-      theme: theme!,
-      source: widget.source,
+      language: language,
+      theme: theme,
+      codeController: codeController,
+      readOnly: readOnly,
     );
 
     return Column(children: [
-      dropdowns,
+      // widget.withoutDrDwn ? const SizedBox() : dropdowns,
       codeField,
     ]);
   }
 }
 
-class InnerField extends StatefulWidget {
+class InnerField extends StatelessWidget {
   final String language;
   final String theme;
-  final String? source;
+  final CodeController codeController;
+  final bool readOnly;
 
   const InnerField({
     Key? key,
     required this.language,
     required this.theme,
-    this.source,
+    required this.codeController,
+    this.readOnly = false,
   }) : super(key: key);
 
   @override
-  _InnerFieldState createState() => _InnerFieldState();
-}
-
-class _InnerFieldState extends State<InnerField> {
-  CodeController? _codeController;
-
-  @override
-  void initState() {
-    super.initState();
-    _codeController = CodeController(
-      text: widget.source ?? CODE_SNIPPETS[widget.language],
-      patternMap: const {
-        r"\B#[a-zA-Z0-9]+\b": TextStyle(color: Colors.red),
-        r"\B@[a-zA-Z0-9]+\b": TextStyle(
-          fontWeight: FontWeight.w800,
-          color: Colors.blue,
-        ),
-        r"\B![a-zA-Z0-9]+\b":
-            TextStyle(color: Colors.yellow, fontStyle: FontStyle.italic),
-      },
-      stringMap: {
-        "bev": const TextStyle(color: Colors.indigo),
-      },
-      language: allLanguages[widget.language],
-    );
-  }
-
-  @override
-  void dispose() {
-    _codeController?.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final styles = THEMES[widget.theme];
+    final styles = THEMES[theme];
 
     if (styles == null) {
       return _buildCodeField();
@@ -188,7 +144,8 @@ class _InnerFieldState extends State<InnerField> {
 
   Widget _buildCodeField() {
     return CodeField(
-      controller: _codeController!,
+      controller: codeController,
+      readOnly: readOnly,
       textStyle: const TextStyle(fontFamily: 'SourceCode'),
     );
   }

@@ -1,9 +1,11 @@
 /* External dependencies */
+import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 /* Local dependencies */
+import '../../../../core/helpers/exceptions.dart';
 import '../../repository/home_repository.dart';
 import 'package:kodjaz/features/models/track.dart';
 
@@ -142,8 +144,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
               loading: false,
             ),
           );
-        }).onError((error, stackTrace) {
+        }).onError((DioError error, stackTrace) {
           emit(state.copyWith(
+            error: error,
             loading: false,
           ));
         });

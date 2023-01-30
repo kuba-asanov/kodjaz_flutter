@@ -15,7 +15,7 @@ import 'package:kodjaz/features/auth/repository/auth_repository.dart';
 class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<UserCreateResponse> createUser(User user) async {
-    final client = Api().createClient();
+    final client = getIt<Api>().client;
 
     try {
       final data = await client.createUser(user);
@@ -29,7 +29,7 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<Token> checkUserToken(
       {required String email, required String password}) async {
-    final client = Api().createClient();
+    final client = getIt<Api>().client;
 
     try {
       final data = await client

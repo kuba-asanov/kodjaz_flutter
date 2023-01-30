@@ -17,7 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$LessonState {
   bool get loading => throw _privateConstructorUsedError;
+  bool get running => throw _privateConstructorUsedError;
   Exercise? get exercise => throw _privateConstructorUsedError;
+  CodeAnswer? get codeAnswer => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LessonStateCopyWith<LessonState> get copyWith =>
@@ -30,9 +32,11 @@ abstract class $LessonStateCopyWith<$Res> {
           LessonState value, $Res Function(LessonState) then) =
       _$LessonStateCopyWithImpl<$Res, LessonState>;
   @useResult
-  $Res call({bool loading, Exercise? exercise});
+  $Res call(
+      {bool loading, bool running, Exercise? exercise, CodeAnswer? codeAnswer});
 
   $ExerciseCopyWith<$Res>? get exercise;
+  $CodeAnswerCopyWith<$Res>? get codeAnswer;
 }
 
 /// @nodoc
@@ -49,17 +53,27 @@ class _$LessonStateCopyWithImpl<$Res, $Val extends LessonState>
   @override
   $Res call({
     Object? loading = null,
+    Object? running = null,
     Object? exercise = freezed,
+    Object? codeAnswer = freezed,
   }) {
     return _then(_value.copyWith(
       loading: null == loading
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
               as bool,
+      running: null == running
+          ? _value.running
+          : running // ignore: cast_nullable_to_non_nullable
+              as bool,
       exercise: freezed == exercise
           ? _value.exercise
           : exercise // ignore: cast_nullable_to_non_nullable
               as Exercise?,
+      codeAnswer: freezed == codeAnswer
+          ? _value.codeAnswer
+          : codeAnswer // ignore: cast_nullable_to_non_nullable
+              as CodeAnswer?,
     ) as $Val);
   }
 
@@ -74,6 +88,18 @@ class _$LessonStateCopyWithImpl<$Res, $Val extends LessonState>
       return _then(_value.copyWith(exercise: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CodeAnswerCopyWith<$Res>? get codeAnswer {
+    if (_value.codeAnswer == null) {
+      return null;
+    }
+
+    return $CodeAnswerCopyWith<$Res>(_value.codeAnswer!, (value) {
+      return _then(_value.copyWith(codeAnswer: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -84,10 +110,13 @@ abstract class _$$_LessonStateCopyWith<$Res>
       __$$_LessonStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool loading, Exercise? exercise});
+  $Res call(
+      {bool loading, bool running, Exercise? exercise, CodeAnswer? codeAnswer});
 
   @override
   $ExerciseCopyWith<$Res>? get exercise;
+  @override
+  $CodeAnswerCopyWith<$Res>? get codeAnswer;
 }
 
 /// @nodoc
@@ -102,17 +131,27 @@ class __$$_LessonStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? loading = null,
+    Object? running = null,
     Object? exercise = freezed,
+    Object? codeAnswer = freezed,
   }) {
     return _then(_$_LessonState(
       loading: null == loading
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
               as bool,
+      running: null == running
+          ? _value.running
+          : running // ignore: cast_nullable_to_non_nullable
+              as bool,
       exercise: freezed == exercise
           ? _value.exercise
           : exercise // ignore: cast_nullable_to_non_nullable
               as Exercise?,
+      codeAnswer: freezed == codeAnswer
+          ? _value.codeAnswer
+          : codeAnswer // ignore: cast_nullable_to_non_nullable
+              as CodeAnswer?,
     ));
   }
 }
@@ -120,17 +159,26 @@ class __$$_LessonStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LessonState implements _LessonState {
-  _$_LessonState({this.loading = false, this.exercise});
+  _$_LessonState(
+      {this.loading = false,
+      this.running = false,
+      this.exercise,
+      this.codeAnswer});
 
   @override
   @JsonKey()
   final bool loading;
   @override
+  @JsonKey()
+  final bool running;
+  @override
   final Exercise? exercise;
+  @override
+  final CodeAnswer? codeAnswer;
 
   @override
   String toString() {
-    return 'LessonState(loading: $loading, exercise: $exercise)';
+    return 'LessonState(loading: $loading, running: $running, exercise: $exercise, codeAnswer: $codeAnswer)';
   }
 
   @override
@@ -139,12 +187,16 @@ class _$_LessonState implements _LessonState {
         (other.runtimeType == runtimeType &&
             other is _$_LessonState &&
             (identical(other.loading, loading) || other.loading == loading) &&
+            (identical(other.running, running) || other.running == running) &&
             (identical(other.exercise, exercise) ||
-                other.exercise == exercise));
+                other.exercise == exercise) &&
+            (identical(other.codeAnswer, codeAnswer) ||
+                other.codeAnswer == codeAnswer));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, loading, exercise);
+  int get hashCode =>
+      Object.hash(runtimeType, loading, running, exercise, codeAnswer);
 
   @JsonKey(ignore: true)
   @override
@@ -154,13 +206,20 @@ class _$_LessonState implements _LessonState {
 }
 
 abstract class _LessonState implements LessonState {
-  factory _LessonState({final bool loading, final Exercise? exercise}) =
-      _$_LessonState;
+  factory _LessonState(
+      {final bool loading,
+      final bool running,
+      final Exercise? exercise,
+      final CodeAnswer? codeAnswer}) = _$_LessonState;
 
   @override
   bool get loading;
   @override
+  bool get running;
+  @override
   Exercise? get exercise;
+  @override
+  CodeAnswer? get codeAnswer;
   @override
   @JsonKey(ignore: true)
   _$$_LessonStateCopyWith<_$_LessonState> get copyWith =>

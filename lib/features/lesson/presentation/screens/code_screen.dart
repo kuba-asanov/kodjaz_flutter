@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:code_text_field/code_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:kodjaz/core/common/common_widgets.dart';
@@ -12,16 +14,18 @@ class CodeScreen extends StatefulWidget {
   const CodeScreen({
     super.key,
     required this.exercise,
+    this.onRun,
   });
 
   final Exercise exercise;
+  final Function? onRun;
 
   @override
   State<CodeScreen> createState() => _CodeScreenState();
 }
 
 class _CodeScreenState extends State<CodeScreen> {
-  CodeController? _codeController;
+  late CodeController _codeController;
 
   @override
   void initState() {
@@ -46,7 +50,7 @@ class _CodeScreenState extends State<CodeScreen> {
 
   @override
   void dispose() {
-    _codeController?.dispose();
+    _codeController.dispose();
     super.dispose();
   }
 
@@ -59,8 +63,7 @@ class _CodeScreenState extends State<CodeScreen> {
             CustomCodeBox(
               // language: exercise.name.toLowerCase(),
               language: "python",
-              theme: "monokai-sublime",
-              source: widget.exercise.default_code,
+              theme: "monokai-sublime", codeController: _codeController,
             ),
             const SizedBox(height: 50),
             SizedBox(
@@ -69,13 +72,15 @@ class _CodeScreenState extends State<CodeScreen> {
               child: PrimaryButton(
                 title: "RUN",
                 icon: const Icon(Icons.play_arrow_rounded),
-                onPressed: () {
-                  getIt<LessonBloc>().add(
-                    RunExerciseEvent(
-                      id: widget.exercise.id,
-                      submitted_code: _codeController?.text ?? '',
-                    ),
+                onPressed: () async {
+                  final LessonBloc bloc = getIt<LessonBloc>();
+
+                  await bloc.runExerciseEvent(
+                    _codeController.text,
+                    widget.exercise.id,
                   );
+
+                  if (widget.onRun != null) widget.onRun!();
                 },
               ),
             )

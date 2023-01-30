@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
                       previous.loading != current.loading,
                   builder: (context, state) {
                     if (state.loading) {
-                      return Spinner(color: KodJazColors.grey2);
+                      return const Spinner(color: KodJazColors.grey2);
                     }
 
                     return ListView.separated(

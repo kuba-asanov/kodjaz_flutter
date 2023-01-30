@@ -2,5 +2,5 @@
 import '../model/run_code.dart';
 
 abstract class LessonRepository {
-  Future runCode(RunCode code);
+  Future<CodeAnswer> runCode(RunCode code);
 }

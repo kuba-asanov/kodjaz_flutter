@@ -19,6 +19,7 @@ mixin _$HomeState {
   bool get loading => throw _privateConstructorUsedError;
   List<Track> get listOfCourse => throw _privateConstructorUsedError;
   List<Track> get myListOfCourse => throw _privateConstructorUsedError;
+  DioError? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -31,7 +32,10 @@ abstract class $HomeStateCopyWith<$Res> {
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
   $Res call(
-      {bool loading, List<Track> listOfCourse, List<Track> myListOfCourse});
+      {bool loading,
+      List<Track> listOfCourse,
+      List<Track> myListOfCourse,
+      DioError? error});
 }
 
 /// @nodoc
@@ -50,6 +54,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? loading = null,
     Object? listOfCourse = null,
     Object? myListOfCourse = null,
+    Object? error = freezed,
   }) {
     return _then(_value.copyWith(
       loading: null == loading
@@ -64,6 +69,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.myListOfCourse
           : myListOfCourse // ignore: cast_nullable_to_non_nullable
               as List<Track>,
+      error: freezed == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as DioError?,
     ) as $Val);
   }
 }
@@ -76,7 +85,10 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {bool loading, List<Track> listOfCourse, List<Track> myListOfCourse});
+      {bool loading,
+      List<Track> listOfCourse,
+      List<Track> myListOfCourse,
+      DioError? error});
 }
 
 /// @nodoc
@@ -93,6 +105,7 @@ class __$$_HomeStateCopyWithImpl<$Res>
     Object? loading = null,
     Object? listOfCourse = null,
     Object? myListOfCourse = null,
+    Object? error = freezed,
   }) {
     return _then(_$_HomeState(
       loading: null == loading
@@ -107,6 +120,10 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value._myListOfCourse
           : myListOfCourse // ignore: cast_nullable_to_non_nullable
               as List<Track>,
+      error: freezed == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as DioError?,
     ));
   }
 }
@@ -117,7 +134,8 @@ class _$_HomeState implements _HomeState {
   _$_HomeState(
       {this.loading = false,
       final List<Track> listOfCourse = const [],
-      final List<Track> myListOfCourse = const []})
+      final List<Track> myListOfCourse = const [],
+      this.error})
       : _listOfCourse = listOfCourse,
         _myListOfCourse = myListOfCourse;
 
@@ -143,8 +161,11 @@ class _$_HomeState implements _HomeState {
   }
 
   @override
+  final DioError? error;
+
+  @override
   String toString() {
-    return 'HomeState(loading: $loading, listOfCourse: $listOfCourse, myListOfCourse: $myListOfCourse)';
+    return 'HomeState(loading: $loading, listOfCourse: $listOfCourse, myListOfCourse: $myListOfCourse, error: $error)';
   }
 
   @override
@@ -156,7 +177,8 @@ class _$_HomeState implements _HomeState {
             const DeepCollectionEquality()
                 .equals(other._listOfCourse, _listOfCourse) &&
             const DeepCollectionEquality()
-                .equals(other._myListOfCourse, _myListOfCourse));
+                .equals(other._myListOfCourse, _myListOfCourse) &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
@@ -164,7 +186,8 @@ class _$_HomeState implements _HomeState {
       runtimeType,
       loading,
       const DeepCollectionEquality().hash(_listOfCourse),
-      const DeepCollectionEquality().hash(_myListOfCourse));
+      const DeepCollectionEquality().hash(_myListOfCourse),
+      error);
 
   @JsonKey(ignore: true)
   @override
@@ -177,7 +200,8 @@ abstract class _HomeState implements HomeState {
   factory _HomeState(
       {final bool loading,
       final List<Track> listOfCourse,
-      final List<Track> myListOfCourse}) = _$_HomeState;
+      final List<Track> myListOfCourse,
+      final DioError? error}) = _$_HomeState;
 
   @override
   bool get loading;
@@ -185,6 +209,8 @@ abstract class _HomeState implements HomeState {
   List<Track> get listOfCourse;
   @override
   List<Track> get myListOfCourse;
+  @override
+  DioError? get error;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

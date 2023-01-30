@@ -1,60 +1,99 @@
 /* External dependencies */
+import 'dart:developer';
+import 'dart:io';
+
+import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
+import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kodjaz/core/client/interceptor.dart';
 
 /* Local dependencies */
 import 'package:kodjaz/core/constants/app/app_constants.dart';
-import 'package:kodjaz/core/helpers/cache/cache.dart';
-import 'package:kodjaz/core/injection/injection.dart';
 import 'package:kodjaz/features/app/data/models/user.dart';
-import 'package:kodjaz/features/auth/bloc/auth_bloc.dart';
 import 'package:kodjaz/features/auth/models/token.dart';
 import 'package:kodjaz/features/models/track.dart';
-import 'package:retrofit/retrofit.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:retrofit/retrofit.dart' as retro;
 
 import '../../features/lesson/model/run_code.dart';
 
 part 'client.g.dart';
 
+@singleton
 class Api {
-  RestClient createClient() {
-    final Token? token = getIt<AuthBloc>().state.token;
-    var dio = Dio(BaseOptions(
-      receiveTimeout: 15000, // 15 seconds
-      connectTimeout: 15000,
-      sendTimeout: 15000,
-    ));
+  late RestClient client;
 
-    if (token != null) {
-      dio.options.headers["X-CSRFToken"] = Cache.getSession()?.access;
+  Future<void> getCsrftoken(String accessToken, Dio dio) async {
+    try {
+      final Directory appDocDir = await getApplicationDocumentsDirectory();
+      final String appDocPath = appDocDir.path;
+
+      final PersistCookieJar persistentCookies = PersistCookieJar(
+        ignoreExpires: true,
+        storage: FileStorage("$appDocPath/.cookies/"),
+      );
+
+      persistentCookies.deleteAll();
+      dio.interceptors.add(CookieManager(persistentCookies));
+      dio.options = BaseOptions(
+        baseUrl: ApplicationConstants.endpoint,
+        contentType: "application/json",
+        responseType: ResponseType.plain,
+        connectTimeout: 5000,
+        receiveTimeout: 100000,
+      );
+      dio.interceptors.add(AppInterceptors(
+        dio,
+        accessToken: accessToken,
+        persistentCookies: persistentCookies,
+      ));
+
+      await dio.get("/csrf/");
+
+      return;
+    } catch (error, stacktrace) {
+      print("Exception occured: $error stackTrace: $stacktrace");
+
+      return;
+    }
+  }
+
+  Future<void> initClient({String? accessToken}) async {
+    final Dio dio = Dio();
+
+    if (accessToken != null) {
+      await getCsrftoken(accessToken, dio);
+    } else {
+      dio.interceptors.add(AppInterceptors(dio));
     }
 
-    dio.interceptors.addAll({AppInterceptors(dio)});
-
-    return RestClient(dio);
+    client = RestClient(dio);
   }
 }
 
-@RestApi(baseUrl: ApplicationConstants.endpoint)
+@retro.RestApi(baseUrl: ApplicationConstants.endpoint)
 abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
-  @POST("/token/obtain/")
-  Future<Token> checkUserToken(@Body() SignInInfo signInInfo);
+  @retro.GET("/csrf/")
+  Future getCsrf();
 
-  @POST("/token/refresh/")
-  Future<Token> refreshToken(@Body() Map<String, dynamic> refreshToken);
+  @retro.POST("/token/obtain/")
+  Future<Token> checkUserToken(@retro.Body() SignInInfo signInInfo);
 
-  @POST("/registration/")
-  Future<UserCreateResponse> createUser(@Body() User user);
+  @retro.POST("/token/refresh/")
+  Future<Token> refreshToken(@retro.Body() Map<String, dynamic> refreshToken);
 
-  @GET("/v1/tracks/")
+  @retro.POST("/registration/")
+  Future<UserCreateResponse> createUser(@retro.Body() User user);
+
+  @retro.GET("/v1/tracks/")
   Future<List<Track>> listTracks();
 
-  @POST("/v1/user/submissions/")
-  Future runCode(@Body() RunCode code);
+  @retro.POST("/v1/user/submissions/")
+  Future<CodeAnswer> runCode(@retro.Body() RunCode code);
 
-  @GET("/v1/user/tracks/")
+  @retro.GET("/v1/user/tracks/")
   Future<List<Track>> myListTracks();
 }

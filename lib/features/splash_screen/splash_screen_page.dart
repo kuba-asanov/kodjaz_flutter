@@ -1,8 +1,9 @@
 /* External dependencies */
 import 'dart:async';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 /* Local dependencies */
 import 'package:kodjaz/core/helpers/cache/cache.dart';
@@ -10,6 +11,7 @@ import 'package:kodjaz/core/injection/injection.dart';
 import 'package:kodjaz/features/auth/bloc/auth_bloc.dart';
 import 'package:kodjaz/features/auth/models/token.dart';
 
+import '../../core/client/client.dart';
 import '../../core/constants/app/app_constants.dart';
 import '../../core/navigation/auto_route.gr.dart';
 import '../../core/navigation/navigation.dart';
@@ -22,17 +24,20 @@ class SplashScreenPage extends StatefulWidget {
 }
 
 class _SplashScreenPageState extends State<SplashScreenPage> {
-  final Token? token = Cache.getSession();
+  late Token? token;
 
   @override
   void initState() {
+    token = Cache.getSession();
     _navigation();
     super.initState();
   }
 
   void _navigation() {
-    Timer(const Duration(seconds: 3), () {
-      if (token != null) {
+    Timer(const Duration(seconds: 3), () async {
+      if (token?.access != null) {
+        await getIt<Api>().initClient(accessToken: token!.access!);
+
         Navigation.router.replace(NavigationRoute());
       } else {
         Navigation.router.replace(const LoginRoute());

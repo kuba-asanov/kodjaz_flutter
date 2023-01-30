@@ -1,4 +1,6 @@
 /* External dependencies */
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,7 +28,8 @@ class ExercisePage extends StatefulWidget {
   State<ExercisePage> createState() => _ExercisePageState();
 }
 
-class _ExercisePageState extends State<ExercisePage> with TickerProviderStateMixin {
+class _ExercisePageState extends State<ExercisePage>
+    with TickerProviderStateMixin {
   late final TabController _tabController;
   final LessonBloc _bloc = getIt<LessonBloc>();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -35,9 +38,7 @@ class _ExercisePageState extends State<ExercisePage> with TickerProviderStateMix
   void initState() {
     _tabController = TabController(length: 3, vsync: this);
 
-    _bloc.add(
-      SetExerciseEvent(exercise: widget.exercise),
-    );
+    _bloc.setExerciseEvent(widget.exercise);
 
     super.initState();
   }
@@ -113,14 +114,18 @@ class _ExercisePageState extends State<ExercisePage> with TickerProviderStateMix
         bloc: _bloc,
         builder: (context, state) {
           final Exercise? exercise = state.exercise;
-
           if (exercise != null) {
             return TabBarView(
               controller: _tabController,
               children: [
                 ExerciseScreen(exercise: exercise),
-                CodeScreen(exercise: exercise),
-                const ResultScreen(),
+                CodeScreen(
+                  exercise: exercise,
+                  onRun: () {
+                    _tabController.animateTo(_tabController.length - 1);
+                  },
+                ),
+                ResultScreen(),
               ],
             );
           }
