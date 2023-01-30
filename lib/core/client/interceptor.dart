@@ -104,13 +104,13 @@ class AppInterceptors extends Interceptor {
               }
             }
 
-            if (err.response?.data['code'] == 'token_not_valid') {
+            if (err.response?.data['detail'] == 'Given token not valid for any token type') {
               refreshToken().then((token) {
                 getIt<Api>()
                     .getCsrftoken(token.access!, dio)
                     .then((_) => _retry(err.requestOptions, dio));
               });
-              
+
               return;
             }
 

@@ -1,3 +1,4 @@
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kodjaz/features/models/track.dart';
@@ -39,13 +40,31 @@ class ExerciseScreen extends StatelessWidget {
               style: KodjazTextStyle.fS15FW400,
             ),
             SizedBox(height: 10.h),
-            Text(
-              "Кыйытма",
-              style: KodjazTextStyle.fS15FW600,
-            ),
-            Text(
-              exercise.hint,
-              style: KodjazTextStyle.fS15FW400,
+            ExpandablePanel(
+              theme: const ExpandableThemeData(
+                headerAlignment: ExpandablePanelHeaderAlignment.center,
+                iconSize: 30,
+              ),
+              header: Text(
+                "Кыйытма",
+                style: KodjazTextStyle.fS15FW600,
+              ),
+              expanded: Text(
+                exercise.hint,
+                style: KodjazTextStyle.fS15FW400,
+              ),
+              builder: (_, collapsed, expanded) {
+                return Padding(
+                  padding:
+                      const EdgeInsets.only(left: 10, right: 10, bottom: 20),
+                  child: Expandable(
+                    collapsed: collapsed,
+                    expanded: expanded,
+                    theme: const ExpandableThemeData(crossFadePoint: 0),
+                  ),
+                );
+              },
+              collapsed: const SizedBox(),
             ),
           ],
         ),
