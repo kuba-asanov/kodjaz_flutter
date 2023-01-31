@@ -1,10 +1,11 @@
-import 'dart:developer';
-
 import 'package:code_text_field/code_text_field.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kodjaz/core/common/common_widgets.dart';
 import 'package:kodjaz/core/injection/injection.dart';
 import 'package:kodjaz/features/lesson/presentation/bloc/lesson_bloc.dart';
+import '../../../../core/init/lang/locale_keys.g.dart';
 import '../../../models/track.dart';
 import '../widgets/code_snippets.dart';
 import '../widgets/custom_code_box.dart';
@@ -67,10 +68,10 @@ class _CodeScreenState extends State<CodeScreen> {
             ),
             const SizedBox(height: 50),
             SizedBox(
-              height: 40,
-              width: 150,
+              height: 35.h,
+              width: 250.w,
               child: PrimaryButton(
-                title: "RUN",
+                title: LocaleKeys.run.tr().toUpperCase(),
                 icon: const Icon(Icons.play_arrow_rounded),
                 onPressed: () async {
                   final LessonBloc bloc = getIt<LessonBloc>();

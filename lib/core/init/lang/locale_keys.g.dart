@@ -31,6 +31,11 @@ abstract class  LocaleKeys {
   static const thisPasswordIsTooCommon = 'thisPasswordIsTooCommon';
   static const exit = 'exit';
   static const changePassword = 'changePassword';
+  static const running = 'running';
+  static const exercise = 'exercise';
+  static const code = 'code';
+  static const result = 'result';
+  static const run = 'run';
   static const settings = 'settings';
 
 }

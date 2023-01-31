@@ -88,6 +88,7 @@ class _CourseDetailPageState extends State<CourseDetailPage>
           headerSliverBuilder:
               (BuildContext context, bool innerBoxIsScrolled) => [
             SliverAppBar(
+              foregroundColor: Colors.white,
               flexibleSpace: FlexibleSpaceBar(
                 collapseMode: CollapseMode.pin,
                 expandedTitleScale: 1,
@@ -167,7 +168,7 @@ class _AppBar extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       width: 360.w,
       height: 224.h,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: KodJazColors.blue2,
       ),
       child: Column(

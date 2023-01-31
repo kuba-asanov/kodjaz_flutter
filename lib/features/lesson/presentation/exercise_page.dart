@@ -1,9 +1,13 @@
 /* External dependencies */
 import 'dart:developer';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:kodjaz/core/common/dialogs.dart';
+import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
 import 'package:kodjaz/core/injection/injection.dart';
 import 'package:kodjaz/features/lesson/presentation/bloc/lesson_bloc.dart';
 import 'package:kodjaz/features/lesson/presentation/screens/code_screen.dart';
@@ -103,15 +107,24 @@ class _ExercisePageState extends State<ExercisePage>
           tabs: [
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.h),
-              child: const Text("Задача"),
+              child: const Text(LocaleKeys.exercise).tr(),
             ),
-            const Text("Код"),
-            const Text("Результат"),
+            const Text(LocaleKeys.code).tr(),
+            const Text(LocaleKeys.result).tr(),
           ],
         ),
       ),
-      body: BlocBuilder<LessonBloc, LessonState>(
+      body: BlocConsumer<LessonBloc, LessonState>(
         bloc: _bloc,
+        listener: (context, state) {
+          if (state.running) {
+            CustomProgressIndicator.matrixProgressIndicator(
+              message: LocaleKeys.running.tr(),
+            );
+          } else {
+            SmartDialog.dismiss();
+          }
+        },
         builder: (context, state) {
           final Exercise? exercise = state.exercise;
           if (exercise != null) {

@@ -1,9 +1,9 @@
 /* External dependencies */
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kodjaz/core/helpers/colors.dart';
 
 /* Local dependencies */
-import '../../../../core/common/colors.dart';
 import '../../../../core/helpers/text_styles.dart';
 import '../../../../core/injection/injection.dart';
 import '../bloc/app_bloc.dart';
@@ -23,7 +23,7 @@ class CustomNavigationBar extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       backgroundColor: Colors.white,
       selectedLabelStyle: KodjazTextStyle.fS12FW400,
-      selectedItemColor: PrimaryColor,
+      selectedItemColor: KodJazColors.PrimaryColor,
       enableFeedback: false,
       currentIndex: currentIndex,
       onTap: (index) {

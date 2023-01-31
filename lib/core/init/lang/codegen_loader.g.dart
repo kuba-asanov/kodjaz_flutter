@@ -45,6 +45,11 @@ class CodegenLoader extends AssetLoader{
   "thisPasswordIsTooCommon": "Бул сырсөз өтө кеңири таралган",
   "exit": "Выход",
   "changePassword": "Сменить пароль",
+  "running": "Запускается...",
+  "exercise": "Задача",
+  "code": "Код",
+  "result": "Результат",
+  "run": "Run",
   "settings": "Настройки"
 };
 static const Map<String,dynamic> ky = {
@@ -78,6 +83,11 @@ static const Map<String,dynamic> ky = {
   "thisPasswordIsTooCommon": "Бул сырсөз өтө кеңири таралган",
   "exit": "Чыгуу",
   "changePassword": "Сырсөздү өзгөртүү",
+  "running": "Жүрүүдө...",
+  "exercise": "Көнүгүү",
+  "code": "Код",
+  "result": "Жооп",
+  "run": "Кодду жүргүзүү",
   "settings": "Орнотуулар"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": ru, "ky": ky};

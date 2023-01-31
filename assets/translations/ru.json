@@ -29,5 +29,10 @@
     "thisPasswordIsTooCommon":"Бул сырсөз өтө кеңири таралган",
     "exit":"Выход",
     "changePassword":"Сменить пароль",
+    "running":"Запускается...",
+    "exercise":"Задача",
+    "code":"Код",
+    "result":"Результат",
+    "run":"Run",
     "settings":"Настройки"
 }

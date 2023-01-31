@@ -1,6 +1,5 @@
 /* External dependencies */
 import 'package:easy_localization/easy_localization.dart';
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +9,6 @@ import 'package:step_progress_indicator/step_progress_indicator.dart';
 /* Local dependencies */
 import '../helpers/screen_util.dart';
 import '../helpers/text_styles.dart';
-import 'package:kodjaz/core/common/colors.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
 import 'package:kodjaz/core/injection/injection.dart';
 import 'package:kodjaz/core/navigation/auto_route.gr.dart';
@@ -44,8 +42,8 @@ class PrimaryButton extends StatelessWidget {
       child: ElevatedButton(
         style: ButtonStyle(
           backgroundColor: isDisabled
-              ? MaterialStateProperty.all(DisabledButtonColor)
-              : MaterialStateProperty.all(PrimaryColor),
+              ? MaterialStateProperty.all(KodJazColors.DisabledButtonColor)
+              : MaterialStateProperty.all(KodJazColors.PrimaryColor),
           splashFactory:
               isDisabled ? NoSplash.splashFactory : InkSplash.splashFactory,
           elevation: isDisabled
@@ -73,7 +71,7 @@ class PrimaryButton extends StatelessWidget {
                             title,
                             textAlign: TextAlign.center,
                             style: KodjazTextStyle.fS16FW500.copyWith(
-                              color: White,
+                              color: KodJazColors.White,
                             ),
                           ),
                   ],
@@ -85,10 +83,10 @@ class PrimaryButton extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: isDisabled
                           ? KodjazTextStyle.fS16FW500.copyWith(
-                              color: DisabledTextColor,
+                              color: KodJazColors.DisabledTextColor,
                             )
                           : KodjazTextStyle.fS16FW500.copyWith(
-                              color: White,
+                              color: KodJazColors.White,
                             ),
                     ),
         ),
@@ -127,10 +125,10 @@ class SecondaryButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(borderRadius ?? 8),
             ),
           ),
-          backgroundColor: MaterialStateProperty.all<Color>(White),
-          foregroundColor: MaterialStateProperty.all<Color>(PrimaryColor),
+          backgroundColor: MaterialStateProperty.all<Color>(KodJazColors.White),
+          foregroundColor: MaterialStateProperty.all<Color>(KodJazColors.PrimaryColor),
           side: MaterialStateProperty.all(
-              BorderSide(color: borderSideColor ?? PrimaryColor)),
+              BorderSide(color: borderSideColor ?? KodJazColors.PrimaryColor)),
         ),
         child: Center(
           child: icon != null
@@ -185,7 +183,7 @@ class Spinner extends StatelessWidget {
             )
           : Center(
               child: CircularProgressIndicator(
-                valueColor: const AlwaysStoppedAnimation<Color>(PrimaryColor),
+                valueColor: const AlwaysStoppedAnimation<Color>(KodJazColors.PrimaryColor),
                 strokeWidth: strokeWidth ?? 4.0,
               ),
             );
