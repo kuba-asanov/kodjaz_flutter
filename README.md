@@ -1,6 +1,6 @@
-# sanack_flutter
+# kodjaz_mobile
 
-Flutter project - Sanack.
+Flutter project - kodjaz.
 
 ## Getting Started
 Clone the project
@@ -18,13 +18,16 @@ flutter run
 
 - flutter_bloc
 - freezed
-- image_picker
-- image_cropper
 - get_it
 - injectable
 - auto_route
 - flutter_screenutil
-- dartz
+- retrofit
+- dio
+- hive
+- code_text_field
+- flutter_markdown
+- flutter_smart_dialog
 
 ### To build run this command:
 ```
