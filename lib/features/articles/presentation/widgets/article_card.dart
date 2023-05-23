@@ -3,10 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/colors.dart';
 import '../../../../core/helpers/text_styles.dart';
+import '../../data/models/article.dart';
 
 class AritcleCard extends StatelessWidget {
+  final Article article;
   const AritcleCard({
     super.key,
+    required this.article,
   });
 
   @override
@@ -29,7 +32,7 @@ class AritcleCard extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                     topLeft: const Radius.circular(20).r, topRight: const Radius.circular(20).r),
                 child: Image.network(
-                  "https://blog.depositphotos.com/wp-content/uploads/2017/07/Soothing-nature-backgrounds-2.jpg.webp",
+                  article.heroMedia,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -37,7 +40,7 @@ class AritcleCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(12.0).r,
               child: Text(
-                "How HTTP Streaming can improve page performance and how Airbnb enabled it on an existing codebase",
+                article.title,
                 style: KodjazTextStyle.fS18FW700,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,

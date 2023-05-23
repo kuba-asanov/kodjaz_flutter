@@ -14,6 +14,7 @@
 import 'package:auto_route/auto_route.dart' as _i8;
 import 'package:flutter/material.dart' as _i9;
 import 'package:kodjaz/features/app/presentation/navigation_page.dart' as _i2;
+import 'package:kodjaz/features/articles/data/models/article.dart' as _i11;
 import 'package:kodjaz/features/articles/presentation/article_detail_page.dart'
     as _i7;
 import 'package:kodjaz/features/auth/presentation/login/login_page.dart' as _i5;
@@ -78,9 +79,13 @@ class AppRouter extends _i8.RootStackRouter {
       );
     },
     ArticleDetailRoute.name: (routeData) {
+      final args = routeData.argsAs<ArticleDetailRouteArgs>();
       return _i8.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i7.ArticleDetailPage(),
+        child: _i7.ArticleDetailPage(
+          key: args.key,
+          article: args.article,
+        ),
       );
     },
   };
@@ -248,12 +253,34 @@ class SignUpRoute extends _i8.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i7.ArticleDetailPage]
-class ArticleDetailRoute extends _i8.PageRouteInfo<void> {
-  const ArticleDetailRoute()
-      : super(
+class ArticleDetailRoute extends _i8.PageRouteInfo<ArticleDetailRouteArgs> {
+  ArticleDetailRoute({
+    _i9.Key? key,
+    required _i11.Article article,
+  }) : super(
           ArticleDetailRoute.name,
           path: '/article-detail-page',
+          args: ArticleDetailRouteArgs(
+            key: key,
+            article: article,
+          ),
         );
 
   static const String name = 'ArticleDetailRoute';
+}
+
+class ArticleDetailRouteArgs {
+  const ArticleDetailRouteArgs({
+    this.key,
+    required this.article,
+  });
+
+  final _i9.Key? key;
+
+  final _i11.Article article;
+
+  @override
+  String toString() {
+    return 'ArticleDetailRouteArgs{key: $key, article: $article}';
+  }
 }

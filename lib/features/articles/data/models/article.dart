@@ -7,6 +7,7 @@ class Article with _$Article {
   const factory Article({
     required String id,
     @Default("Author") String author,
+    @Default("ArticleType") String articleType,
     @Default("Category") String category,
     @Default(0) int createDate,
     @Default("heroMedia") String heroMedia,

@@ -22,6 +22,7 @@ Article _$ArticleFromJson(Map<String, dynamic> json) {
 mixin _$Article {
   String get id => throw _privateConstructorUsedError;
   String get author => throw _privateConstructorUsedError;
+  String get articleType => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   int get createDate => throw _privateConstructorUsedError;
   String get heroMedia => throw _privateConstructorUsedError;
@@ -42,6 +43,7 @@ abstract class $ArticleCopyWith<$Res> {
   $Res call(
       {String id,
       String author,
+      String articleType,
       String category,
       int createDate,
       String heroMedia,
@@ -65,6 +67,7 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
   $Res call({
     Object? id = null,
     Object? author = null,
+    Object? articleType = null,
     Object? category = null,
     Object? createDate = null,
     Object? heroMedia = null,
@@ -80,6 +83,10 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
+              as String,
+      articleType: null == articleType
+          ? _value.articleType
+          : articleType // ignore: cast_nullable_to_non_nullable
               as String,
       category: null == category
           ? _value.category
@@ -119,6 +126,7 @@ abstract class _$$_ArticleCopyWith<$Res> implements $ArticleCopyWith<$Res> {
   $Res call(
       {String id,
       String author,
+      String articleType,
       String category,
       int createDate,
       String heroMedia,
@@ -139,6 +147,7 @@ class __$$_ArticleCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? author = null,
+    Object? articleType = null,
     Object? category = null,
     Object? createDate = null,
     Object? heroMedia = null,
@@ -154,6 +163,10 @@ class __$$_ArticleCopyWithImpl<$Res>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
+              as String,
+      articleType: null == articleType
+          ? _value.articleType
+          : articleType // ignore: cast_nullable_to_non_nullable
               as String,
       category: null == category
           ? _value.category
@@ -189,6 +202,7 @@ class _$_Article implements _Article {
   const _$_Article(
       {required this.id,
       this.author = "Author",
+      this.articleType = "ArticleType",
       this.category = "Category",
       this.createDate = 0,
       this.heroMedia = "heroMedia",
@@ -205,6 +219,9 @@ class _$_Article implements _Article {
   @override
   @JsonKey()
   final String author;
+  @override
+  @JsonKey()
+  final String articleType;
   @override
   @JsonKey()
   final String category;
@@ -231,7 +248,7 @@ class _$_Article implements _Article {
 
   @override
   String toString() {
-    return 'Article(id: $id, author: $author, category: $category, createDate: $createDate, heroMedia: $heroMedia, synopsis: $synopsis, title: $title, content: $content)';
+    return 'Article(id: $id, author: $author, articleType: $articleType, category: $category, createDate: $createDate, heroMedia: $heroMedia, synopsis: $synopsis, title: $title, content: $content)';
   }
 
   @override
@@ -241,6 +258,8 @@ class _$_Article implements _Article {
             other is _$_Article &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.author, author) || other.author == author) &&
+            (identical(other.articleType, articleType) ||
+                other.articleType == articleType) &&
             (identical(other.category, category) ||
                 other.category == category) &&
             (identical(other.createDate, createDate) ||
@@ -259,6 +278,7 @@ class _$_Article implements _Article {
       runtimeType,
       id,
       author,
+      articleType,
       category,
       createDate,
       heroMedia,
@@ -284,6 +304,7 @@ abstract class _Article implements Article {
   const factory _Article(
       {required final String id,
       final String author,
+      final String articleType,
       final String category,
       final int createDate,
       final String heroMedia,
@@ -297,6 +318,8 @@ abstract class _Article implements Article {
   String get id;
   @override
   String get author;
+  @override
+  String get articleType;
   @override
   String get category;
   @override
