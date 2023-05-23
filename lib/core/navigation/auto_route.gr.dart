@@ -11,26 +11,28 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i7;
-import 'package:flutter/material.dart' as _i8;
+import 'package:auto_route/auto_route.dart' as _i8;
+import 'package:flutter/material.dart' as _i9;
 import 'package:kodjaz/features/app/presentation/navigation_page.dart' as _i2;
+import 'package:kodjaz/features/articles/presentation/article_detail_page.dart'
+    as _i7;
 import 'package:kodjaz/features/auth/presentation/login/login_page.dart' as _i5;
 import 'package:kodjaz/features/auth/presentation/signup/sign_up_page.dart'
     as _i6;
 import 'package:kodjaz/features/courses/presentation/course_detail_page.dart'
     as _i3;
 import 'package:kodjaz/features/lesson/presentation/exercise_page.dart' as _i4;
-import 'package:kodjaz/features/models/track.dart' as _i9;
+import 'package:kodjaz/features/models/track.dart' as _i10;
 import 'package:kodjaz/features/splash_screen/splash_screen_page.dart' as _i1;
 
-class AppRouter extends _i7.RootStackRouter {
-  AppRouter([_i8.GlobalKey<_i8.NavigatorState>? navigatorKey])
+class AppRouter extends _i8.RootStackRouter {
+  AppRouter([_i9.GlobalKey<_i9.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i7.PageFactory> pagesMap = {
+  final Map<String, _i8.PageFactory> pagesMap = {
     SplashScreenRoute.name: (routeData) {
-      return _i7.AdaptivePage<dynamic>(
+      return _i8.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i1.SplashScreenPage(),
       );
@@ -38,14 +40,14 @@ class AppRouter extends _i7.RootStackRouter {
     NavigationRoute.name: (routeData) {
       final args = routeData.argsAs<NavigationRouteArgs>(
           orElse: () => const NavigationRouteArgs());
-      return _i7.AdaptivePage<dynamic>(
+      return _i8.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i2.NavigationPage(key: args.key),
       );
     },
     CourseDetailRoute.name: (routeData) {
       final args = routeData.argsAs<CourseDetailRouteArgs>();
-      return _i7.AdaptivePage<dynamic>(
+      return _i8.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i3.CourseDetailPage(
           course: args.course,
@@ -55,7 +57,7 @@ class AppRouter extends _i7.RootStackRouter {
     },
     ExerciseRoute.name: (routeData) {
       final args = routeData.argsAs<ExerciseRouteArgs>();
-      return _i7.AdaptivePage<dynamic>(
+      return _i8.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i4.ExercisePage(
           key: args.key,
@@ -64,51 +66,61 @@ class AppRouter extends _i7.RootStackRouter {
       );
     },
     LoginRoute.name: (routeData) {
-      return _i7.AdaptivePage<dynamic>(
+      return _i8.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i5.LoginPage(),
       );
     },
     SignUpRoute.name: (routeData) {
-      return _i7.AdaptivePage<dynamic>(
+      return _i8.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i6.SignUpPage(),
+      );
+    },
+    ArticleDetailRoute.name: (routeData) {
+      return _i8.AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const _i7.ArticleDetailPage(),
       );
     },
   };
 
   @override
-  List<_i7.RouteConfig> get routes => [
-        _i7.RouteConfig(
+  List<_i8.RouteConfig> get routes => [
+        _i8.RouteConfig(
           SplashScreenRoute.name,
           path: '/',
         ),
-        _i7.RouteConfig(
+        _i8.RouteConfig(
           NavigationRoute.name,
           path: '/navigation-page',
         ),
-        _i7.RouteConfig(
+        _i8.RouteConfig(
           CourseDetailRoute.name,
           path: '/course-detail-page',
         ),
-        _i7.RouteConfig(
+        _i8.RouteConfig(
           ExerciseRoute.name,
           path: '/exercise-page',
         ),
-        _i7.RouteConfig(
+        _i8.RouteConfig(
           LoginRoute.name,
           path: '/login-page',
         ),
-        _i7.RouteConfig(
+        _i8.RouteConfig(
           SignUpRoute.name,
           path: '/sign-up-page',
+        ),
+        _i8.RouteConfig(
+          ArticleDetailRoute.name,
+          path: '/article-detail-page',
         ),
       ];
 }
 
 /// generated route for
 /// [_i1.SplashScreenPage]
-class SplashScreenRoute extends _i7.PageRouteInfo<void> {
+class SplashScreenRoute extends _i8.PageRouteInfo<void> {
   const SplashScreenRoute()
       : super(
           SplashScreenRoute.name,
@@ -120,8 +132,8 @@ class SplashScreenRoute extends _i7.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.NavigationPage]
-class NavigationRoute extends _i7.PageRouteInfo<NavigationRouteArgs> {
-  NavigationRoute({_i8.Key? key})
+class NavigationRoute extends _i8.PageRouteInfo<NavigationRouteArgs> {
+  NavigationRoute({_i9.Key? key})
       : super(
           NavigationRoute.name,
           path: '/navigation-page',
@@ -134,7 +146,7 @@ class NavigationRoute extends _i7.PageRouteInfo<NavigationRouteArgs> {
 class NavigationRouteArgs {
   const NavigationRouteArgs({this.key});
 
-  final _i8.Key? key;
+  final _i9.Key? key;
 
   @override
   String toString() {
@@ -144,10 +156,10 @@ class NavigationRouteArgs {
 
 /// generated route for
 /// [_i3.CourseDetailPage]
-class CourseDetailRoute extends _i7.PageRouteInfo<CourseDetailRouteArgs> {
+class CourseDetailRoute extends _i8.PageRouteInfo<CourseDetailRouteArgs> {
   CourseDetailRoute({
-    required _i9.Track course,
-    _i8.Key? key,
+    required _i10.Track course,
+    _i9.Key? key,
   }) : super(
           CourseDetailRoute.name,
           path: '/course-detail-page',
@@ -166,9 +178,9 @@ class CourseDetailRouteArgs {
     this.key,
   });
 
-  final _i9.Track course;
+  final _i10.Track course;
 
-  final _i8.Key? key;
+  final _i9.Key? key;
 
   @override
   String toString() {
@@ -178,10 +190,10 @@ class CourseDetailRouteArgs {
 
 /// generated route for
 /// [_i4.ExercisePage]
-class ExerciseRoute extends _i7.PageRouteInfo<ExerciseRouteArgs> {
+class ExerciseRoute extends _i8.PageRouteInfo<ExerciseRouteArgs> {
   ExerciseRoute({
-    _i8.Key? key,
-    required _i9.Exercise exercise,
+    _i9.Key? key,
+    required _i10.Exercise exercise,
   }) : super(
           ExerciseRoute.name,
           path: '/exercise-page',
@@ -200,9 +212,9 @@ class ExerciseRouteArgs {
     required this.exercise,
   });
 
-  final _i8.Key? key;
+  final _i9.Key? key;
 
-  final _i9.Exercise exercise;
+  final _i10.Exercise exercise;
 
   @override
   String toString() {
@@ -212,7 +224,7 @@ class ExerciseRouteArgs {
 
 /// generated route for
 /// [_i5.LoginPage]
-class LoginRoute extends _i7.PageRouteInfo<void> {
+class LoginRoute extends _i8.PageRouteInfo<void> {
   const LoginRoute()
       : super(
           LoginRoute.name,
@@ -224,7 +236,7 @@ class LoginRoute extends _i7.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.SignUpPage]
-class SignUpRoute extends _i7.PageRouteInfo<void> {
+class SignUpRoute extends _i8.PageRouteInfo<void> {
   const SignUpRoute()
       : super(
           SignUpRoute.name,
@@ -232,4 +244,16 @@ class SignUpRoute extends _i7.PageRouteInfo<void> {
         );
 
   static const String name = 'SignUpRoute';
+}
+
+/// generated route for
+/// [_i7.ArticleDetailPage]
+class ArticleDetailRoute extends _i8.PageRouteInfo<void> {
+  const ArticleDetailRoute()
+      : super(
+          ArticleDetailRoute.name,
+          path: '/article-detail-page',
+        );
+
+  static const String name = 'ArticleDetailRoute';
 }

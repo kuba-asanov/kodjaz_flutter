@@ -40,6 +40,11 @@ class CustomNavigationBar extends StatelessWidget {
           activeIcon: SvgPicture.asset("assets/images/svg/course_filled.svg"),
           label: 'Курстар',
         ),
+        const BottomNavigationBarItem(
+          icon: Icon(Icons.newspaper),
+          activeIcon: Icon(Icons.newspaper),
+          label: 'Articles',
+        ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset("assets/images/svg/profile.svg"),
           activeIcon: SvgPicture.asset("assets/images/svg/profile_filled.svg"),

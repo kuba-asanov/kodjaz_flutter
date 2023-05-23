@@ -7,6 +7,7 @@ import 'package:kodjaz/features/auth/presentation/signup/sign_up_page.dart';
 import 'package:kodjaz/features/courses/presentation/course_detail_page.dart';
 
 import '../../features/app/presentation/navigation_page.dart';
+import '../../features/articles/presentation/article_detail_page.dart';
 import '../../features/lesson/presentation/exercise_page.dart';
 import '../../features/splash_screen/splash_screen_page.dart';
 
@@ -22,6 +23,7 @@ import '../../features/splash_screen/splash_screen_page.dart';
     AutoRoute(page: ExercisePage),
     AutoRoute(page: LoginPage),
     AutoRoute(page: SignUpPage),
+    AutoRoute(page: ArticleDetailPage)
     // RedirectRoute(path: '*', redirectTo: '/'),
   ],
 )

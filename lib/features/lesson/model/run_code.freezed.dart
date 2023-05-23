@@ -172,9 +172,9 @@ CodeAnswer _$CodeAnswerFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CodeAnswer {
   int get id => throw _privateConstructorUsedError;
+  int get exercise => throw _privateConstructorUsedError;
   bool get passed => throw _privateConstructorUsedError;
   String get submitted_code => throw _privateConstructorUsedError;
-  int get exercise => throw _privateConstructorUsedError;
   String get console_output => throw _privateConstructorUsedError;
   String get error_message => throw _privateConstructorUsedError;
 
@@ -192,9 +192,9 @@ abstract class $CodeAnswerCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
+      int exercise,
       bool passed,
       String submitted_code,
-      int exercise,
       String console_output,
       String error_message});
 }
@@ -213,9 +213,9 @@ class _$CodeAnswerCopyWithImpl<$Res, $Val extends CodeAnswer>
   @override
   $Res call({
     Object? id = null,
+    Object? exercise = null,
     Object? passed = null,
     Object? submitted_code = null,
-    Object? exercise = null,
     Object? console_output = null,
     Object? error_message = null,
   }) {
@@ -223,6 +223,10 @@ class _$CodeAnswerCopyWithImpl<$Res, $Val extends CodeAnswer>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      exercise: null == exercise
+          ? _value.exercise
+          : exercise // ignore: cast_nullable_to_non_nullable
               as int,
       passed: null == passed
           ? _value.passed
@@ -232,10 +236,6 @@ class _$CodeAnswerCopyWithImpl<$Res, $Val extends CodeAnswer>
           ? _value.submitted_code
           : submitted_code // ignore: cast_nullable_to_non_nullable
               as String,
-      exercise: null == exercise
-          ? _value.exercise
-          : exercise // ignore: cast_nullable_to_non_nullable
-              as int,
       console_output: null == console_output
           ? _value.console_output
           : console_output // ignore: cast_nullable_to_non_nullable
@@ -258,9 +258,9 @@ abstract class _$$_CodeAnswerCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
+      int exercise,
       bool passed,
       String submitted_code,
-      int exercise,
       String console_output,
       String error_message});
 }
@@ -277,9 +277,9 @@ class __$$_CodeAnswerCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? exercise = null,
     Object? passed = null,
     Object? submitted_code = null,
-    Object? exercise = null,
     Object? console_output = null,
     Object? error_message = null,
   }) {
@@ -287,6 +287,10 @@ class __$$_CodeAnswerCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      exercise: null == exercise
+          ? _value.exercise
+          : exercise // ignore: cast_nullable_to_non_nullable
               as int,
       passed: null == passed
           ? _value.passed
@@ -296,10 +300,6 @@ class __$$_CodeAnswerCopyWithImpl<$Res>
           ? _value.submitted_code
           : submitted_code // ignore: cast_nullable_to_non_nullable
               as String,
-      exercise: null == exercise
-          ? _value.exercise
-          : exercise // ignore: cast_nullable_to_non_nullable
-              as int,
       console_output: null == console_output
           ? _value.console_output
           : console_output // ignore: cast_nullable_to_non_nullable
@@ -317,9 +317,9 @@ class __$$_CodeAnswerCopyWithImpl<$Res>
 class _$_CodeAnswer implements _CodeAnswer {
   const _$_CodeAnswer(
       {required this.id,
+      required this.exercise,
       this.passed = false,
       required this.submitted_code,
-      required this.exercise,
       required this.console_output,
       required this.error_message});
 
@@ -329,12 +329,12 @@ class _$_CodeAnswer implements _CodeAnswer {
   @override
   final int id;
   @override
+  final int exercise;
+  @override
   @JsonKey()
   final bool passed;
   @override
   final String submitted_code;
-  @override
-  final int exercise;
   @override
   final String console_output;
   @override
@@ -342,7 +342,7 @@ class _$_CodeAnswer implements _CodeAnswer {
 
   @override
   String toString() {
-    return 'CodeAnswer(id: $id, passed: $passed, submitted_code: $submitted_code, exercise: $exercise, console_output: $console_output, error_message: $error_message)';
+    return 'CodeAnswer(id: $id, exercise: $exercise, passed: $passed, submitted_code: $submitted_code, console_output: $console_output, error_message: $error_message)';
   }
 
   @override
@@ -351,11 +351,11 @@ class _$_CodeAnswer implements _CodeAnswer {
         (other.runtimeType == runtimeType &&
             other is _$_CodeAnswer &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.exercise, exercise) ||
+                other.exercise == exercise) &&
             (identical(other.passed, passed) || other.passed == passed) &&
             (identical(other.submitted_code, submitted_code) ||
                 other.submitted_code == submitted_code) &&
-            (identical(other.exercise, exercise) ||
-                other.exercise == exercise) &&
             (identical(other.console_output, console_output) ||
                 other.console_output == console_output) &&
             (identical(other.error_message, error_message) ||
@@ -364,8 +364,8 @@ class _$_CodeAnswer implements _CodeAnswer {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, passed, submitted_code,
-      exercise, console_output, error_message);
+  int get hashCode => Object.hash(runtimeType, id, exercise, passed,
+      submitted_code, console_output, error_message);
 
   @JsonKey(ignore: true)
   @override
@@ -384,9 +384,9 @@ class _$_CodeAnswer implements _CodeAnswer {
 abstract class _CodeAnswer implements CodeAnswer {
   const factory _CodeAnswer(
       {required final int id,
+      required final int exercise,
       final bool passed,
       required final String submitted_code,
-      required final int exercise,
       required final String console_output,
       required final String error_message}) = _$_CodeAnswer;
 
@@ -396,11 +396,11 @@ abstract class _CodeAnswer implements CodeAnswer {
   @override
   int get id;
   @override
+  int get exercise;
+  @override
   bool get passed;
   @override
   String get submitted_code;
-  @override
-  int get exercise;
   @override
   String get console_output;
   @override
