@@ -1,7 +1,8 @@
+/* External dependencies */
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+/* Local dependencies */
 import 'package:kodjaz/core/helpers/text_styles.dart';
 import 'package:kodjaz/features/articles/data/models/article.dart';
 

@@ -1,6 +1,8 @@
+/* External dependencies */
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/* Local dependencies */
 import '../../../../core/helpers/colors.dart';
 import '../../../../core/helpers/text_styles.dart';
 import '../../data/models/article.dart';
