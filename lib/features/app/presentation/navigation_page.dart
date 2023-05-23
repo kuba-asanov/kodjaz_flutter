@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 /* Local dependencies */
 import '../../../core/injection/injection.dart';
+import '../../articles/presentation/articles_page.dart';
 import '../../courses/presentation/courses_page.dart';
 import '../../home/presentation/home_page.dart';
 import '../../profile/presentation/profile_page.dart';
@@ -17,6 +18,7 @@ class NavigationPage extends StatelessWidget {
   final List<Widget> _pages = const [
     HomePage(),
     CoursesPage(),
+    ArticlesPage(),
     ProfilePage(),
   ];
 
