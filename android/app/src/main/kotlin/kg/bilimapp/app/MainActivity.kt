@@ -1,4 +1,4 @@
-package com.example.kodjaz
+package kg.bilimapp.app
 
 import io.flutter.embedding.android.FlutterActivity
 
