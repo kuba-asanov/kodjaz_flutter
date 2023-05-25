@@ -37,6 +37,7 @@ dependencies:
   html: ^0.15.1
   flutter_markdown: ^0.6.13
   flutter_smart_dialog: ^4.8.2
+  cached_network_image: ^3.2.3
 
 dev_dependencies:
   flutter_test:
@@ -81,4 +82,3 @@ flutter_icons:
   # macos:
   #   generate: true
   #   image_path: "path/to/image.png"
-

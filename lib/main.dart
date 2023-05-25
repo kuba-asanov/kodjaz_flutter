@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      title: 'Kodjaz app',
+      title: 'bilimapp',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
@@ -67,6 +67,7 @@ class MyApp extends StatelessWidget {
           systemOverlayStyle: SystemUiOverlayStyle.dark,
         ),
         primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: const Color(0xffF8F9FD),
       ),
       builder: FlutterSmartDialog.init(),
     );
