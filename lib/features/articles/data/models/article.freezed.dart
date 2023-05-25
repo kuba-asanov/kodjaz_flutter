@@ -25,7 +25,7 @@ mixin _$Article {
   String get articleType => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   int get createDate => throw _privateConstructorUsedError;
-  String get heroMedia => throw _privateConstructorUsedError;
+  String? get urlToImage => throw _privateConstructorUsedError;
   String get synopsis => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   List<Content> get content => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $ArticleCopyWith<$Res> {
       String articleType,
       String category,
       int createDate,
-      String heroMedia,
+      String? urlToImage,
       String synopsis,
       String title,
       List<Content> content});
@@ -70,7 +70,7 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
     Object? articleType = null,
     Object? category = null,
     Object? createDate = null,
-    Object? heroMedia = null,
+    Object? urlToImage = freezed,
     Object? synopsis = null,
     Object? title = null,
     Object? content = null,
@@ -96,10 +96,10 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
               as int,
-      heroMedia: null == heroMedia
-          ? _value.heroMedia
-          : heroMedia // ignore: cast_nullable_to_non_nullable
-              as String,
+      urlToImage: freezed == urlToImage
+          ? _value.urlToImage
+          : urlToImage // ignore: cast_nullable_to_non_nullable
+              as String?,
       synopsis: null == synopsis
           ? _value.synopsis
           : synopsis // ignore: cast_nullable_to_non_nullable
@@ -129,7 +129,7 @@ abstract class _$$_ArticleCopyWith<$Res> implements $ArticleCopyWith<$Res> {
       String articleType,
       String category,
       int createDate,
-      String heroMedia,
+      String? urlToImage,
       String synopsis,
       String title,
       List<Content> content});
@@ -150,7 +150,7 @@ class __$$_ArticleCopyWithImpl<$Res>
     Object? articleType = null,
     Object? category = null,
     Object? createDate = null,
-    Object? heroMedia = null,
+    Object? urlToImage = freezed,
     Object? synopsis = null,
     Object? title = null,
     Object? content = null,
@@ -176,10 +176,10 @@ class __$$_ArticleCopyWithImpl<$Res>
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
               as int,
-      heroMedia: null == heroMedia
-          ? _value.heroMedia
-          : heroMedia // ignore: cast_nullable_to_non_nullable
-              as String,
+      urlToImage: freezed == urlToImage
+          ? _value.urlToImage
+          : urlToImage // ignore: cast_nullable_to_non_nullable
+              as String?,
       synopsis: null == synopsis
           ? _value.synopsis
           : synopsis // ignore: cast_nullable_to_non_nullable
@@ -205,7 +205,7 @@ class _$_Article implements _Article {
       this.articleType = "ArticleType",
       this.category = "Category",
       this.createDate = 0,
-      this.heroMedia = "heroMedia",
+      this.urlToImage,
       this.synopsis = "synopsis",
       this.title = "title",
       final List<Content> content = const []})
@@ -229,8 +229,7 @@ class _$_Article implements _Article {
   @JsonKey()
   final int createDate;
   @override
-  @JsonKey()
-  final String heroMedia;
+  final String? urlToImage;
   @override
   @JsonKey()
   final String synopsis;
@@ -248,7 +247,7 @@ class _$_Article implements _Article {
 
   @override
   String toString() {
-    return 'Article(id: $id, author: $author, articleType: $articleType, category: $category, createDate: $createDate, heroMedia: $heroMedia, synopsis: $synopsis, title: $title, content: $content)';
+    return 'Article(id: $id, author: $author, articleType: $articleType, category: $category, createDate: $createDate, urlToImage: $urlToImage, synopsis: $synopsis, title: $title, content: $content)';
   }
 
   @override
@@ -264,8 +263,8 @@ class _$_Article implements _Article {
                 other.category == category) &&
             (identical(other.createDate, createDate) ||
                 other.createDate == createDate) &&
-            (identical(other.heroMedia, heroMedia) ||
-                other.heroMedia == heroMedia) &&
+            (identical(other.urlToImage, urlToImage) ||
+                other.urlToImage == urlToImage) &&
             (identical(other.synopsis, synopsis) ||
                 other.synopsis == synopsis) &&
             (identical(other.title, title) || other.title == title) &&
@@ -281,7 +280,7 @@ class _$_Article implements _Article {
       articleType,
       category,
       createDate,
-      heroMedia,
+      urlToImage,
       synopsis,
       title,
       const DeepCollectionEquality().hash(_content));
@@ -307,7 +306,7 @@ abstract class _Article implements Article {
       final String articleType,
       final String category,
       final int createDate,
-      final String heroMedia,
+      final String? urlToImage,
       final String synopsis,
       final String title,
       final List<Content> content}) = _$_Article;
@@ -325,7 +324,7 @@ abstract class _Article implements Article {
   @override
   int get createDate;
   @override
-  String get heroMedia;
+  String? get urlToImage;
   @override
   String get synopsis;
   @override

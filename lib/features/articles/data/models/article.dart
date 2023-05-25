@@ -10,7 +10,7 @@ class Article with _$Article {
     @Default("ArticleType") String articleType,
     @Default("Category") String category,
     @Default(0) int createDate,
-    @Default("heroMedia") String heroMedia,
+    String? urlToImage,
     @Default("synopsis") String synopsis,
     @Default("title") String title,
     @Default([]) List<Content> content,

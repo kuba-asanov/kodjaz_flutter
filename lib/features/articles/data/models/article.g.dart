@@ -12,7 +12,7 @@ _$_Article _$$_ArticleFromJson(Map<String, dynamic> json) => _$_Article(
       articleType: json['articleType'] as String? ?? "ArticleType",
       category: json['category'] as String? ?? "Category",
       createDate: json['createDate'] as int? ?? 0,
-      heroMedia: json['heroMedia'] as String? ?? "heroMedia",
+      urlToImage: json['urlToImage'] as String?,
       synopsis: json['synopsis'] as String? ?? "synopsis",
       title: json['title'] as String? ?? "title",
       content: (json['content'] as List<dynamic>?)
@@ -28,7 +28,7 @@ Map<String, dynamic> _$$_ArticleToJson(_$_Article instance) =>
       'articleType': instance.articleType,
       'category': instance.category,
       'createDate': instance.createDate,
-      'heroMedia': instance.heroMedia,
+      'urlToImage': instance.urlToImage,
       'synopsis': instance.synopsis,
       'title': instance.title,
       'content': instance.content,
