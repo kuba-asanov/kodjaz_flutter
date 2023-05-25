@@ -39,7 +39,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
 
         Navigation.router.replace(NavigationRoute());
       } else {
-        Navigation.router.replace(NavigationRoute());
+        Navigation.router.replace(const LoginRoute());
       }
     });
   }
@@ -53,7 +53,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
         if (state.token != null) {
           Navigation.router.replace(NavigationRoute());
         } else {
-          Navigation.router.replace(NavigationRoute());
+          Navigation.router.replace(const LoginRoute());
         }
       },
       child: Scaffold(
