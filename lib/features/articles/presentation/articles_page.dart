@@ -7,10 +7,13 @@ import 'package:kodjaz/core/helpers/colors.dart';
 import 'package:kodjaz/core/helpers/text_styles.dart';
 import 'package:kodjaz/core/navigation/navigation.dart';
 import 'package:kodjaz/features/articles/presentation/widgets/article_card.dart';
+import 'package:kodjaz/features/articles/presentation/widgets/search_field.dart';
 
 import '../../../core/injection/injection.dart';
 import '../../../core/navigation/auto_route.gr.dart';
+import '../data/models/article.dart';
 import 'bloc/article_bloc.dart';
+import 'widgets/article_card2.dart';
 
 class ArticlesPage extends StatefulWidget {
   const ArticlesPage({super.key});
@@ -30,42 +33,47 @@ class _ArticlesPageState extends State<ArticlesPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: BlocBuilder<ArticleBloc, ArticleState>(
-        bloc: _bloc,
-        builder: (context, state) {
-          return ListView.builder(
-            shrinkWrap: true,
-            itemCount: state.listOfArticles.length,
-            itemBuilder: ((context, index) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  if (index == 0)
-                    Text(
-                      "Articles",
-                      style: KodjazTextStyle.fS22FW700.copyWith(color: KodJazColors.black),
-                    ),
-                  if (index == 0)
-                    Text(
-                      "Wednethday, 24 May",
-                      style: KodjazTextStyle.fS14FW700.copyWith(color: KodJazColors.black),
-                    ),
-                  InkWell(
-                    onTap: () {
-                      Navigation.router
-                          .push(ArticleDetailRoute(article: state.listOfArticles[index]));
-                    },
-                    child: AritcleCard(
-                      article: state.listOfArticles[index],
-                    ),
-                  ),
-                ],
-              );
-            }),
-          );
-        },
+    return Scaffold(
+      backgroundColor: const Color(0xffF8F9FD),
+      body: SafeArea(
+        child: BlocBuilder<ArticleBloc, ArticleState>(
+          bloc: _bloc,
+          builder: (context, state) {
+            return Column(
+              children: [
+                const SearchField(),
+                state.loading
+                    ? SizedBox(
+                        height: MediaQuery.of(context).size.height / 2,
+                        child: const Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                      )
+                    : Expanded(
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: state.listOfArticles.length,
+                          itemBuilder: ((context, index) {
+                            final Article article = state.listOfArticles[index];
+
+                            return InkWell(
+                              onTap: () {
+                                Navigation.router
+                                    .push(ArticleDetailRoute(article: article));
+                              },
+                              child: article.articleType == "BIG"
+                                  ? AritcleCard(article: article)
+                                  : NewsCard(
+                                      article: article,
+                                    ),
+                            );
+                          }),
+                        ),
+                      ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
