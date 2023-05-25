@@ -35,11 +35,11 @@ class _HomePageState extends State<HomePage> {
     MyScreenUtil.init(context);
 
     return Scaffold(
-      appBar: AppBar(),
+      // appBar: AppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 40.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

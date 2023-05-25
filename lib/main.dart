@@ -1,8 +1,5 @@
 /* External dependencies */
-import 'dart:developer';
-
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -66,7 +63,8 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.transparent,
           systemOverlayStyle: SystemUiOverlayStyle.dark,
         ),
-        primarySwatch: Colors.blue,
+        primaryColor: KodJazColors.PrimaryColor,
+        // primarySwatch: Colors.blue,
         scaffoldBackgroundColor: const Color(0xffF8F9FD),
       ),
       builder: FlutterSmartDialog.init(),

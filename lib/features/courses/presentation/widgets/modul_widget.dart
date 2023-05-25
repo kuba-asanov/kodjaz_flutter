@@ -6,6 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kodjaz/features/courses/presentation/widgets/modul_item_widget.dart';
 import 'package:kodjaz/features/models/track.dart';
 
+import '../../../../core/helpers/text_styles.dart';
+
 class UnitWidget extends StatelessWidget {
   final List<Unit> units;
 
@@ -16,6 +18,17 @@ class UnitWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (units.isEmpty) {
+      return SizedBox.expand(
+        child: Center(
+          child: Text(
+            "Азырынча бул курс жеткиликтүү эмес",
+            style: KodjazTextStyle.fS16FW400,
+          ),
+        ),
+      );
+    }
+
     return ListView.separated(
       physics: const NeverScrollableScrollPhysics(),
       separatorBuilder: (context, index) => Divider(

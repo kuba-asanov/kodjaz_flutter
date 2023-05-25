@@ -41,7 +41,7 @@ class _ProfilePageState extends State<ProfilePage> {
               children: [
                 Container(
                   height: 100.h,
-                  color: KodJazColors.blue2,
+                  color: KodJazColors.PrimaryColor,
                 ),
                 SizedBox(height: 66.h),
                 Padding(

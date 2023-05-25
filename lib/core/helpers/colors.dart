@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 class KodJazColors {
-  static const Color PrimaryColor = Color.fromRGBO(48, 80, 193, 1);
-  static const Color SecondaryColor = Color.fromRGBO(207, 207, 207, 1);
+  static const Color PrimaryColor = Color(0xff1D3BA8);
+  static const Color SecondaryColor = Color(0xFF8F9BB3);
   static const Color White = Color(0xffFFFFFF);
   static const Color DisabledButtonColor = Color.fromRGBO(231, 231, 236, 1);
   static const Color DisabledTextColor = Color.fromRGBO(152, 152, 154, 1);

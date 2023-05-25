@@ -1,6 +1,7 @@
 /* External dependencies */
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -82,67 +83,70 @@ class _CourseDetailPageState extends State<CourseDetailPage>
     }
 
     return Scaffold(
-      body: SafeArea(
-        child: NestedScrollView(
-          controller: _scrollController,
-          headerSliverBuilder:
-              (BuildContext context, bool innerBoxIsScrolled) => [
-            SliverAppBar(
-              foregroundColor: Colors.white,
-              flexibleSpace: FlexibleSpaceBar(
-                collapseMode: CollapseMode.pin,
-                expandedTitleScale: 1,
-                title: Text(widget.course.name),
-                background: _AppBar(
-                  course: widget.course,
-                  icon: icon,
-                  level: level,
-                ),
-                titlePadding: EdgeInsetsDirectional.only(
-                  bottom: isAppBarhide ? 16 : 112.h,
-                ),
-                centerTitle: true,
-              ),
-              pinned: true,
-              expandedHeight: 224.h,
-              backgroundColor: KodJazColors.blue2,
-            ),
-          ],
-          body: Column(
-            children: [
-              TabBar(
-                indicatorColor: KodJazColors.blue,
-                labelColor: KodJazColors.black,
-                labelStyle: KodjazTextStyle.fS14FW500,
-                unselectedLabelStyle: KodjazTextStyle.fS14FW400,
-                controller: _tabController,
-                tabs: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10.h),
-                    child: Text(LocaleKeys.modules.tr()),
+      body: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle.dark,
+        child: SafeArea(
+          child: NestedScrollView(
+            controller: _scrollController,
+            headerSliverBuilder:
+                (BuildContext context, bool innerBoxIsScrolled) => [
+              SliverAppBar(
+                foregroundColor: Colors.white,
+                flexibleSpace: FlexibleSpaceBar(
+                  collapseMode: CollapseMode.pin,
+                  expandedTitleScale: 1,
+                  title: Text(widget.course.name),
+                  background: _AppBar(
+                    course: widget.course,
+                    icon: icon,
+                    level: level,
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10.h),
-                    child: Text(LocaleKeys.aboutTheCourse.tr()),
+                  titlePadding: EdgeInsetsDirectional.only(
+                    bottom: isAppBarhide ? 16 : 112.h,
                   ),
-                ],
+                  centerTitle: true,
+                ),
+                pinned: true,
+                expandedHeight: 224.h,
+                backgroundColor: KodJazColors.PrimaryColor,
               ),
-              Expanded(
-                child: TabBarView(
+            ],
+            body: Column(
+              children: [
+                TabBar(
+                  indicatorColor: KodJazColors.blue,
+                  labelColor: KodJazColors.black,
+                  labelStyle: KodjazTextStyle.fS14FW500,
+                  unselectedLabelStyle: KodjazTextStyle.fS14FW400,
                   controller: _tabController,
-                  children: [
-                    UnitWidget(units: widget.course.track_units),
+                  tabs: [
                     Padding(
-                      padding: EdgeInsets.all(12.r),
-                      child: Text(
-                        "${widget.course.description} \n\nИнженерлер-программисттер, аналитиктер, маалымат таануучулар жана машина үйрөнүү инженерлери колдонгон дүйнөдөгү эң тез өнүгүп жаткан жана эң популярдуу программалоо тилинин негиздерин үйрөнүңүз. Бул курс программалоонун фундаменталдык негиздерин жана Python программалоо тилин үйрөнүү үчүн эң жакшы. Курсту аяктаган соң, Python тилинде программалоону өздөштүрүп, өз долбоорлоруңузду курганга даяр болуп каласыз.",
-                        style: KodjazTextStyle.fS16FW400,
-                      ),
+                      padding: EdgeInsets.symmetric(vertical: 10.h),
+                      child: Text(LocaleKeys.modules.tr()),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10.h),
+                      child: Text(LocaleKeys.aboutTheCourse.tr()),
                     ),
                   ],
                 ),
-              ),
-            ],
+                Expanded(
+                  child: TabBarView(
+                    controller: _tabController,
+                    children: [
+                      UnitWidget(units: widget.course.track_units),
+                      Padding(
+                        padding: EdgeInsets.all(12.r),
+                        child: Text(
+                          "${widget.course.description} \n\nИнженерлер-программисттер, аналитиктер, маалымат таануучулар жана машина үйрөнүү инженерлери колдонгон дүйнөдөгү эң тез өнүгүп жаткан жана эң популярдуу программалоо тилинин негиздерин үйрөнүңүз. Бул курс программалоонун фундаменталдык негиздерин жана Python программалоо тилин үйрөнүү үчүн эң жакшы. Курсту аяктаган соң, Python тилинде программалоону өздөштүрүп, өз долбоорлоруңузду курганга даяр болуп каласыз.",
+                          style: KodjazTextStyle.fS16FW400,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -169,7 +173,7 @@ class _AppBar extends StatelessWidget {
       width: 360.w,
       height: 224.h,
       decoration: const BoxDecoration(
-        color: KodJazColors.blue2,
+        color: KodJazColors.PrimaryColor,
       ),
       child: Column(
         children: [

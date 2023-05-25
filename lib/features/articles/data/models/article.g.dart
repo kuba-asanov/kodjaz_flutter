@@ -8,13 +8,13 @@ part of 'article.dart';
 
 _$_Article _$$_ArticleFromJson(Map<String, dynamic> json) => _$_Article(
       id: json['id'] as String,
+      title: json['title'] as String,
+      urlToImage: json['urlToImage'] as String?,
+      synopsis: json['synopsis'] as String?,
       author: json['author'] as String? ?? "Author",
       articleType: json['articleType'] as String? ?? "ArticleType",
-      category: json['category'] as String? ?? "Category",
+      category: json['category'] as String,
       createDate: json['createDate'] as int? ?? 0,
-      urlToImage: json['urlToImage'] as String?,
-      synopsis: json['synopsis'] as String? ?? "synopsis",
-      title: json['title'] as String? ?? "title",
       content: (json['content'] as List<dynamic>?)
               ?.map((e) => Content.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -24,13 +24,13 @@ _$_Article _$$_ArticleFromJson(Map<String, dynamic> json) => _$_Article(
 Map<String, dynamic> _$$_ArticleToJson(_$_Article instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'title': instance.title,
+      'urlToImage': instance.urlToImage,
+      'synopsis': instance.synopsis,
       'author': instance.author,
       'articleType': instance.articleType,
       'category': instance.category,
       'createDate': instance.createDate,
-      'urlToImage': instance.urlToImage,
-      'synopsis': instance.synopsis,
-      'title': instance.title,
       'content': instance.content,
     };
 

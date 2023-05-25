@@ -44,6 +44,7 @@ class _ModuleAccordionStateWidget extends State<ModuleAccordionWidget> {
         statusImagePath = 'didnt_start.svg';
         break;
     }
+
     return Container(
       color: Colors.white,
       child: ExpandablePanel(
@@ -70,7 +71,7 @@ class _ModuleAccordionStateWidget extends State<ModuleAccordionWidget> {
                         SvgPicture.asset('assets/images/svg/play_icon.svg'),
                         SizedBox(width: 14.w),
                         Text(
-                          '${widget.lessons.first.lesson_exercises.length} ${LocaleKeys.lesson.tr()}',
+                          '${widget.lessons.isEmpty ? 0 : widget.lessons.first.lesson_exercises.length} ${LocaleKeys.lesson.tr()}',
                           style: KodjazTextStyle.fS12FW400
                               .copyWith(color: KodJazColors.grey5),
                         ),
@@ -92,60 +93,69 @@ class _ModuleAccordionStateWidget extends State<ModuleAccordionWidget> {
               height: 1.h,
             ),
             SizedBox(height: 12.h),
-            ListView.separated(
-                physics: const NeverScrollableScrollPhysics(),
-                separatorBuilder: (context, index) => SizedBox(height: 16.h),
-                shrinkWrap: true,
-                itemCount: widget.lessons.first.lesson_exercises.length,
-                itemBuilder: (context, index) {
-                  final Exercise exercise =
-                      widget.lessons.first.lesson_exercises[index];
-                  late final String statusImagePath;
+            widget.lessons.isEmpty
+                ? Text(
+                    "Азырынча бул курс жеткиликтүү эмес",
+                    style: KodjazTextStyle.fS16FW400,
+                  )
+                : ListView.separated(
+                    physics: const NeverScrollableScrollPhysics(),
+                    separatorBuilder: (context, index) =>
+                        SizedBox(height: 16.h),
+                    shrinkWrap: true,
+                    itemCount: widget.lessons.isEmpty
+                        ? 0
+                        : widget.lessons.first.lesson_exercises.length,
+                    itemBuilder: (context, index) {
+                      final Exercise exercise =
+                          widget.lessons.first.lesson_exercises[index];
+                      late final String statusImagePath;
 
-                  switch (exercise.status) {
-                    case LessonsStatus.done:
-                      statusImagePath = 'done.svg';
-                      break;
-                    case LessonsStatus.inProgres:
-                      statusImagePath = 'in_progres.svg';
-                      break;
-                    case LessonsStatus.didntStart:
-                      statusImagePath = 'didnt_start.svg';
-                      break;
-                  }
+                      switch (exercise.status) {
+                        case LessonsStatus.done:
+                          statusImagePath = 'done.svg';
+                          break;
+                        case LessonsStatus.inProgres:
+                          statusImagePath = 'in_progres.svg';
+                          break;
+                        case LessonsStatus.didntStart:
+                          statusImagePath = 'didnt_start.svg';
+                          break;
+                      }
 
-                  return InkWell(
-                    onTap: () {
-                      Navigation.router.push(ExerciseRoute(exercise: exercise));
-                    },
-                    child: Container(
-                      height: 40.h,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.r),
-                        color: KodJazColors.white2,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 12.w),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              flex: 5,
-                              child: Text(
-                                exercise.name,
-                                style: KodjazTextStyle.fS16FW400,
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 2,
-                              ),
+                      return InkWell(
+                        onTap: () {
+                          Navigation.router
+                              .push(ExerciseRoute(exercise: exercise));
+                        },
+                        child: Container(
+                          height: 40.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.r),
+                            color: KodJazColors.white2,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 12.w),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  flex: 5,
+                                  child: Text(
+                                    exercise.name,
+                                    style: KodjazTextStyle.fS16FW400,
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 2,
+                                  ),
+                                ),
+                                const Spacer(),
+                                SvgPicture.asset(
+                                    'assets/images/svg/$statusImagePath'),
+                              ],
                             ),
-                            const Spacer(),
-                            SvgPicture.asset(
-                                'assets/images/svg/$statusImagePath'),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
-                  );
-                }),
+                      );
+                    }),
           ],
         ),
         builder: (_, collapsed, expanded) {

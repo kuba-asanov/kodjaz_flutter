@@ -10,7 +10,6 @@ import 'package:kodjaz/core/helpers/colors.dart';
 import 'package:kodjaz/core/helpers/text_styles.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
 import 'package:kodjaz/core/injection/injection.dart';
-import 'package:kodjaz/core/navigation/auto_route.gr.dart';
 import 'package:kodjaz/features/app/presentation/bloc/app_bloc.dart';
 
 class HomeBannerWidget extends StatelessWidget {
@@ -21,7 +20,8 @@ class HomeBannerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 220.h,
+      height: 150.h,
+      alignment: Alignment.center,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.r),
         color: KodJazColors.white,
@@ -49,16 +49,16 @@ class HomeBannerWidget extends StatelessWidget {
             LocaleKeys.viewOurCatalog.tr(),
             style: KodjazTextStyle.fS14FW400,
           ),
-          SizedBox(height: 16.h),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: PrimaryButton(
-              title: LocaleKeys.chooseACourse.tr(),
-              onPressed: () {
-                getIt<AppBloc>().add(CurrentPageIndexChanged(index: 1));
-              },
-            ),
-          )
+          // SizedBox(height: 16.h),
+          // Padding(
+          //   padding: EdgeInsets.symmetric(horizontal: 16.w),
+          //   child: PrimaryButton(
+          //     title: LocaleKeys.chooseACourse.tr(),
+          //     onPressed: () {
+          //       getIt<AppBloc>().add(CurrentPageIndexChanged(index: 1));
+          //     },
+          //   ),
+          // )
         ],
       ),
     );

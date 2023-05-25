@@ -126,7 +126,8 @@ class SecondaryButton extends StatelessWidget {
             ),
           ),
           backgroundColor: MaterialStateProperty.all<Color>(KodJazColors.White),
-          foregroundColor: MaterialStateProperty.all<Color>(KodJazColors.PrimaryColor),
+          foregroundColor:
+              MaterialStateProperty.all<Color>(KodJazColors.PrimaryColor),
           side: MaterialStateProperty.all(
               BorderSide(color: borderSideColor ?? KodJazColors.PrimaryColor)),
         ),
@@ -183,7 +184,8 @@ class Spinner extends StatelessWidget {
             )
           : Center(
               child: CircularProgressIndicator(
-                valueColor: const AlwaysStoppedAnimation<Color>(KodJazColors.PrimaryColor),
+                valueColor: const AlwaysStoppedAnimation<Color>(
+                    KodJazColors.PrimaryColor),
                 strokeWidth: strokeWidth ?? 4.0,
               ),
             );
@@ -290,8 +292,8 @@ class CourseWidget extends StatelessWidget {
                           selectedColor: KodJazColors.blue,
                           unselectedColor: KodJazColors.grey1,
                           padding: 0.r,
-                          width: 50.w,
-                          height: 50.h,
+                          width: 70,
+                          height: 70,
                           selectedStepSize: 7.r,
                           roundedCap: (_, __) => true,
                           child: Center(
@@ -300,7 +302,7 @@ class CourseWidget extends StatelessWidget {
                             style: KodjazTextStyle.fS12FW600,
                           )),
                         )
-                      : Icon(
+                      : const Icon(
                           Icons.chevron_right,
                           color: KodJazColors.grey3,
                         ),
@@ -316,26 +318,44 @@ class CourseWidget extends StatelessWidget {
             if (course.progress == 0)
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset('assets/images/svg/play_icon.svg'),
-                    SizedBox(width: 14.w),
-                    Text(
-                      '${course.track_units.length} ${LocaleKeys.lesson.tr()}',
-                      style: KodjazTextStyle.fS14FW400
-                          .copyWith(color: KodJazColors.grey5),
-                    ),
-                    SizedBox(width: 70.w),
-                    SvgPicture.asset(icon),
-                    SizedBox(width: 10.w),
-                    Text(
-                      level,
-                      style: KodjazTextStyle.fS14FW400
-                          .copyWith(color: KodJazColors.grey5),
-                    ),
-                  ],
-                ),
+                child: course.track_units.isEmpty
+                    ? Center(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(6),
+                            color: KodJazColors.PrimaryColor,
+                          ),
+                          width: 100.w,
+                          height: 20.h,
+                          child: Center(
+                            child: Text(
+                              'ЖАКЫНДА',
+                              style: KodjazTextStyle.fS14FW600
+                                  .copyWith(color: KodJazColors.white),
+                            ),
+                          ),
+                        ),
+                      )
+                    : Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset('assets/images/svg/play_icon.svg'),
+                          SizedBox(width: 14.w),
+                          Text(
+                            '${course.track_units.length} ${LocaleKeys.lesson.tr()}',
+                            style: KodjazTextStyle.fS14FW400
+                                .copyWith(color: KodJazColors.grey5),
+                          ),
+                          SizedBox(width: 70.w),
+                          SvgPicture.asset(icon),
+                          SizedBox(width: 10.w),
+                          Text(
+                            level,
+                            style: KodjazTextStyle.fS14FW400
+                                .copyWith(color: KodJazColors.grey5),
+                          ),
+                        ],
+                      ),
               ),
           ],
         ),

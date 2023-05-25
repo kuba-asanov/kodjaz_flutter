@@ -22,103 +22,44 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       (event, emit) async {
         emit(state.copyWith(loading: true));
 
-        const List<Track> listOfCourse = [
+        const List<Track> mockListOfCourse = [
+          Track(
+            id: 2,
+            name: 'Java',
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/226/226777.png',
+            level: 3,
+            track_units: [
+              Unit(
+                  id: 1,
+                  name: 'Unit 1',
+                  status: LessonsStatus.inProgres,
+                  unit_lessons: []),
+              Unit(
+                  id: 1,
+                  name: 'Unit 2',
+                  status: LessonsStatus.didntStart,
+                  unit_lessons: []),
+            ],
+          ),
           Track(
             id: 2,
             name: 'Typescript',
             iconUrl:
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
-            level: 3,
-            track_units: [
-              Unit(
-                id: 1,
-                name: 'Unit 1',
-                status: LessonsStatus.done,
-              ),
-              Unit(
-                id: 1,
-                name: 'Unit 2',
-                status: LessonsStatus.inProgres,
-              ),
-              Unit(
-                id: 1,
-                name: 'Unit 3',
-                status: LessonsStatus.didntStart,
-              ),
-            ],
-          ),
-          Track(
-            id: 2,
-            name: 'Java',
-            iconUrl:
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
-            level: 1,
-            track_units: [
-              Unit(
-                id: 1,
-                name: 'Unit 1',
-                status: LessonsStatus.done,
-              ),
-              Unit(
-                id: 1,
-                name: 'Unit 2',
-                status: LessonsStatus.inProgres,
-              ),
-              Unit(
-                id: 1,
-                name: 'Unit 3',
-                status: LessonsStatus.didntStart,
-              ),
-            ],
-          ),
-          Track(
-            id: 2,
-            name: 'JavaScript',
-            iconUrl:
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
             level: 2,
             track_units: [
               Unit(
-                id: 1,
-                name: 'Unit 1',
-                status: LessonsStatus.done,
-              ),
-              Unit(
-                id: 1,
-                name: 'Unit 2',
-                status: LessonsStatus.inProgres,
-              ),
+                  id: 1,
+                  name: 'Unit 1',
+                  status: LessonsStatus.didntStart,
+                  unit_lessons: []),
             ],
           ),
           Track(
             id: 2,
             name: 'JavaScript',
             iconUrl:
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
-            level: 1,
-            track_units: [
-              Unit(
-                id: 1,
-                name: 'Unit 1',
-                status: LessonsStatus.done,
-              ),
-              Unit(
-                id: 1,
-                name: 'Unit 2',
-                status: LessonsStatus.inProgres,
-              ),
-              Unit(
-                id: 1,
-                name: 'Unit 3',
-                status: LessonsStatus.didntStart,
-              ),
-            ],
-          ),
-          Track(
-            id: 2,
-            name: 'JavaScript',
-            iconUrl:
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCebckBUnQ-QHmJFYejy_HkzrBo4_s6vPX-w&usqp=CAU',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png',
             level: 2,
             track_units: [],
           ),
@@ -127,7 +68,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         await _repo.listTracks().then((tracks) {
           emit(
             state.copyWith(
-              listOfCourse: tracks,
+              listOfCourse: [
+                tracks.first.copyWith(progress: 46),
+                ...tracks.skip(1),
+                ...mockListOfCourse,
+              ],
               loading: false,
             ),
           );
@@ -137,19 +82,19 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           ));
         });
 
-        await _repo.myListTracks().then((tracks) {
-          emit(
-            state.copyWith(
-              myListOfCourse: tracks,
-              loading: false,
-            ),
-          );
-        }).onError((DioError error, stackTrace) {
-          emit(state.copyWith(
-            error: error,
-            loading: false,
-          ));
-        });
+        // await _repo.myListTracks().then((tracks) {
+        //   emit(
+        //     state.copyWith(
+        //       myListOfCourse: tracks,
+        //       loading: false,
+        //     ),
+        //   );
+        // }).onError((DioError error, stackTrace) {
+        //   emit(state.copyWith(
+        //     error: error,
+        //     loading: false,
+        //   ));
+        // });
       },
     );
   }

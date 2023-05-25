@@ -17,7 +17,7 @@ class NavigationPage extends StatelessWidget {
   final AppBloc appBloc = getIt<AppBloc>();
   final List<Widget> _pages = const [
     HomePage(),
-    CoursesPage(),
+    // CoursesPage(),
     ArticlesPage(),
     ProfilePage(),
   ];

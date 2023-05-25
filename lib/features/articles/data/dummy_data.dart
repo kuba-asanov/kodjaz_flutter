@@ -3,54 +3,126 @@ import 'package:kodjaz/features/articles/data/models/article.dart';
 List<Article> DUMMY_DATA_ARTICLES = const [
   Article(
       id: "articleId",
+      category: "IT",
       title:
-          "How HTTP Streaming can improve page Airbnb enabled it on an existing codebase",
+          "❓У меня очень часто спрашивают как попасть на стажировку в компанию @ManchoDevs.",
       content: [
         Content(
             data:
-                """Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.""",
+                """И мне приходится отвечать по несколько раз каждому из вас.Поэтому я решил ответить на все вопросы в этом посте.
+
+Минимальные требования на позицию Flutter intern 🧑‍💻👩‍💻:
+
+1) Кандидат должен уметь хорошо верстать UI виджеты и знать отличие между Stateless widget'a и Statefull.
+2) Управлять состояниями с помощью flutter_bloc
+3) Пониманимать как работает язык Dart
+4) Уметь подключиться к серверу с использованием REST API или GraphQL API's.
+5) Умение решать образовавшиеся проблемы, баги во время разработки - умение гуглить 😁.
+6) Умение развиваться каждый день самостоятельно, изучать новое в своей сфере.
+7) Умение выслушивать адекватную критику и выносить из него только полезное для себя.
+
+P.S.: Будьте уверены в том, что вы достигнете своей цели 🔥, если она у вас есть)""",
+            type: ""),
+      ],
+      author: "Kuba Asanov",
+      urlToImage:
+          "https://bilimapp-images.s3.us-west-2.amazonaws.com/2023-05-25+11.55.48.jpg"),
+  Article(
+      id: "articleId",
+      category: "IT",
+      title: "IT тармагынын артыкчылыктары.",
+      content: [
+        Content(
+            data:
+                """Албетте азыркы учурда IT тармагы актуалдуу жана ар бир экинчи адамдын оозунан бул терминди угуп калдык. Өзүм бул тармакта жүргөнүм менен бул убакытка чейин бул тармакта такыр сүйлөбөгөндүктөн, теманы башынан баштоону туура көрдүм. 
+
+Бул постто бул тармактын артыкчылыктары жана башка кеп-кеңеш сыяктуу нерселерди санап көрөлү:
+1. Бул тармакты көпчүлүк жеңил, жана маянасы жогору үчүн тандашат. Бирок бул кесиптин ээси болуп, ал тармак боюнча кетүү бары ойлогондой жеңил эмес. Төмөнкү бөлүктөрдө эмне үчүн экенин да айтып кетем.
+2. Бул кесипти бир жолу өздөштүрүп, ошол бойдон иштеп кетүү таптакыр мүмкүн эмес. Күн өткөн сайын, технологиялар жаңыланып,  конкуренция да өсүп турат, ошондуктан программисттер ар дайым жаңы нерсе окуп, үйрөнүп + иштешет.
+3. Бул тармакта абдан көп багыттар бар(Front-end, back-end, mobile, ж.б.). Бул багыттар жөнүндө Googleдан издеп таап, окусаңар болот.""",
             type: ""),
       ],
       author: "Isabek Tashtanov",
       urlToImage:
-          "https://ecobnb.com/blog/app/uploads/sites/3/2020/01/nature-1170x490.jpg.webp"),
+          "https://bilimapp-images.s3.us-west-2.amazonaws.com/2023-05-25+12.30.24.jpg"),
   Article(
+      category: "IT",
       id: "articleId",
-      title: "Are you going to the party this weekend?",
-      content: [
-        Content(
-            data:
-                """Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.""",
-            type: ""),
-      ],
-      author: "Isabek Tashtanov",
-      urlToImage:
-          "https://blog.depositphotos.com/wp-content/uploads/2017/07/Soothing-nature-backgrounds-2.jpg.webp"),
-  Article(
-      id: "articleId",
-      title:
-          "How HTTP Streaming can improve page Airbnb enabled it on an existing codebase",
+      title: "IT сферасындагы эң популярдуу болгон тармактар.",
       articleType: "BIG",
       content: [
-        Content(
-            data:
-                """Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.""",
-            type: ""),
+        Content(data: """Web development 🌐 - веб иштеп чыгуу: 
+Ар түрдүү кооз веб сайттар жана веб тиркемелерди иштеп чыгуу.
+
+Mobile development 📱 - мобилдик тиркемелерди иштеп чыгуу: 
+Азыркы учурда баарыбыз колдонгон смартфондорго тиркемелерди иштеп чыгуу.
+
+Game development 🎮 - оюндарды иштеп чыгуу:
+Биз сүйгөн PUBG, Counter Strike ж.б. толтура оюндарды жасоо.
+
+AI (Artificial intelligence) - жасалма интеллект:
+Түрдүү акылдуу машиналарды, өзгөчө акылдуу компьютердик программаларды түзүүнүн илим жана технологиясы. Компьютер системаларынын адамга таандык деп эсептелген чыгармачылык жана интеллектуалдык функцияларды аткаруу жөндөмү.
+
+ML (Machine learning) - машина үйрөтүү: 
+Бул багыт компьютерди ар кандай маселелердин чечимдерин өз алдынча табууга үйрөтөт.  Компьютерлер аналитикалык иштерди жасашат жана алдын ала жүктөлгөн маалыматтарды жана атайын алгоритмдерди колдонуу менен моделдерди адамдарга караганда тезирээк аныкташат.
+""", type: ""),
       ],
-      author: "Isabek Tashtanov",
+      author: "Kuba Asanov",
       urlToImage:
-          "https://ecobnb.com/blog/app/uploads/sites/3/2020/01/nature-1170x490.jpg.webp"),
+          "https://bilimapp-images.s3.us-west-2.amazonaws.com/2023-05-25+12.22.55.jpg"),
   Article(
       id: "articleId",
-      title:
-          "How HTTP Streaming can improve page Airbnb enabled it on an existing codebase",
+      category: "IT",
+      title: "Как поступить в Международный университет \"Ала-Тоо\"",
       content: [
         Content(
             data:
-                """Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.""",
+                """Скоро в Международном университете "Ала-Тоо" начнется отбор абитуриентов на новый учебный год. В материале мы подробно расскажем, как поступить в этот вуз нынешним летом.
+                
+Как поступить в Международный университет "Ала-Тоо"
+                
+Прежде всего необходимо сдать в приемную комиссию следующие документы:
+документ государственного образца о среднем общем или среднем профессиональном образовании (аттестат или диплом);
+оригинал сертификата ОРТ;
+копию паспорта;
+копию приписного свидетельства или военного билета (для юношей);
+4 фотографии 3х4;
+первоначальный платеж в размере 30 процентов от общей стоимости обучения, остальные 70 процентов — в течение полугода.
+Следующим шагом будет сдача внутреннего теста по английскому языку. Абитуриенты, успешно прошедшие это испытание, зачисляются на первый курс.
+Кто не смог набрать пороговый показатель, будет рекомендован к зачислению на подготовительный курс.
+Абитуриенты с официальными сертификатами TOEFL и IELTS становятся студентами первого курса без испытательного теста. Других дополнительных вступительных испытаний университет не проводит.
+
+Какие льготы предоставляются студентам?
+Скидки на обучение от 5 до 100 процентов предоставляются на основании результатов ОРТ;
+скидка в 20 процентов предусмотрена для обладателей аттестата о среднем образовании особого образца;
+призеры республиканских олимпиад смогут обучаться со скидкой от 40 до 100 процентов;
+на скидку могут рассчитывать и социально уязвимые категории студентов.
+
+Факультеты и направления Международного университета "Ала-Тоо"
+Инженерия и информатика:
+информатика и вычислительная техника;
+электроника и наноэлектроника;
+прикладная математика и информатика;
+управление качеством.
+Факультет гуманитарных наук:
+лингвистика (перевод и переводоведение);
+филология (английский язык и литература);
+лингвистика (китайский язык);
+психология;
+педагогика (педагогика и методика начального образования);
+журналистика.
+Факультет экономики и управления:
+экономика (МЭиБ и ФК);
+международные отношения;
+менеджмент;
+международное право.
+Медицинский факультет:
+лечебное дело;
+педиатрия.
+""",
             type: ""),
       ],
-      author: "Isabek Tashtanov",
+      author: "Kuba Asanov",
       urlToImage:
-          "https://ecobnb.com/blog/app/uploads/sites/3/2020/01/nature-1170x490.jpg.webp"),
+          "https://vesti.kg/media/k2/items/cache/504352280db9a2e327dba3453d60634c_XL.jpg?t=20220315_042525"),
 ];

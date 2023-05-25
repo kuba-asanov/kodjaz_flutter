@@ -21,13 +21,13 @@ Article _$ArticleFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Article {
   String get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String? get urlToImage => throw _privateConstructorUsedError;
+  String? get synopsis => throw _privateConstructorUsedError;
   String get author => throw _privateConstructorUsedError;
   String get articleType => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   int get createDate => throw _privateConstructorUsedError;
-  String? get urlToImage => throw _privateConstructorUsedError;
-  String get synopsis => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
   List<Content> get content => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,13 +42,13 @@ abstract class $ArticleCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
+      String title,
+      String? urlToImage,
+      String? synopsis,
       String author,
       String articleType,
       String category,
       int createDate,
-      String? urlToImage,
-      String synopsis,
-      String title,
       List<Content> content});
 }
 
@@ -66,13 +66,13 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
   @override
   $Res call({
     Object? id = null,
+    Object? title = null,
+    Object? urlToImage = freezed,
+    Object? synopsis = freezed,
     Object? author = null,
     Object? articleType = null,
     Object? category = null,
     Object? createDate = null,
-    Object? urlToImage = freezed,
-    Object? synopsis = null,
-    Object? title = null,
     Object? content = null,
   }) {
     return _then(_value.copyWith(
@@ -80,6 +80,18 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      urlToImage: freezed == urlToImage
+          ? _value.urlToImage
+          : urlToImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      synopsis: freezed == synopsis
+          ? _value.synopsis
+          : synopsis // ignore: cast_nullable_to_non_nullable
+              as String?,
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -96,18 +108,6 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
               as int,
-      urlToImage: freezed == urlToImage
-          ? _value.urlToImage
-          : urlToImage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      synopsis: null == synopsis
-          ? _value.synopsis
-          : synopsis // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
       content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -125,13 +125,13 @@ abstract class _$$_ArticleCopyWith<$Res> implements $ArticleCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
+      String title,
+      String? urlToImage,
+      String? synopsis,
       String author,
       String articleType,
       String category,
       int createDate,
-      String? urlToImage,
-      String synopsis,
-      String title,
       List<Content> content});
 }
 
@@ -146,13 +146,13 @@ class __$$_ArticleCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? title = null,
+    Object? urlToImage = freezed,
+    Object? synopsis = freezed,
     Object? author = null,
     Object? articleType = null,
     Object? category = null,
     Object? createDate = null,
-    Object? urlToImage = freezed,
-    Object? synopsis = null,
-    Object? title = null,
     Object? content = null,
   }) {
     return _then(_$_Article(
@@ -160,6 +160,18 @@ class __$$_ArticleCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      urlToImage: freezed == urlToImage
+          ? _value.urlToImage
+          : urlToImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      synopsis: freezed == synopsis
+          ? _value.synopsis
+          : synopsis // ignore: cast_nullable_to_non_nullable
+              as String?,
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -176,18 +188,6 @@ class __$$_ArticleCopyWithImpl<$Res>
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
               as int,
-      urlToImage: freezed == urlToImage
-          ? _value.urlToImage
-          : urlToImage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      synopsis: null == synopsis
-          ? _value.synopsis
-          : synopsis // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
       content: null == content
           ? _value._content
           : content // ignore: cast_nullable_to_non_nullable
@@ -201,13 +201,13 @@ class __$$_ArticleCopyWithImpl<$Res>
 class _$_Article implements _Article {
   const _$_Article(
       {required this.id,
+      required this.title,
+      this.urlToImage,
+      this.synopsis,
       this.author = "Author",
       this.articleType = "ArticleType",
-      this.category = "Category",
+      required this.category,
       this.createDate = 0,
-      this.urlToImage,
-      this.synopsis = "synopsis",
-      this.title = "title",
       final List<Content> content = const []})
       : _content = content;
 
@@ -217,25 +217,22 @@ class _$_Article implements _Article {
   @override
   final String id;
   @override
+  final String title;
+  @override
+  final String? urlToImage;
+  @override
+  final String? synopsis;
+  @override
   @JsonKey()
   final String author;
   @override
   @JsonKey()
   final String articleType;
   @override
-  @JsonKey()
   final String category;
   @override
   @JsonKey()
   final int createDate;
-  @override
-  final String? urlToImage;
-  @override
-  @JsonKey()
-  final String synopsis;
-  @override
-  @JsonKey()
-  final String title;
   final List<Content> _content;
   @override
   @JsonKey()
@@ -247,7 +244,7 @@ class _$_Article implements _Article {
 
   @override
   String toString() {
-    return 'Article(id: $id, author: $author, articleType: $articleType, category: $category, createDate: $createDate, urlToImage: $urlToImage, synopsis: $synopsis, title: $title, content: $content)';
+    return 'Article(id: $id, title: $title, urlToImage: $urlToImage, synopsis: $synopsis, author: $author, articleType: $articleType, category: $category, createDate: $createDate, content: $content)';
   }
 
   @override
@@ -256,6 +253,11 @@ class _$_Article implements _Article {
         (other.runtimeType == runtimeType &&
             other is _$_Article &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.urlToImage, urlToImage) ||
+                other.urlToImage == urlToImage) &&
+            (identical(other.synopsis, synopsis) ||
+                other.synopsis == synopsis) &&
             (identical(other.author, author) || other.author == author) &&
             (identical(other.articleType, articleType) ||
                 other.articleType == articleType) &&
@@ -263,11 +265,6 @@ class _$_Article implements _Article {
                 other.category == category) &&
             (identical(other.createDate, createDate) ||
                 other.createDate == createDate) &&
-            (identical(other.urlToImage, urlToImage) ||
-                other.urlToImage == urlToImage) &&
-            (identical(other.synopsis, synopsis) ||
-                other.synopsis == synopsis) &&
-            (identical(other.title, title) || other.title == title) &&
             const DeepCollectionEquality().equals(other._content, _content));
   }
 
@@ -276,13 +273,13 @@ class _$_Article implements _Article {
   int get hashCode => Object.hash(
       runtimeType,
       id,
+      title,
+      urlToImage,
+      synopsis,
       author,
       articleType,
       category,
       createDate,
-      urlToImage,
-      synopsis,
-      title,
       const DeepCollectionEquality().hash(_content));
 
   @JsonKey(ignore: true)
@@ -302,19 +299,25 @@ class _$_Article implements _Article {
 abstract class _Article implements Article {
   const factory _Article(
       {required final String id,
+      required final String title,
+      final String? urlToImage,
+      final String? synopsis,
       final String author,
       final String articleType,
-      final String category,
+      required final String category,
       final int createDate,
-      final String? urlToImage,
-      final String synopsis,
-      final String title,
       final List<Content> content}) = _$_Article;
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$_Article.fromJson;
 
   @override
   String get id;
+  @override
+  String get title;
+  @override
+  String? get urlToImage;
+  @override
+  String? get synopsis;
   @override
   String get author;
   @override
@@ -323,12 +326,6 @@ abstract class _Article implements Article {
   String get category;
   @override
   int get createDate;
-  @override
-  String? get urlToImage;
-  @override
-  String get synopsis;
-  @override
-  String get title;
   @override
   List<Content> get content;
   @override

@@ -31,23 +31,41 @@ class CustomNavigationBar extends StatelessWidget {
       },
       items: [
         BottomNavigationBarItem(
-          icon: SvgPicture.asset("assets/images/svg/home.svg"),
-          activeIcon: SvgPicture.asset("assets/images/svg/home_filled.svg"),
+          icon: SvgPicture.asset(
+            "assets/images/svg/estate.svg",
+            color: KodJazColors.SecondaryColor,
+          ),
+          activeIcon: SvgPicture.asset(
+            "assets/images/svg/estate.svg",
+            color: KodJazColors.PrimaryColor,
+          ),
           label: 'Башкы бет',
         ),
+        // BottomNavigationBarItem(
+        //   icon: SvgPicture.asset("assets/images/svg/course.svg"),
+        //   activeIcon: SvgPicture.asset("assets/images/svg/course_filled.svg"),
+        //   label: 'Курстар',
+        // ),
         BottomNavigationBarItem(
-          icon: SvgPicture.asset("assets/images/svg/course.svg"),
-          activeIcon: SvgPicture.asset("assets/images/svg/course_filled.svg"),
-          label: 'Курстар',
-        ),
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.newspaper),
-          activeIcon: Icon(Icons.newspaper),
-          label: 'Articles',
+          icon: SvgPicture.asset(
+            "assets/images/svg/notes.svg",
+            color: KodJazColors.SecondaryColor,
+          ),
+          activeIcon: SvgPicture.asset(
+            "assets/images/svg/notes.svg",
+            color: KodJazColors.PrimaryColor,
+          ),
+          label: 'Макалалар',
         ),
         BottomNavigationBarItem(
-          icon: SvgPicture.asset("assets/images/svg/profile.svg"),
-          activeIcon: SvgPicture.asset("assets/images/svg/profile_filled.svg"),
+          icon: SvgPicture.asset(
+            "assets/images/svg/user.svg",
+            color: KodJazColors.SecondaryColor,
+          ),
+          activeIcon: SvgPicture.asset(
+            "assets/images/svg/user.svg",
+            color: KodJazColors.PrimaryColor,
+          ),
           label: 'Профиль',
         ),
       ],

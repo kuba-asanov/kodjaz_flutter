@@ -6,13 +6,13 @@ part 'article.g.dart';
 class Article with _$Article {
   const factory Article({
     required String id,
+    required String title,
+    String? urlToImage,
+    String? synopsis,
     @Default("Author") String author,
     @Default("ArticleType") String articleType,
-    @Default("Category") String category,
+    required String category,
     @Default(0) int createDate,
-    String? urlToImage,
-    @Default("synopsis") String synopsis,
-    @Default("title") String title,
     @Default([]) List<Content> content,
   }) = _Article;
 
