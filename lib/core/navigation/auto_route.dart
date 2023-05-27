@@ -9,20 +9,24 @@ import 'package:kodjaz/features/courses/presentation/course_detail_page.dart';
 import '../../features/app/presentation/navigation_page.dart';
 import '../../features/articles/presentation/article_detail_page.dart';
 import '../../features/lesson/presentation/exercise_page.dart';
+import '../../features/quiz/presentation/quiz_instruction_page.dart';
+import '../../features/quiz/presentation/quiz_page.dart';
 import '../../features/splash_screen/splash_screen_page.dart';
 
 @AdaptiveAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
+    AutoRoute(page: SplashScreenPage),
     AutoRoute(
-      page: SplashScreenPage,
+      page: NavigationPage,
       initial: true,
     ),
-    AutoRoute(page: NavigationPage),
     AutoRoute(page: CourseDetailPage),
     AutoRoute(page: ExercisePage),
     AutoRoute(page: LoginPage),
     AutoRoute(page: SignUpPage),
+    AutoRoute(page: QuiaInstructionPage),
+    AutoRoute(page: TestPage),
     AutoRoute(page: ArticleDetailPage)
     // RedirectRoute(path: '*', redirectTo: '/'),
   ],

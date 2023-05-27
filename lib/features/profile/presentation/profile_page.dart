@@ -14,6 +14,7 @@ import 'package:kodjaz/core/injection/injection.dart';
 import 'package:kodjaz/core/navigation/auto_route.gr.dart';
 import 'package:kodjaz/core/navigation/navigation.dart';
 import 'package:kodjaz/features/auth/bloc/auth_bloc.dart';
+import 'package:kodjaz/features/quiz/presentation/quiz_instruction_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -59,6 +60,16 @@ class _ProfilePageState extends State<ProfilePage> {
                       // ),
                       _ProfileFillCard(
                         title: LocaleKeys.changePassword.tr(),
+                      ),
+                      _ProfileFillCard(
+                        title: "Quiz",
+                        onPressed: () {
+                          Navigation.router.push(
+                            QuiaInstructionRoute(
+                              quizId: 'quizId',
+                            ),
+                          );
+                        },
                       ),
                       _ProfileFillCard(
                         title: LocaleKeys.settings.tr(),

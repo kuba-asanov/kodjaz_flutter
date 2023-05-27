@@ -15,6 +15,9 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
+  flutter_windowmanager: ^0.2.0
+  ios_insecure_screen_detector: ^0.0.2
+  equatable: ^2.0.3
   flutter_svg: ^1.1.6
   easy_localization: ^3.0.1
   auto_route: ^5.0.4

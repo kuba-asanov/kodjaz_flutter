@@ -20,4 +20,6 @@ class KodJazColors {
   static const Color blue3 = Color(0xff3050C1);
   static const Color black = Color(0xff05060E);
   static Color red = const Color(0xffD73A49);
+  static Color correctAnswerBorderColor = const Color.fromRGBO(0, 153, 122, 1);
+  static Color stroke = const Color(0xffC5CEE0);
 }
