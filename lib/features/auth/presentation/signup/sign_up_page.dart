@@ -181,10 +181,10 @@ class _SignUpPageState extends State<SignUpPage> {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: TextButton(
-                        // TODO: add link 
+                        // TODO: add link
                         onPressed: () {},
                         child: Text(
-                          'Катталуу менен мен Kodjaz дын Кызмат көрсөтүү саясаты жана Купуялык саясаты менен макулмун деп белгилейм.',
+                          'Катталуу менен мен bilimapp\'тин Кызмат көрсөтүү саясаты жана Купуялык саясаты менен макулмун деп белгилейм.',
                           style: KodjazTextStyle.fS14FW400.copyWith(
                             color: KodJazColors.blue3,
                           ),

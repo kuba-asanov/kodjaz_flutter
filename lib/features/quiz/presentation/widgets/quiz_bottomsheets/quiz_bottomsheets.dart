@@ -106,7 +106,7 @@ class QuizBottomSheet {
                           Navigation.router.pop();
                         },
                         child: Text(
-                          LocaleKeys.Cancel.toUpperCase().tr(),
+                          LocaleKeys.Cancel.tr().toUpperCase(),
                           style: KodjazTextStyle.fS14FW700
                               .copyWith(color: KodJazColors.black),
                         ),
@@ -170,7 +170,7 @@ class QuizBottomSheet {
                     Navigation.router.pop();
                   },
                   child: Text(
-                    LocaleKeys.interrupt.toUpperCase().tr(),
+                    LocaleKeys.interrupt.tr().toUpperCase(),
                     style: KodjazTextStyle.fS14FW700
                         .copyWith(color: KodJazColors.black),
                   ),

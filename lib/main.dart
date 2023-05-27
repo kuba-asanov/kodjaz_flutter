@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerDelegate: _appRouter.delegate(
-        initialRoutes: [NavigationRoute()],
+        initialRoutes: [const SplashScreenRoute()],
       ),
       routeInformationParser: _appRouter.defaultRouteParser(),
       localizationsDelegates: context.localizationDelegates,

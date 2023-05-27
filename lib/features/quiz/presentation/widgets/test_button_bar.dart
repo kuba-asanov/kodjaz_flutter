@@ -64,7 +64,7 @@ class TestButtonBar extends StatelessWidget {
                           size: 24.sm,
                         ),
                         label: Text(
-                          LocaleKeys.previous.toUpperCase().tr(),
+                          LocaleKeys.previous.tr().toUpperCase(),
                           style: KodjazTextStyle.fS14FW700
                               .copyWith(color: KodJazColors.PrimaryColor),
                         ),
@@ -103,7 +103,7 @@ class TestButtonBar extends StatelessWidget {
                           minimumSize: Size(165.w, 40.h),
                         ),
                         child: Text(
-                          LocaleKeys.ready.toUpperCase().tr(),
+                          LocaleKeys.ready.tr().toUpperCase(),
                           style: KodjazTextStyle.fS14FW700,
                         ),
                       ),
@@ -117,7 +117,7 @@ class TestButtonBar extends StatelessWidget {
                             testCubit.changeCurrentPageNext();
                           },
                           label: Text(
-                            LocaleKeys.following.toUpperCase().tr(),
+                            LocaleKeys.following.tr().toUpperCase(),
                             style: KodjazTextStyle.fS14FW700
                                 .copyWith(color: KodJazColors.white),
                           ),

@@ -69,8 +69,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           emit(
             state.copyWith(
               listOfCourse: [
-                tracks.first.copyWith(progress: 46),
-                ...tracks.skip(1),
+                ...tracks,
                 ...mockListOfCourse,
               ],
               loading: false,

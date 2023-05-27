@@ -17,10 +17,7 @@ import '../../features/splash_screen/splash_screen_page.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(page: SplashScreenPage),
-    AutoRoute(
-      page: NavigationPage,
-      initial: true,
-    ),
+    AutoRoute(page: NavigationPage),
     AutoRoute(page: CourseDetailPage),
     AutoRoute(page: ExercisePage),
     AutoRoute(page: LoginPage),
