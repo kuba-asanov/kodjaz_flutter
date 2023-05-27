@@ -37,5 +37,33 @@ abstract class  LocaleKeys {
   static const result = 'result';
   static const run = 'run';
   static const settings = 'settings';
+  static const youWillHaveMinutesToCompleteTheTest = 'youWillHaveMinutesToCompleteTheTest';
+  static const answerTheQuestions = 'answerTheQuestions';
+  static const getPercentOrMore = 'getPercentOrMore';
+  static const maximumPoints = 'maximumPoints';
+  static const testPassingSpeed = 'testPassingSpeed';
+  static const theFasterYouCompleteTheTestTheMorePointsYouEarn = 'theFasterYouCompleteTheTestTheMorePointsYouEarn';
+  static const learnAndWinPrizes = 'learnAndWinPrizes';
+  static const earnPointsAndRedeemForPrizes = 'earnPointsAndRedeemForPrizes';
+  static const verificationTest = 'verificationTest';
+  static const start = 'start';
+  static const next = 'next';
+  static const previous = 'previous';
+  static const following = 'following';
+  static const ready = 'ready';
+  static const finishTest = 'finishTest';
+  static const youAnswered = 'youAnswered';
+  static const youHaveMore = 'youHaveMore';
+  static const timeLeft = 'timeLeft';
+  static const complete = 'complete';
+  static const Cancel = 'Cancel';
+  static const breakTest = 'breakTest';
+  static const areYouSureAbortTheTest = 'areYouSureAbortTheTest';
+  static const stay = 'stay';
+  static const interrupt = 'interrupt';
+  static const explanation = 'explanation';
+  static const correctAnswer = 'correctAnswer';
+  static const yourAnswerIncorrect = 'yourAnswerIncorrect';
+  static const question = 'question';
 
 }
