@@ -8,6 +8,7 @@ import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
 import 'package:kodjaz/core/navigation/auto_route.gr.dart';
 
 import '../../../core/common/common_widgets.dart';
+import '../../../core/helpers/screen_util.dart';
 import '../../../core/injection/injection.dart';
 import '../../../core/navigation/navigation.dart';
 import '../bloc/test_cubit.dart';
@@ -36,6 +37,8 @@ class _QuiaInstructionPageState extends State<QuiaInstructionPage> {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -120,6 +123,8 @@ class _IconTextInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,

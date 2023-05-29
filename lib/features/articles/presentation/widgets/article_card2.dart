@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:kodjaz/core/constants/app/app_constants.dart';
 
+import '../../../../core/helpers/screen_util.dart';
 import '../../../../core/helpers/text_styles.dart';
 import '../../data/models/article.dart';
 
@@ -11,6 +12,8 @@ class NewsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     return Container(
       padding: const EdgeInsets.all(10),
       margin: const EdgeInsets.only(top: 10, left: 20, right: 20),

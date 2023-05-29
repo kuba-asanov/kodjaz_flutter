@@ -214,6 +214,8 @@ class CourseWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     final String icon;
     final String level;
     switch (course.level) {

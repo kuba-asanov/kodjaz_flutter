@@ -1,5 +1,4 @@
 /* External dependencies */
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:cookie_jar/cookie_jar.dart';

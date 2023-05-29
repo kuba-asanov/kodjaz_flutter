@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/core/helpers/colors.dart';
-import 'package:kodjaz/core/helpers/text_styles.dart';
 import 'package:kodjaz/core/navigation/navigation.dart';
 import 'package:kodjaz/features/articles/presentation/widgets/article_card.dart';
 import 'package:kodjaz/features/articles/presentation/widgets/search_field.dart';
 
+import '../../../core/helpers/screen_util.dart';
 import '../../../core/injection/injection.dart';
 import '../../../core/navigation/auto_route.gr.dart';
 import '../data/models/article.dart';
@@ -33,6 +32,8 @@ class _ArticlesPageState extends State<ArticlesPage> {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     return Scaffold(
       backgroundColor: const Color(0xffF8F9FD),
       body: SafeArea(

@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 /* Local dependencies */
 import '../../../../core/constants/app/app_constants.dart';
 import '../../../../core/helpers/colors.dart';
+import '../../../../core/helpers/screen_util.dart';
 import '../../../../core/helpers/text_styles.dart';
 import '../../data/models/article.dart';
 
@@ -18,6 +19,8 @@ class AritcleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     return Container(
       padding: const EdgeInsets.all(10),
       margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
