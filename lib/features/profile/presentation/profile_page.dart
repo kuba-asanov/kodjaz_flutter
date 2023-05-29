@@ -1,7 +1,6 @@
 /* External dependencies */
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -14,7 +13,6 @@ import 'package:kodjaz/core/injection/injection.dart';
 import 'package:kodjaz/core/navigation/auto_route.gr.dart';
 import 'package:kodjaz/core/navigation/navigation.dart';
 import 'package:kodjaz/features/auth/bloc/auth_bloc.dart';
-import 'package:kodjaz/features/quiz/presentation/quiz_instruction_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -24,7 +22,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final AuthBloc _authBloc = getIt<AuthBloc>();
   @override
   void initState() {
     super.initState();
@@ -123,6 +120,8 @@ class _ProfileFillCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     return Card(
       shape: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.r),

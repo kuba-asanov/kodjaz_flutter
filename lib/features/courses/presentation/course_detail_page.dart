@@ -168,6 +168,8 @@ class _AppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       width: 360.w,

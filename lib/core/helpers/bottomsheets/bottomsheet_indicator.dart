@@ -4,11 +4,15 @@ import 'package:flutter/material.dart';
 /* Local Dependencies */
 import 'package:kodjaz/core/helpers/colors.dart';
 
+import '../screen_util.dart';
+
 class BottomSheetIndicator extends StatelessWidget {
   const BottomSheetIndicator({super.key});
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     return Align(
       alignment: Alignment.topCenter,
       child: Container(

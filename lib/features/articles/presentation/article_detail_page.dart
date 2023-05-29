@@ -9,6 +9,7 @@ import 'package:kodjaz/core/helpers/text_styles.dart';
 import 'package:kodjaz/features/articles/data/models/article.dart';
 
 import '../../../core/helpers/colors.dart';
+import '../../../core/helpers/screen_util.dart';
 
 class ArticleDetailPage extends StatelessWidget {
   final Article article;
@@ -16,6 +17,8 @@ class ArticleDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     return Scaffold(
       appBar: AppBar(actions: [
         Padding(

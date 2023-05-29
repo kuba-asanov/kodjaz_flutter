@@ -13,6 +13,8 @@ import 'package:kodjaz/core/navigation/auto_route.gr.dart';
 import 'package:kodjaz/core/navigation/navigation.dart';
 import 'package:kodjaz/features/models/track.dart';
 
+import '../../../../core/helpers/screen_util.dart';
+
 class ModuleAccordionWidget extends StatefulWidget {
   final String title;
   final LessonsStatus status;
@@ -32,6 +34,8 @@ class ModuleAccordionWidget extends StatefulWidget {
 class _ModuleAccordionStateWidget extends State<ModuleAccordionWidget> {
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     late final String statusImagePath;
     switch (widget.status) {
       case LessonsStatus.done:

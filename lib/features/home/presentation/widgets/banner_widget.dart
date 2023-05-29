@@ -5,12 +5,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/core/common/common_widgets.dart';
 import 'package:kodjaz/core/helpers/colors.dart';
 import 'package:kodjaz/core/helpers/text_styles.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
-import 'package:kodjaz/core/injection/injection.dart';
-import 'package:kodjaz/features/app/presentation/bloc/app_bloc.dart';
+
+import '../../../../core/helpers/screen_util.dart';
 
 class HomeBannerWidget extends StatelessWidget {
   const HomeBannerWidget({
@@ -19,6 +18,8 @@ class HomeBannerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     return Container(
       height: 150.h,
       alignment: Alignment.center,

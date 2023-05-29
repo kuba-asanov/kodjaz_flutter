@@ -12,6 +12,7 @@ import 'package:kodjaz/features/auth/models/token.dart';
 
 import '../../core/client/client.dart';
 import '../../core/constants/app/app_constants.dart';
+import '../../core/helpers/screen_util.dart';
 import '../../core/navigation/auto_route.gr.dart';
 import '../../core/navigation/navigation.dart';
 
@@ -46,6 +47,8 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     return BlocListener<AuthBloc, AuthState>(
       bloc: getIt<AuthBloc>(),
       listenWhen: (previous, current) => previous.token != current.token,

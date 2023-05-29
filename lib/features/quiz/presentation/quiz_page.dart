@@ -1,6 +1,5 @@
 /* External dependencies */
 import 'dart:io';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,8 +11,6 @@ import 'package:kodjaz/features/quiz/presentation/widgets/top_progress_bar.dart'
 import '../../../core/helpers/screen_util.dart';
 import '../../../core/helpers/text_styles.dart';
 import '../../../core/injection/injection.dart';
-import '../../../core/navigation/navigation.dart';
-import '../../../core/utils/screen_secuity.dart';
 import '../../../core/utils/timer/cubit/timer_cubit.dart';
 import '../bloc/test_cubit.dart';
 import '../bloc/test_state.dart';
@@ -31,6 +28,8 @@ class ActionTimerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     return Padding(
       padding: const EdgeInsets.only(right: 20).r,
       child: Text(
@@ -58,7 +57,7 @@ class TestPage extends StatefulWidget {
 class _TestPageState extends State<TestPage> {
   final TestCubit testCubit = getIt<TestCubit>();
   late final TimerCubit timerCubit;
-  final ScreenShootSecurity screenShootSecurity = ScreenShootSecurity();
+  // final ScreenShootSecurity screenShootSecurity = ScreenShootSecurity();
 
   int seconds = 0;
   int minutes = 0;
@@ -167,21 +166,21 @@ class _TestPageState extends State<TestPage> {
     );
   }
 
-  @override
-  void deactivate() async {
-    await screenShootSecurity.screenshotEnable();
-    super.deactivate();
-  }
+  // @override
+  // void deactivate() async {
+  //   await screenShootSecurity.screenshotEnable();
+  //   super.deactivate();
+  // }
 
-  @override
-  void didChangeDependencies() async {
-    await screenShootSecurity.screenshotDisable();
-    super.didChangeDependencies();
-  }
+  // @override
+  // void didChangeDependencies() async {
+  //   await screenShootSecurity.screenshotDisable();
+  //   super.didChangeDependencies();
+  // }
 
   @override
   void dispose() {
-    screenShootSecurity.dispose();
+    // screenShootSecurity.dispose();
     testCubit.resetTest();
     super.dispose();
   }

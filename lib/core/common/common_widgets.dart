@@ -115,6 +115,8 @@ class SecondaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     return SizedBox(
       height: 48.h,
       child: ElevatedButton(
@@ -171,6 +173,8 @@ class Spinner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     final platform = Theme.of(context).platform;
 
     if (platform == TargetPlatform.android) {

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:html/parser.dart' show parse;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:highlight/languages/all.dart';
 
 import '../../../../core/helpers/text_styles.dart';
 import '../../../../core/injection/injection.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:code_text_field/code_text_field.dart';
-import 'package:highlight/languages/all.dart';
 
+import '../../../../core/helpers/screen_util.dart';
 import 'code_snippets.dart';
 import 'themes.dart';
 
@@ -82,6 +82,8 @@ class CustomCodeBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     // final codeDropdown =
     //     buildDropdown(languageList, language!, Icons.code, (val) {
     //   if (val == null) return;
@@ -130,6 +132,8 @@ class InnerField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     final styles = THEMES[theme];
 
     if (styles == null) {

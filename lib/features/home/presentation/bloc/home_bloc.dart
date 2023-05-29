@@ -5,7 +5,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 /* Local dependencies */
-import '../../../../core/helpers/exceptions.dart';
 import '../../repository/home_repository.dart';
 import 'package:kodjaz/features/models/track.dart';
 
@@ -80,20 +79,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             loading: false,
           ));
         });
-
-        // await _repo.myListTracks().then((tracks) {
-        //   emit(
-        //     state.copyWith(
-        //       myListOfCourse: tracks,
-        //       loading: false,
-        //     ),
-        //   );
-        // }).onError((DioError error, stackTrace) {
-        //   emit(state.copyWith(
-        //     error: error,
-        //     loading: false,
-        //   ));
-        // });
       },
     );
   }

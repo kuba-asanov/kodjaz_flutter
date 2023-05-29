@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 /* Local dependencies */
 import 'package:kodjaz/core/helpers/colors.dart';
 
+import '../helpers/screen_util.dart';
+
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final String? hintText;
@@ -25,6 +27,8 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     return TextField(
       controller: controller,
       scrollPadding: scrollPadding ?? const EdgeInsets.all(20.0),

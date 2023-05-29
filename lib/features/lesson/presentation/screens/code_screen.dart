@@ -5,9 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kodjaz/core/common/common_widgets.dart';
 import 'package:kodjaz/core/injection/injection.dart';
 import 'package:kodjaz/features/lesson/presentation/bloc/lesson_bloc.dart';
+import '../../../../core/helpers/screen_util.dart';
 import '../../../../core/init/lang/locale_keys.g.dart';
 import '../../../models/track.dart';
-import '../widgets/code_snippets.dart';
 import '../widgets/custom_code_box.dart';
 import 'package:highlight/languages/all.dart';
 
@@ -57,6 +57,8 @@ class _CodeScreenState extends State<CodeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     return SingleChildScrollView(
       child: Center(
         child: Column(

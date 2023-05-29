@@ -15,6 +15,8 @@ import 'package:kodjaz/core/injection/injection.dart';
 import 'package:kodjaz/features/app/data/models/user.dart';
 import 'package:kodjaz/features/auth/bloc/auth_bloc.dart';
 
+import '../../../../core/helpers/screen_util.dart';
+
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
 
@@ -36,6 +38,8 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+    
     return BlocConsumer<AuthBloc, AuthState>(
       bloc: _authBloc,
       listener: (context, state) {

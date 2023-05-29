@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kodjaz/features/courses/presentation/widgets/modul_item_widget.dart';
 import 'package:kodjaz/features/models/track.dart';
 
+import '../../../../core/helpers/screen_util.dart';
 import '../../../../core/helpers/text_styles.dart';
 
 class UnitWidget extends StatelessWidget {
@@ -18,6 +19,8 @@ class UnitWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     if (units.isEmpty) {
       return SizedBox.expand(
         child: Center(

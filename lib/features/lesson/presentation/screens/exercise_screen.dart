@@ -4,6 +4,7 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kodjaz/features/models/track.dart';
 
+import '../../../../core/helpers/screen_util.dart';
 import '../../../../core/helpers/text_styles.dart';
 
 class ExerciseScreen extends StatelessWidget {
@@ -16,6 +17,8 @@ class ExerciseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(15.0).r,

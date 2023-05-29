@@ -7,6 +7,7 @@ import 'package:kodjaz/core/helpers/colors.dart';
 import 'package:kodjaz/core/helpers/text_styles.dart';
 import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
 
+import '../../../../core/helpers/screen_util.dart';
 import '../../bloc/test_cubit.dart';
 import '../../bloc/test_state.dart';
 import '../../models/quiz.dart';
@@ -25,6 +26,8 @@ class TestBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyScreenUtil.init(context);
+
     return BlocBuilder<TestCubit, TestState>(
       bloc: testCubit,
       buildWhen: (previous, current) =>
