@@ -7,17 +7,7 @@ import 'package:injectable/injectable.dart';
 
 @lazySingleton
 class GraphQLService {
-  GraphQLClient? client;
-
-  Future<void> initClient() async {
-    if (client != null) {
-      client?.link.dispose();
-
-      client = null;
-    }
-
-    client = await createClient();
-  }
+  GraphQLClient client = createClient();
 
   Future<Map<String, dynamic>?> query<T>(
     String query, {
@@ -31,15 +21,11 @@ class GraphQLService {
       errorPolicy: ErrorPolicy.all,
     );
 
-    if (client == null) {
-      await initClient();
-    }
-
-    final QueryResult queryResult = await client!.query(options);
+    final QueryResult queryResult = await client.query(options);
 
     if (queryResult.hasException) {
-      if (isTokenExpired(queryResult.exception!)) {
-        await initClient();
+      if (_isTokenExpired(queryResult.exception!)) {
+        client = createClient();
 
         return await this.query(
           query,
@@ -64,15 +50,11 @@ class GraphQLService {
       errorPolicy: ErrorPolicy.all,
     );
 
-    if (client == null) {
-      await initClient();
-    }
-
-    final QueryResult mutationResult = await client!.mutate(options);
+    final QueryResult mutationResult = await client.mutate(options);
 
     if (mutationResult.hasException) {
-      if (isTokenExpired(mutationResult.exception!)) {
-        await initClient();
+      if (_isTokenExpired(mutationResult.exception!)) {
+        client = createClient();
 
         return await mutate(
           query,
@@ -104,11 +86,7 @@ class GraphQLService {
       errorPolicy: ErrorPolicy.all,
     );
 
-    if (client == null) {
-      await initClient();
-    }
-
-    return client!.subscribe(operation).map(
+    return client.subscribe(operation).map(
       (QueryResult queryResult) {
         if (queryResult.hasException) {
           throw queryResult.exception!;
@@ -127,7 +105,7 @@ class GraphQLService {
     );
   }
 
-  bool isTokenExpired(OperationException exception) {
+  bool _isTokenExpired(OperationException exception) {
     return exception.linkException != null &&
         (exception.linkException as ServerException).parsedResponse != null &&
         (exception.linkException as ServerException)

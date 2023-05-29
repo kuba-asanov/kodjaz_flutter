@@ -125,7 +125,7 @@ class AppRouter extends _i10.RootStackRouter {
         ),
         _i10.RouteConfig(
           NavigationRoute.name,
-          path: '/',
+          path: '/navigation-page',
         ),
         _i10.RouteConfig(
           CourseDetailRoute.name,
@@ -176,7 +176,7 @@ class NavigationRoute extends _i10.PageRouteInfo<NavigationRouteArgs> {
   NavigationRoute({_i11.Key? key})
       : super(
           NavigationRoute.name,
-          path: '/',
+          path: '/navigation-page',
           args: NavigationRouteArgs(key: key),
         );
 

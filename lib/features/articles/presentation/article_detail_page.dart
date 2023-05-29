@@ -54,9 +54,9 @@ class ArticleDetailPage extends StatelessWidget {
                       borderRadius:
                           BorderRadius.all(const Radius.circular(20).r),
                       child: CachedNetworkImage(
-                        imageUrl: article.urlToImage == null
+                        imageUrl: article.heroMedia == null
                             ? ApplicationConstants.imageNotFound
-                            : article.urlToImage.toString(),
+                            : article.heroMedia!.imageUrl.toString(),
                         errorWidget: (context, string, _) {
                           return const Icon(Icons.error);
                         },
@@ -95,7 +95,7 @@ class ArticleDetailPage extends StatelessWidget {
                   ),
                   SizedBox(height: 16.h),
                   Text(
-                    article.content.first.data.toString(),
+                    article.contents.first.data.toString(),
                     style: KodjazTextStyle.fS14FW400.copyWith(
                       color: KodJazColors.grey5,
                       height: 1.2.h,

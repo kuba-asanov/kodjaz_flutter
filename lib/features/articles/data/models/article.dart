@@ -7,13 +7,13 @@ class Article with _$Article {
   const factory Article({
     required String id,
     required String title,
-    String? urlToImage,
-    String? synopsis,
+    MediaFile? heroMedia,
+    String? description,
     @Default("Author") String author,
     @Default("ArticleType") String articleType,
     required String category,
     @Default(0) int createDate,
-    @Default([]) List<Content> content,
+    @Default([]) List<Content> contents,
   }) = _Article;
 
   factory Article.fromJson(Map<String, Object?> json) => _$ArticleFromJson(json);
@@ -22,9 +22,19 @@ class Article with _$Article {
 @freezed
 class Content with _$Content {
   const factory Content({
-    @Default("type") String type,
-    @Default("data") String data,
+    required String type,
+    required String data,
   }) = _Content;
 
   factory Content.fromJson(Map<String, Object?> json) => _$ContentFromJson(json);
+}
+
+@freezed
+class MediaFile with _$MediaFile {
+  const factory MediaFile({
+    String? imageUrl,
+    String? fullVideoUrl,
+  }) = _MediaFile;
+
+  factory MediaFile.fromJson(Map<String, Object?> json) => _$MediaFileFromJson(json);
 }

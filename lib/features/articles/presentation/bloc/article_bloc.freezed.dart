@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ArticleState {
   bool get loading => throw _privateConstructorUsedError;
   List<Article> get listOfArticles => throw _privateConstructorUsedError;
-  DioError? get error => throw _privateConstructorUsedError;
+  String? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ArticleStateCopyWith<ArticleState> get copyWith =>
@@ -31,7 +31,7 @@ abstract class $ArticleStateCopyWith<$Res> {
           ArticleState value, $Res Function(ArticleState) then) =
       _$ArticleStateCopyWithImpl<$Res, ArticleState>;
   @useResult
-  $Res call({bool loading, List<Article> listOfArticles, DioError? error});
+  $Res call({bool loading, List<Article> listOfArticles, String? error});
 }
 
 /// @nodoc
@@ -63,7 +63,7 @@ class _$ArticleStateCopyWithImpl<$Res, $Val extends ArticleState>
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as DioError?,
+              as String?,
     ) as $Val);
   }
 }
@@ -76,7 +76,7 @@ abstract class _$$_ArticleStateCopyWith<$Res>
       __$$_ArticleStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool loading, List<Article> listOfArticles, DioError? error});
+  $Res call({bool loading, List<Article> listOfArticles, String? error});
 }
 
 /// @nodoc
@@ -106,7 +106,7 @@ class __$$_ArticleStateCopyWithImpl<$Res>
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as DioError?,
+              as String?,
     ));
   }
 }
@@ -133,7 +133,7 @@ class _$_ArticleState implements _ArticleState {
   }
 
   @override
-  final DioError? error;
+  final String? error;
 
   @override
   String toString() {
@@ -166,14 +166,14 @@ abstract class _ArticleState implements ArticleState {
   factory _ArticleState(
       {final bool loading,
       final List<Article> listOfArticles,
-      final DioError? error}) = _$_ArticleState;
+      final String? error}) = _$_ArticleState;
 
   @override
   bool get loading;
   @override
   List<Article> get listOfArticles;
   @override
-  DioError? get error;
+  String? get error;
   @override
   @JsonKey(ignore: true)
   _$$_ArticleStateCopyWith<_$_ArticleState> get copyWith =>

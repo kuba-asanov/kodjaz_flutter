@@ -22,7 +22,6 @@ class AritcleCard extends StatelessWidget {
     MyScreenUtil.init(context);
 
     return Container(
-      padding: const EdgeInsets.all(10),
       margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.r),
@@ -40,9 +39,9 @@ class AritcleCard extends StatelessWidget {
                   topLeft: const Radius.circular(20).r,
                   topRight: const Radius.circular(20).r),
               child: CachedNetworkImage(
-                imageUrl: article.urlToImage == null
+                imageUrl: article.heroMedia == null
                     ? ApplicationConstants.imageNotFound
-                    : article.urlToImage.toString(),
+                    : article.heroMedia!.imageUrl.toString(),
                 errorWidget: (context, string, _) {
                   return const Icon(Icons.error);
                 },

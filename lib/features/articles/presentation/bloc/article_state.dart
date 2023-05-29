@@ -5,7 +5,7 @@ class ArticleState with _$ArticleState {
   factory ArticleState({
     @Default(false) bool loading,
     @Default([]) List<Article> listOfArticles,
-    DioError? error,
+    String? error,
   }) = _ArticleState;
 }
 
