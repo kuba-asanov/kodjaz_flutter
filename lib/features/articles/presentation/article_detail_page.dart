@@ -2,11 +2,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kodjaz/core/constants/app/app_constants.dart';
+import 'package:bilimapp/core/constants/app/app_constants.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/core/helpers/text_styles.dart';
-import 'package:kodjaz/features/articles/data/models/article.dart';
+import 'package:bilimapp/core/helpers/text_styles.dart';
+import 'package:bilimapp/features/articles/data/models/article.dart';
 
 import '../../../core/helpers/colors.dart';
 import '../../../core/helpers/screen_util.dart';

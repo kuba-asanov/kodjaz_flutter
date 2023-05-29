@@ -5,13 +5,13 @@ import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:injectable/injectable.dart';
-import 'package:kodjaz/core/client/interceptor.dart';
+import 'package:bilimapp/core/client/interceptor.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/core/constants/app/app_constants.dart';
-import 'package:kodjaz/features/app/data/models/user.dart';
-import 'package:kodjaz/features/auth/models/token.dart';
-import 'package:kodjaz/features/models/track.dart';
+import 'package:bilimapp/core/constants/app/app_constants.dart';
+import 'package:bilimapp/features/app/data/models/user.dart';
+import 'package:bilimapp/features/auth/models/token.dart';
+import 'package:bilimapp/features/models/track.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:retrofit/retrofit.dart' as retro;
 

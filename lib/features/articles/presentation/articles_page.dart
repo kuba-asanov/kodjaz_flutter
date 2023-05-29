@@ -1,11 +1,12 @@
 /* External dependencies */
+import 'package:bilimapp/core/common/common_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/core/navigation/navigation.dart';
-import 'package:kodjaz/features/articles/presentation/widgets/article_card.dart';
-import 'package:kodjaz/features/articles/presentation/widgets/search_field.dart';
+import 'package:bilimapp/core/navigation/navigation.dart';
+import 'package:bilimapp/features/articles/presentation/widgets/article_card.dart';
+import 'package:bilimapp/features/articles/presentation/widgets/search_field.dart';
 
 import '../../../core/helpers/screen_util.dart';
 import '../../../core/injection/injection.dart';
@@ -47,7 +48,7 @@ class _ArticlesPageState extends State<ArticlesPage> {
                     ? SizedBox(
                         height: MediaQuery.of(context).size.height / 2,
                         child: const Center(
-                          child: CircularProgressIndicator(),
+                          child: Spinner(),
                         ),
                       )
                     : Expanded(

@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:kodjaz/core/constants/app/app_constants.dart';
+import 'package:bilimapp/core/constants/app/app_constants.dart';
 
 import '../../../../core/helpers/screen_util.dart';
 import '../../../../core/helpers/text_styles.dart';

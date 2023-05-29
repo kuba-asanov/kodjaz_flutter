@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 /* Local dependencies */
 import '../../../core/graphql_queries/gql_query.dart';
 import '../../../core/graphql_service/graphql_service.dart';
-import 'package:kodjaz/features/articles/data/models/article.dart';
+import 'package:bilimapp/features/articles/data/models/article.dart';
 import 'articles_repository.dart';
 
 @Injectable(as: ArticleRepository)

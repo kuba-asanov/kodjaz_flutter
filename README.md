@@ -1,6 +1,6 @@
-# Kodjaz Flutter Project
+# bilimapp Flutter Project
 
-This is the Kodjaz Flutter project, which is a mobile application that provides programming exercises and tutorials to help beginners learn programming in a fun and interactive way.
+This is the bilimapp Flutter project, which is a mobile application that provides programming exercises and tutorials to help beginners learn programming in a fun and interactive way.
 
 ## Requirements
 
@@ -13,22 +13,31 @@ This is the Kodjaz Flutter project, which is a mobile application that provides 
 To get started with the project, follow these steps:
 
 1. Clone the repository using the command below:
+
 ```
-git clone https://github.com/kodjaz/kodjaz-flutter.git
+git clone https://github.com/bilimapp/bilimapp-flutter.git
 ```
+
 2. Navigate into the project directory:
+
 ```
-cd kodjaz-flutter
+cd bilimapp-flutter
 ```
+
 3. Install the required dependencies:
+
 ```
 flutter pub get
 ```
+
 4. Run the app:
+
 ```flutter run
+
 ```
 
 ## Features
+
 - User authentication
 - Interactive coding exercises
 - Exercises progress tracking
@@ -51,16 +60,19 @@ flutter pub get
 - flutter_smart_dialog
 
 ### To build run this command:
+
 ```
 sh scripts/build.sh
 ```
 
 ### To generate localization run this command:
+
 ```
 sh scripts/lang.sh
 ```
 
 To navigate to new page use:
+
 ```
 Navigation.router.push(MyRoute());
 ```

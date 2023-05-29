@@ -5,14 +5,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/core/helpers/colors.dart';
-import 'package:kodjaz/core/helpers/screen_util.dart';
-import 'package:kodjaz/core/helpers/text_styles.dart';
-import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
-import 'package:kodjaz/core/injection/injection.dart';
-import 'package:kodjaz/core/navigation/auto_route.gr.dart';
-import 'package:kodjaz/core/navigation/navigation.dart';
-import 'package:kodjaz/features/auth/bloc/auth_bloc.dart';
+import 'package:bilimapp/core/helpers/colors.dart';
+import 'package:bilimapp/core/helpers/screen_util.dart';
+import 'package:bilimapp/core/helpers/text_styles.dart';
+import 'package:bilimapp/core/init/lang/locale_keys.g.dart';
+import 'package:bilimapp/core/injection/injection.dart';
+import 'package:bilimapp/core/navigation/auto_route.gr.dart';
+import 'package:bilimapp/core/navigation/navigation.dart';
+import 'package:bilimapp/features/auth/bloc/auth_bloc.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});

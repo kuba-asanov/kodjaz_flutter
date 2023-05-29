@@ -1,6 +1,6 @@
 /* Local dependencies */
 
-import 'package:kodjaz/features/models/track.dart';
+import 'package:bilimapp/features/models/track.dart';
 
 abstract class HomeRepository {
   Future<List<Track>> listTracks();

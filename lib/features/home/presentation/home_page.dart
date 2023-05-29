@@ -5,13 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/core/common/common_widgets.dart';
-import 'package:kodjaz/core/helpers/colors.dart';
-import 'package:kodjaz/core/helpers/text_styles.dart';
-import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
-import 'package:kodjaz/core/injection/injection.dart';
+import 'package:bilimapp/core/common/common_widgets.dart';
+import 'package:bilimapp/core/helpers/text_styles.dart';
+import 'package:bilimapp/core/init/lang/locale_keys.g.dart';
+import 'package:bilimapp/core/injection/injection.dart';
 import 'bloc/home_bloc.dart';
-import 'package:kodjaz/features/home/presentation/widgets/banner_widget.dart';
+import 'package:bilimapp/features/home/presentation/widgets/banner_widget.dart';
 import '../../../core/helpers/screen_util.dart';
 
 class HomePage extends StatefulWidget {
@@ -57,7 +56,12 @@ class _HomePageState extends State<HomePage> {
                       previous.loading != current.loading,
                   builder: (context, state) {
                     if (state.loading) {
-                      return const Spinner(color: KodJazColors.grey2);
+                      return SizedBox(
+                        height: MediaQuery.of(context).size.height / 2,
+                        child: const Center(
+                          child: Spinner(),
+                        ),
+                      );
                     }
 
                     return ListView.separated(

@@ -8,14 +8,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/core/helpers/cache/cache.dart';
-import 'package:kodjaz/core/helpers/exceptions.dart';
-import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
-import 'package:kodjaz/core/injection/injection.dart';
-import 'package:kodjaz/features/app/data/models/user.dart';
-import 'package:kodjaz/features/app/presentation/bloc/app_bloc.dart';
-import 'package:kodjaz/features/auth/models/token.dart';
-import 'package:kodjaz/features/auth/repository/auth_repository.dart';
+import 'package:bilimapp/core/helpers/cache/cache.dart';
+import 'package:bilimapp/core/helpers/exceptions.dart';
+import 'package:bilimapp/core/init/lang/locale_keys.g.dart';
+import 'package:bilimapp/core/injection/injection.dart';
+import 'package:bilimapp/features/app/data/models/user.dart';
+import 'package:bilimapp/features/app/presentation/bloc/app_bloc.dart';
+import 'package:bilimapp/features/auth/models/token.dart';
+import 'package:bilimapp/features/auth/repository/auth_repository.dart';
 
 import '../../../core/client/client.dart';
 

@@ -5,12 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/core/common/common_widgets.dart';
-import 'package:kodjaz/core/helpers/colors.dart';
-import 'package:kodjaz/core/helpers/screen_util.dart';
-import 'package:kodjaz/core/helpers/text_styles.dart';
-import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
-import 'package:kodjaz/core/injection/injection.dart';
+import 'package:bilimapp/core/common/common_widgets.dart';
+import 'package:bilimapp/core/helpers/colors.dart';
+import 'package:bilimapp/core/helpers/screen_util.dart';
+import 'package:bilimapp/core/helpers/text_styles.dart';
+import 'package:bilimapp/core/init/lang/locale_keys.g.dart';
+import 'package:bilimapp/core/injection/injection.dart';
 
 import '../../home/presentation/bloc/home_bloc.dart';
 

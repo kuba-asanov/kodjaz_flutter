@@ -1,6 +1,6 @@
 /* Local dependencies */
-import 'package:kodjaz/features/app/data/models/user.dart';
-import 'package:kodjaz/features/auth/models/token.dart';
+import 'package:bilimapp/features/app/data/models/user.dart';
+import 'package:bilimapp/features/auth/models/token.dart';
 
 abstract class AuthRepository {
   Future<UserCreateResponse> createUser(User user);

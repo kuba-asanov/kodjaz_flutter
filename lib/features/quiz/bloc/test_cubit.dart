@@ -3,8 +3,8 @@ import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:kodjaz/features/models/dummy_data.dart';
-import 'package:kodjaz/features/quiz/bloc/test_state.dart';
+import 'package:bilimapp/features/models/dummy_data.dart';
+import 'package:bilimapp/features/quiz/bloc/test_state.dart';
 
 /* Local dependencies*/
 import '../models/quiz.dart';

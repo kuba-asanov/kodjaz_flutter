@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/core/helpers/colors.dart';
+import 'package:bilimapp/core/helpers/colors.dart';
 
 import '../helpers/screen_util.dart';
 

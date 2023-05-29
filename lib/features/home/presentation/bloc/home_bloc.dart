@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 
 /* Local dependencies */
 import '../../repository/home_repository.dart';
-import 'package:kodjaz/features/models/track.dart';
+import 'package:bilimapp/features/models/track.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';

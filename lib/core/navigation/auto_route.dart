@@ -2,9 +2,9 @@
 import 'package:auto_route/auto_route.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/features/auth/presentation/login/login_page.dart';
-import 'package:kodjaz/features/auth/presentation/signup/sign_up_page.dart';
-import 'package:kodjaz/features/courses/presentation/course_detail_page.dart';
+import 'package:bilimapp/features/auth/presentation/login/login_page.dart';
+import 'package:bilimapp/features/auth/presentation/signup/sign_up_page.dart';
+import 'package:bilimapp/features/courses/presentation/course_detail_page.dart';
 
 import '../../features/app/presentation/navigation_page.dart';
 import '../../features/articles/presentation/article_detail_page.dart';

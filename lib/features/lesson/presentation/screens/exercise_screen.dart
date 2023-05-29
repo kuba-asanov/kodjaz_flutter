@@ -2,7 +2,7 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kodjaz/features/models/track.dart';
+import 'package:bilimapp/features/models/track.dart';
 
 import '../../../../core/helpers/screen_util.dart';
 import '../../../../core/helpers/text_styles.dart';

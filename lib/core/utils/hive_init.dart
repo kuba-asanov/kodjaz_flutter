@@ -5,7 +5,7 @@ import 'package:path/path.dart' show join;
 import 'package:path_provider/path_provider.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/core/constants/app/app_constants.dart';
+import 'package:bilimapp/core/constants/app/app_constants.dart';
 
 Future<void> initHive({
   String? subDir,

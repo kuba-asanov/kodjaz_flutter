@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
-import 'package:kodjaz/core/common/dialogs.dart';
-import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
-import 'package:kodjaz/core/injection/injection.dart';
-import 'package:kodjaz/features/lesson/presentation/bloc/lesson_bloc.dart';
-import 'package:kodjaz/features/lesson/presentation/screens/code_screen.dart';
-import 'package:kodjaz/features/lesson/presentation/screens/exercise_screen.dart';
-import 'package:kodjaz/features/lesson/presentation/screens/result_screen.dart';
+import 'package:bilimapp/core/common/dialogs.dart';
+import 'package:bilimapp/core/init/lang/locale_keys.g.dart';
+import 'package:bilimapp/core/injection/injection.dart';
+import 'package:bilimapp/features/lesson/presentation/bloc/lesson_bloc.dart';
+import 'package:bilimapp/features/lesson/presentation/screens/code_screen.dart';
+import 'package:bilimapp/features/lesson/presentation/screens/exercise_screen.dart';
+import 'package:bilimapp/features/lesson/presentation/screens/result_screen.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/features/models/track.dart';
+import 'package:bilimapp/features/models/track.dart';
 import '../../../core/helpers/colors.dart';
 import '../../../core/helpers/screen_util.dart';
 import '../../../core/helpers/text_styles.dart';

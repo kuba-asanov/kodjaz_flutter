@@ -2,7 +2,7 @@
 import 'package:hive/hive.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/features/auth/models/token.dart';
+import 'package:bilimapp/features/auth/models/token.dart';
 
 class Cache {
   static Token? getSession() {

@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:kodjaz/features/articles/data/models/article.dart';
+import 'package:bilimapp/features/articles/data/models/article.dart';
 
 import '../../repository/articles_repository.dart';
 

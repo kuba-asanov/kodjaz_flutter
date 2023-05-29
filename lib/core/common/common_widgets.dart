@@ -9,11 +9,11 @@ import 'package:step_progress_indicator/step_progress_indicator.dart';
 /* Local dependencies */
 import '../helpers/screen_util.dart';
 import '../helpers/text_styles.dart';
-import 'package:kodjaz/core/init/lang/locale_keys.g.dart';
-import 'package:kodjaz/core/injection/injection.dart';
-import 'package:kodjaz/core/navigation/auto_route.gr.dart';
-import 'package:kodjaz/core/helpers/colors.dart';
-import 'package:kodjaz/features/models/track.dart';
+import 'package:bilimapp/core/init/lang/locale_keys.g.dart';
+import 'package:bilimapp/core/injection/injection.dart';
+import 'package:bilimapp/core/navigation/auto_route.gr.dart';
+import 'package:bilimapp/core/helpers/colors.dart';
+import 'package:bilimapp/features/models/track.dart';
 
 class PrimaryButton extends StatelessWidget {
   final bool loading;

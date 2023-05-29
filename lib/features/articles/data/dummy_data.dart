@@ -1,4 +1,4 @@
-import 'package:kodjaz/features/articles/data/models/article.dart';
+import 'package:bilimapp/features/articles/data/models/article.dart';
 
 List<Article> DUMMY_DATA_ARTICLES = const [
   Article(

@@ -3,9 +3,9 @@ import 'dart:io';
 
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
-import 'package:kodjaz/core/client/client.dart';
-import 'package:kodjaz/core/constants/app/app_constants.dart';
-import 'package:kodjaz/core/injection/injection.dart';
+import 'package:bilimapp/core/client/client.dart';
+import 'package:bilimapp/core/constants/app/app_constants.dart';
+import 'package:bilimapp/core/injection/injection.dart';
 
 import '../helpers/exceptions.dart';
 import '../helpers/heplers.dart';
@@ -56,7 +56,8 @@ class AppInterceptors extends Interceptor {
 
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
-    print('onError ==== ${err.error}   ||||  ${err.response?.data} |||| on Request: ${err.requestOptions.path}, request headers: ${err.requestOptions.headers}, body:${err.requestOptions.data}');
+    print(
+        'onError ==== ${err.error}   ||||  ${err.response?.data} |||| on Request: ${err.requestOptions.path}, request headers: ${err.requestOptions.headers}, body:${err.requestOptions.data}');
     log('onError ==== ${err.error}   ||||  ${err.response?.data} |||| on Request: ${err.requestOptions.path}, request headers: ${err.requestOptions.headers}, body:${err.requestOptions.data}');
 
     switch (err.type) {
@@ -105,7 +106,8 @@ class AppInterceptors extends Interceptor {
               }
             }
 
-            if (err.response?.data['detail'] == 'Given token not valid for any token type') {
+            if (err.response?.data['detail'] ==
+                'Given token not valid for any token type') {
               refreshToken().then((token) {
                 getIt<Api>()
                     .getCsrftoken(token.access!, dio)

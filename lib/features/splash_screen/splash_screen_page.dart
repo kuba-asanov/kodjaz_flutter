@@ -5,10 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/core/helpers/cache/cache.dart';
-import 'package:kodjaz/core/injection/injection.dart';
-import 'package:kodjaz/features/auth/bloc/auth_bloc.dart';
-import 'package:kodjaz/features/auth/models/token.dart';
+import 'package:bilimapp/core/helpers/cache/cache.dart';
+import 'package:bilimapp/core/injection/injection.dart';
+import 'package:bilimapp/features/auth/bloc/auth_bloc.dart';
+import 'package:bilimapp/features/auth/models/token.dart';
 
 import '../../core/client/client.dart';
 import '../../core/constants/app/app_constants.dart';

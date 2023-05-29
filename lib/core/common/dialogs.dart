@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
-import 'package:kodjaz/core/helpers/colors.dart';
-import 'package:kodjaz/core/helpers/screen_util.dart';
-import 'package:kodjaz/core/helpers/text_styles.dart';
+import 'package:bilimapp/core/helpers/colors.dart';
+import 'package:bilimapp/core/helpers/screen_util.dart';
+import 'package:bilimapp/core/helpers/text_styles.dart';
 
 class CustomProgressIndicator {
   static matrixProgressIndicator({

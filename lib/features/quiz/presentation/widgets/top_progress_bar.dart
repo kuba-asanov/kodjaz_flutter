@@ -1,7 +1,7 @@
 /* External dependencies */
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kodjaz/core/helpers/colors.dart';
+import 'package:bilimapp/core/helpers/colors.dart';
 
 import '../../../../core/helpers/screen_util.dart';
 

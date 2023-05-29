@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kodjaz/features/quiz/presentation/widgets/test_body.dart';
-import 'package:kodjaz/features/quiz/presentation/widgets/test_button_bar.dart';
-import 'package:kodjaz/features/quiz/presentation/widgets/top_progress_bar.dart';
+import 'package:bilimapp/features/quiz/presentation/widgets/test_body.dart';
+import 'package:bilimapp/features/quiz/presentation/widgets/test_button_bar.dart';
+import 'package:bilimapp/features/quiz/presentation/widgets/top_progress_bar.dart';
 
 /* Local dependencies */
 import '../../../core/helpers/screen_util.dart';

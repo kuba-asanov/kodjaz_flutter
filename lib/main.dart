@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
-import 'package:kodjaz/core/client/client.dart';
+import 'package:bilimapp/core/client/client.dart';
 
 /* Local dependencies */
 import 'core/constants/app/app_constants.dart';
@@ -13,8 +13,8 @@ import 'core/init/lang/language_manager.dart';
 import 'core/injection/injection.dart';
 import 'core/navigation/auto_route.gr.dart';
 import 'core/navigation/navigation.dart';
-import 'package:kodjaz/core/helpers/colors.dart';
-import 'package:kodjaz/core/utils/hive_init.dart';
+import 'package:bilimapp/core/helpers/colors.dart';
+import 'package:bilimapp/core/utils/hive_init.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

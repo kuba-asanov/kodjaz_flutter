@@ -2,7 +2,7 @@
 import 'package:injectable/injectable.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/core/client/client.dart';
+import 'package:bilimapp/core/client/client.dart';
 import '../model/run_code.dart';
 import 'lesson_repository.dart';
 

@@ -2,8 +2,8 @@
 import 'package:injectable/injectable.dart';
 
 /* Local dependencies */
-import 'package:kodjaz/core/client/client.dart';
-import 'package:kodjaz/features/models/track.dart';
+import 'package:bilimapp/core/client/client.dart';
+import 'package:bilimapp/features/models/track.dart';
 import '../../../core/injection/injection.dart';
 import 'home_repository.dart';
 

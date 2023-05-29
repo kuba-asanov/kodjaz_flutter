@@ -7,8 +7,8 @@ import 'package:injectable/injectable.dart';
 
 /* Local dependencies */
 import '../../repository/lesson_repository.dart';
-import 'package:kodjaz/features/lesson/model/run_code.dart';
-import 'package:kodjaz/features/models/track.dart';
+import 'package:bilimapp/features/lesson/model/run_code.dart';
+import 'package:bilimapp/features/models/track.dart';
 
 part 'lesson_event.dart';
 part 'lesson_state.dart';
