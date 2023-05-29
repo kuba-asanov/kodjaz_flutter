@@ -2,6 +2,15 @@
 
 This is the bilimapp Flutter project, which is a mobile application that provides programming exercises and tutorials to help beginners learn programming in a fun and interactive way.
 
+## Screenshots
+
+<img src="assets/images/screens/IMG_6620.PNG" width="300">
+<img src="assets/images/screens/IMG_6622.PNG" width="300">
+<img src="assets/images/screens/IMG_6615.PNG" width="300">
+<img src="assets/images/screens/IMG_6614.PNG" width="300">
+<img src="assets/images/screens/IMG_6613.PNG" width="300">
+<img src="assets/images/screens/IMG_6612.PNG" width="300">
+
 ## Requirements
 
 - Flutter SDK
@@ -15,13 +24,13 @@ To get started with the project, follow these steps:
 1. Clone the repository using the command below:
 
 ```
-git clone https://github.com/bilimapp/bilimapp-flutter.git
+git clone https://github.com/kuba-asanov/bilimapp_flutter.git
 ```
 
 2. Navigate into the project directory:
 
 ```
-cd bilimapp-flutter
+cd bilimapp_flutter
 ```
 
 3. Install the required dependencies:
@@ -32,8 +41,8 @@ flutter pub get
 
 4. Run the app:
 
-```flutter run
-
+```
+flutter run
 ```
 
 ## Features
@@ -58,6 +67,8 @@ flutter pub get
 - code_text_field
 - flutter_markdown
 - flutter_smart_dialog
+- cached_network_image
+- graphql_flutter
 
 ### To build run this command:
 
