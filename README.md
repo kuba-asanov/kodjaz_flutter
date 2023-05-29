@@ -4,12 +4,14 @@ This is the bilimapp Flutter project, which is a mobile application that provide
 
 ## Screenshots
 
-<img src="assets/images/screens/IMG_6620.PNG" width="300">
+<p float="left">
+<img src="assets/images/screens/IMG_6620.PNG" width="300" >
 <img src="assets/images/screens/IMG_6622.PNG" width="300">
 <img src="assets/images/screens/IMG_6615.PNG" width="300">
 <img src="assets/images/screens/IMG_6614.PNG" width="300">
 <img src="assets/images/screens/IMG_6613.PNG" width="300">
 <img src="assets/images/screens/IMG_6612.PNG" width="300">
+</p>
 
 ## Requirements
 
