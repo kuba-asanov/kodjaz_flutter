@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import '../../../../core/helpers/screen_util.dart';
 
 class SearchField extends StatelessWidget {
-  const SearchField({Key? key}) : super(key: key);
+  final String hintText;
+  const SearchField({Key? key, required this.hintText}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class SearchField extends StatelessWidget {
             filled: true,
             fillColor: Colors.white,
             contentPadding: const EdgeInsets.all(15),
-            hintText: 'Search News',
+            hintText: hintText,
             hintStyle: const TextStyle(color: Color(0xffDDDADA), fontSize: 14),
             prefixIcon: const Icon(Icons.search),
             border: OutlineInputBorder(

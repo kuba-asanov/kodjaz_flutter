@@ -201,6 +201,7 @@ const List<Track> listOfCourse = [
   ),
 ];
 
+// ignore: constant_identifier_names
 const List<Question> DUMMY_TESTS = [
   Question(
     questionId: 'questionId-1',

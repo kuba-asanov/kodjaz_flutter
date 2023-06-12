@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 /* External dependencies */
 import 'package:flutter/material.dart';
 
