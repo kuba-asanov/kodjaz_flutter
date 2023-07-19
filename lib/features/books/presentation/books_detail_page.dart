@@ -9,6 +9,7 @@ import 'package:bilimapp/core/helpers/text_styles.dart';
 import 'package:bilimapp/core/navigation/auto_route.gr.dart';
 
 import 'package:bilimapp/features/books/presentation/widgets/custom_icon_container.dart';
+import 'package:bilimapp/features/books/presentation/widgets/sliver_custom_container.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:flutter/material.dart';
@@ -126,122 +127,12 @@ class BooksDetailPage extends StatelessWidget {
           SliverList(
             delegate: SliverChildBuilderDelegate(
                 childCount: 1,
-                (context, index) => _sliverCustomContainer(context)),
+                (context, index) => SliverCustomContainer(booksModel: booksModel)),
           ),
         ],
       ),
     );
   }
-
-  Widget _sliverCustomContainer(
-    BuildContext context,
-  ) {
-    return Container(
-      child: Padding(
-        padding: EdgeInsets.only(left: 12.r, right: 12.r),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Center(
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 15.r, bottom: 5.r),
-                  child: Text(
-                    booksModel.title,
-                    style: KodjazTextStyle.fS16FW700,
-                  ),
-                ),
-                Text(
-                  booksModel.author,
-                  style: KodjazTextStyle.fS13FW400,
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 60.h,
-            child: Padding(
-              padding: EdgeInsets.only(top: 15.r),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: [
-                      Text(
-                        'Rating',
-                        style: KodjazTextStyle.fS15FW400,
-                      ),
-                      SizedBox(height: 5.h),
-                      Text(
-                        booksModel.rating,
-                        style: KodjazTextStyle.fS17FW600,
-                      )
-                    ],
-                  ),
-                  const VerticalDivider(
-                    color: KodJazColors.black,
-                    thickness: 1,
-                  ),
-                  Column(
-                    children: [
-                      Text("Pages", style: KodjazTextStyle.fS15FW400),
-                      SizedBox(height: 5.h),
-                      Text(
-                        booksModel.booksPage,
-                        style: KodjazTextStyle.fS17FW600,
-                      )
-                    ],
-                  ),
-                  const VerticalDivider(
-                    color: KodJazColors.black,
-                    thickness: 1,
-                  ),
-                  Column(
-                    children: [
-                      Text("The Year", style: KodjazTextStyle.fS15FW400),
-                      SizedBox(height: 5.h),
-                      Text(
-                        booksModel.publishedYear,
-                        style: KodjazTextStyle.fS17FW600,
-                      )
-                    ],
-                  ),
-                  const VerticalDivider(
-                    color: KodJazColors.black,
-                    thickness: 1,
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        "Reviews",
-                        style: KodjazTextStyle.fS15FW400,
-                      ),
-                      SizedBox(height: 5.h),
-                      Text(
-                        booksModel.reviews,
-                        style: KodjazTextStyle.fS17FW600,
-                      )
-                    ],
-                  ),
-                  const VerticalDivider(
-                    color: KodJazColors.black,
-                    thickness: 1,
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 12.r, bottom: 10.r),
-            child: Text('About the book', style: KodjazTextStyle.fS18FW600),
-          ),
-          Text(booksModel.description.first.data.toString(),
-              style: KodjazTextStyle.fS13FW400),
-          SizedBox(height: 3.h),
-        ]),
-      ),
-    );
-  }
-
   Future<void> shareBook(String bookTitle, String bookUrl) async {
     const String appUrl =
         'https://play.google.com/store/apps/details?id=kg.bilimapp.app';

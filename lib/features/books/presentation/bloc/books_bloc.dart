@@ -3,7 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../data/models/books_model.dart';
-// import '../repository/books_repository.dart';
 
 part 'books_event.dart';
 part 'books_state.dart';
