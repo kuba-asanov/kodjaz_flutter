@@ -1,5 +1,6 @@
 /* External dependencies */
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:bilimapp/core/helpers/colors.dart';
 
@@ -57,6 +58,20 @@ class CustomNavigationBar extends StatelessWidget {
           ),
           label: 'Макалалар',
         ),
+        BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              "assets/images/svg/open_book.svg",
+              color: KodJazColors.SecondaryColor,
+              height: 22.h,
+              width: 22.w,
+            ),
+            activeIcon: SvgPicture.asset(
+              "assets/images/svg/open_book.svg",
+              color: KodJazColors.PrimaryColor,
+              height: 20.h,
+              width: 20.w,
+            ),
+            label: 'Китептер'),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
             "assets/images/svg/user.svg",

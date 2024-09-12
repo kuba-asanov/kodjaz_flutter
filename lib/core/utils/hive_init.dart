@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 /* External dependencies */
 import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';

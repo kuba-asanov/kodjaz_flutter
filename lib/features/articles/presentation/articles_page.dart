@@ -43,7 +43,9 @@ class _ArticlesPageState extends State<ArticlesPage> {
           builder: (context, state) {
             return Column(
               children: [
-                const SearchField(),
+                const SearchField(
+                  hintText: "Search News",
+                ),
                 state.loading
                     ? SizedBox(
                         height: MediaQuery.of(context).size.height / 2,

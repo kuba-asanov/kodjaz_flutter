@@ -48,7 +48,7 @@ class CustomTextField extends StatelessWidget {
         errorText: errorText,
         hintText: hintText,
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: KodJazColors.blue3),
+          borderSide:const BorderSide(color: KodJazColors.blue3),
           borderRadius: BorderRadius.circular(8.r),
         ),
         errorBorder: OutlineInputBorder(

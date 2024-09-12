@@ -1,4 +1,5 @@
 /* External dependencies */
+import 'package:bilimapp/features/books/presentation/books_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,6 +20,7 @@ class NavigationPage extends StatelessWidget {
     HomePage(),
     // CoursesPage(),
     ArticlesPage(),
+    BooksPage(),
     ProfilePage(),
   ];
 

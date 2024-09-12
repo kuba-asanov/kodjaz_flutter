@@ -1,13 +1,10 @@
-import 'dart:developer';
 
-import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:bilimapp/core/client/client.dart';
-import 'package:bilimapp/core/client/interceptor.dart';
-import 'package:bilimapp/core/helpers/exceptions.dart';
+
 import 'package:bilimapp/core/injection/injection.dart';
 import 'package:bilimapp/features/app/data/models/user.dart';
-import 'package:bilimapp/features/auth/bloc/auth_bloc.dart';
+
 import 'package:bilimapp/features/auth/models/token.dart';
 import 'package:bilimapp/features/auth/repository/auth_repository.dart';
 
